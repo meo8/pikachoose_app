@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -11,8 +11,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavbarText
+  DropdownItem
 } from 'reactstrap';
 
 const Header = (props) => {
@@ -23,35 +22,26 @@ const Header = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">Pikachoose</NavbarBrand>
         <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
+        <Collapse isOpen={ isOpen } navbar>
+
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/">About</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-            </NavItem>
+
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
+              <DropdownToggle nav caret>Settings</DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
+                <DropdownItem>Edit Account</DropdownItem>
+                <DropdownItem>History</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
+                <DropdownItem>Sign Out</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>
