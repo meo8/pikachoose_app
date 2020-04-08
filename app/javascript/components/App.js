@@ -1,6 +1,7 @@
 import React, { Component } from "react"
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Header from './components/Header'
+// import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import Header from "./components/Header"
+import WatchButton from "./components/WatchButton"
 
 class App extends Component {
   render () {
@@ -8,6 +9,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path} sign_up_path={sign_up_path}/>
+        <WatchButton/>
       </React.Fragment>
     );
   }
