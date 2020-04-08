@@ -28,9 +28,24 @@ const Header = (props) => {
 
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">About</NavLink>
+              <NavLink href="/">Home</NavLink>
             </NavItem>
+             <NavItem>
+              <NavLink href="/about">About</NavLink>
+            </NavItem>
+            
+            {!logged_in &&
+            <NavItem>
+              <NavLink href="/">Sign In</NavLink>
+            </NavItem>
+            }
+            {!logged_in &&
+             <NavItem>
+              <NavLink href="/">Sign Up</NavLink>
+            </NavItem>
+            }
 
+            {logged_in &&
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>Settings</DropdownToggle>
               <DropdownMenu right>
@@ -40,6 +55,7 @@ const Header = (props) => {
                 <DropdownItem>Sign Out</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            }
 
           </Nav>
         </Collapse>
