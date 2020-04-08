@@ -7,13 +7,13 @@ class HistoryIndex extends Component{
         return(
               <>
                 <div>
-                  <div id="center" >
+                  <div >
                     {this.props.histories.map((history, index) => {
                       return(
                         <ListGroup id="box1" key={ index }>
                             <Link to={`/history/${history.id}`} ><h4 id= "name"> {history.decision }</h4></Link>
                             <br/>
-                            <div id="description">
+                            <div>
                                 <small>favorited?: {history.is_favorite }  </small>
                                 <br/>
                                 <small>link: {history.link }  </small>
