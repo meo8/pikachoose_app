@@ -15,7 +15,7 @@ import {
 } from 'reactstrap';
 
 const Header = (props) => {
-    const { logged_in, sign_in_path, sign_out_path } = props
+    const { logged_in, sign_in_path, sign_out_path, sign_up_path } = props
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
 
@@ -36,12 +36,12 @@ const Header = (props) => {
             
             {!logged_in &&
             <NavItem>
-              <NavLink href="/">Sign In</NavLink>
+              <NavLink href={sign_in_path}>Sign In</NavLink>
             </NavItem>
             }
             {!logged_in &&
              <NavItem>
-              <NavLink href="/">Sign Up</NavLink>
+              <NavLink href={sign_up_path}>Sign Up</NavLink>
             </NavItem>
             }
 
@@ -52,7 +52,7 @@ const Header = (props) => {
                 <DropdownItem>Edit Account</DropdownItem>
                 <DropdownItem>History</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>Sign Out</DropdownItem>
+                <DropdownItem href={sign_out_path}>Sign Out</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             }

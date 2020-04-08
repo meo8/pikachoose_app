@@ -4,11 +4,11 @@ import Header from './components/Header'
 
 class App extends Component {
   render () {
-    const { logged_in, sign_in_path, sign_out_path } = this.props
+    const { logged_in, sign_in_path, sign_out_path, sign_up_path } = this.props
     return (
-      <>
-        <Header logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path}/>
-      </>
+      <React.Fragment>
+        <Header logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path} sign_up_path={sign_up_path}/>
+      </React.Fragment>
     );
   }
 }
