@@ -1,9 +1,9 @@
 class HistoriesController < ApplicationController
-    # before_action :set_history, only: [:show, :edit, :update, :destroy]    
-    # before_action :authenticate_user!    
+    before_action :set_history, only: [:show, :edit, :update, :destroy]    
+    before_action :authenticate_user!    
     # skip_before_action :verify_authenticity_token
+    
     def index
-
         @histories = History.all
         render json: @histories
     end
@@ -39,4 +39,13 @@ class HistoriesController < ApplicationController
         @history.destroy
         redirect_to histories_path
     end
+
+    private
+    def history_params
+        params.require(:history).permit(:decision, :kind, :link, :is_favorite, :comment)
+    end
+    def set_history
+        @history =History.find(params[:id])
+    end
+
 end
