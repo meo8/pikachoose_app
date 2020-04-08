@@ -8,16 +8,17 @@ class HistoriesController < ApplicationController
         render json: @histories
     end
 
-    # def create        
-    #     @history = current_user.histories.new(history_params)       
-    #     respond_to do |format|          
-    #         if @history.save               
-    #             format.html { redirect_to @history, notice: 'comment was saved.' }                
-    #             format.json { render :show, status: :created, location: @history }            else               
-    #             format.html { render :new }                
-    #             format.json { render json: @history.errors, status: :unprocessable_entity }
-    #         end
-    # end
+    def create        
+        @history = current_user.histories.new(history_params)       
+        # respond_to do |format|          
+        #     if @history.save               
+        #         format.html { redirect_to @history, notice: 'your entry was saved.' }                
+        #         format.json { render :show, status: :created, location: @history }            
+        #     else               
+        #         format.html { render :new }                
+        #         format.json { render json: @history.errors, status: :unprocessable_entity }
+        #     end
+    end
 
     def show
         @history = History.find(params[:id])
