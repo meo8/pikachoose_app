@@ -2,14 +2,11 @@ import React, { Component } from "react"
 import { Button } from "reactstrap"
 
 const WatchButton = (props) =>{
-  const handleClick = () => {
-    randomizeMovieTitles()
-  }
+  const { watchList, sendAnswer, displayAnswerBox } = props
 
-  const randomizeMovieTitles = () => {
-    const { watchList } = props
-    const randomIndex = Math.floor(Math.random() * Math.floor(props.watchList.length));
-    return watchList[randomIndex]
+  const handleClick = () => {
+    const randomIndex = Math.floor(Math.random() * Math.floor(watchList.length))
+    sendAnswer(watchList[randomIndex])
   }
 
   return (
