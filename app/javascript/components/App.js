@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Header from './components/Header'
+import WatchButton from "./components/WatchButton"
 import HistoryIndex from './pages/HistoryIndex.js'
 import HistoryShow from './pages/HistoryShow.js'
 import EditHistory from './pages/EditHistory.js'
+
 
 class App extends Component {
   constructor(){
@@ -92,10 +94,11 @@ class App extends Component {
     }
 
   render () {
-    const { logged_in, sign_in_path, sign_out_path } = this.props
+    const { logged_in, sign_in_path, sign_out_path, sign_up_path } = this.props
     return (
       <>
-        <Header logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path}/>
+        <Header logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path} sign_up_path={sign_up_path}/>
+        <WatchButton/>
         <Router>
           <Route exact path ="/history/:id" render={ (props) => <HistoryShow {...props} histories={ this.state.histories }/> }/>
           <Route exact path ="/" render={ (props) => <HistoryIndex histories={ this.state.histories } /> } />
