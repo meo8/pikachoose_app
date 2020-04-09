@@ -104,7 +104,6 @@ class App extends Component {
     }
 
     renderAnswerBox = () => {
-      event.preventDefault()
       const { display } = this.state
 
       if (display === "AnswerBox") {
@@ -113,7 +112,6 @@ class App extends Component {
     }
 
   render () {
-    console.log(this.state.watchAnswer)
     const {
       logged_in,
       sign_in_path,

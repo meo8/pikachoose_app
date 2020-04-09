@@ -5,6 +5,7 @@ const WatchButton = (props) =>{
   const { watchList, sendAnswer, displayAnswerBox } = props
 
   const handleClick = () => {
+    event.preventDefault()
     const randomIndex = Math.floor(Math.random() * Math.floor(watchList.length))
     sendAnswer(watchList[randomIndex])
   }

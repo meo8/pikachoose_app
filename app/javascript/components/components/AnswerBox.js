@@ -11,8 +11,6 @@ const AnswerBox = (props) => {
         <p>Note here when it's created?</p>
         <p className="lead">
           <Button color="primary">Bookmark</Button>
-          <Button color="primary">Add Note</Button>
-          <Button color="primary">Edit Note</Button>
         </p>
       </Jumbotron>
     </div>
