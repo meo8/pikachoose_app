@@ -1,7 +1,7 @@
 const mockMovielist = [
-  {movieTitle: "Legally Blonde"},
-  {movieTitle: "The Joker"},
-  {movieTitle: "Batman"}
+  {title: "Legally Blonde"},
+  {title: "The Joker"},
+  {title: "Batman"}
 ]
 
 export default mockMovielist

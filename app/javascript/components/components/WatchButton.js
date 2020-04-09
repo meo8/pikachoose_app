@@ -6,11 +6,11 @@ const WatchButton = (props) =>{
 
   const handleClick = () => {
     randomizeMovieTitles()
-    changeDisplay()
+    displayAnswerBox()
   }
 
   const randomizeMovieTitles = () => {
-    const randomIndex = Math.floor(Math.random() * Math.floor(watchList.length));
+    const randomIndex = Math.floor(Math.random() * Math.floor(watchList.length))
     sendAnswer(watchList[randomIndex])
   }
 
