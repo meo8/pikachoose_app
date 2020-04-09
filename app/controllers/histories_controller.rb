@@ -25,9 +25,9 @@ class HistoriesController < ApplicationController
         render json: @history
     end
 
-    def edit
-        @history = History.find(params[:id])
-    end
+    # def edit
+    #     @history = History.find(params[:id])
+    # end
 
     def update
         @history = History.find(params[:id])
