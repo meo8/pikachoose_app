@@ -19,3 +19,29 @@
 body {
   background-color: #FAD61D;
 }
+
+
+.comment {
+  margin-top: 10px;
+  width: 400px;
+  height: 100px;
+}
+
+.button {
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  background: rgb(0, 0, 0);
+  color: white;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button:hover {
+  background: #ccc;
+  border-color: #bbb;
+}
+
+

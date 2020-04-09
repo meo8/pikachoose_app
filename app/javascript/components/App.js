@@ -101,12 +101,12 @@ class App extends Component {
         <WatchButton/>
         <Router>
           <Route exact path ="/history/:id" render={ (props) => <HistoryShow {...props} histories={ this.state.histories }/> }/>
-          <Route exact path ="/" render={ (props) => <HistoryIndex histories={ this.state.histories } /> } />
-          <Route exact path="/apts/:id/edit"
+          <Route exact path ="/" render={ (props) => <HistoryIndex histories={ this.state.histories } getHistories={ this.getHistories}/> } />
+          {/* <Route exact path="/histories/:id/edit"
                   render={ (props) => <EditHistory
                   histories={ this.state.histories }
                   getHistories={ this.getHistories }
-          /> } />
+          /> } /> */}
         </Router>
       </>
     );
