@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       watchList: mockMovielist,
       histories: [],
+      watchAnswer: {},
       error: null,
       delete_success: false,
       editable: null
@@ -93,6 +94,10 @@ class App extends Component {
          console.log("delete attempt!")
        }
      })
+    }
+
+    retrieveWatchAnswer = (answer) => {
+      this.setState({watchAnswer: answer})
     }
 
   render () {
