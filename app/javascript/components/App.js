@@ -1,16 +1,18 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Header from './components/Header'
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import Header from "./components/Header"
 import WatchButton from "./components/WatchButton"
-import HistoryIndex from './pages/HistoryIndex.js'
-import HistoryShow from './pages/HistoryShow.js'
-import EditHistory from './pages/EditHistory.js'
+import HistoryIndex from "./pages/HistoryIndex.js"
+import HistoryShow from "./pages/HistoryShow.js"
+import EditHistory from "./pages/EditHistory.js"
+import mockMovielist from "./mockMovielist"
 
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
+      watchList: mockMovielist,
       histories: [],
       error: null,
       delete_success: false,
@@ -95,17 +97,21 @@ class App extends Component {
 
   render () {
     const { logged_in, sign_in_path, sign_out_path, sign_up_path } = this.props
+
     return (
       <>
-        <Header logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path} sign_up_path={sign_up_path}/>
-        <WatchButton/>
+        <Header
+          logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path} sign_up_path={sign_up_path}/>
+
+        <WatchButton watchList={this.state.watchList}/>
+
         <Router>
-          <Route exact path ="/history/:id" render={ (props) => <HistoryShow {...props} histories={ this.state.histories }/> }/>
-          <Route exact path ="/" render={ (props) => <HistoryIndex histories={ this.state.histories } /> } />
+          <Route exact path="/history/:id" render={ (props) => <HistoryShow {...props} histories={ this.state.histories }/> }/>
+          <Route exact path="/" render={ (props) => <HistoryIndex histories={ this.state.histories } /> } />
           <Route exact path="/apts/:id/edit"
-                  render={ (props) => <EditHistory
-                  histories={ this.state.histories }
-                  getHistories={ this.getHistories }
+            render={ (props) => <EditHistory
+            histories={ this.state.histories }
+            getHistories={ this.getHistories }
           /> } />
         </Router>
       </>
