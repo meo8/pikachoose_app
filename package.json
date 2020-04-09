@@ -30,7 +30,7 @@
   },
   "jest": {
     "roots": [ 
-      "app/javascript"
+      "app/__tests__"
     ]
   }
 }
