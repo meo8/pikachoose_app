@@ -25,6 +25,8 @@ class HistoryShow extends Component {
                     <h4>{history.decision}</h4>
                     <small><strong>Type: </strong>{history.kind}</small>
                     <br/>
+                    <small><strong>Link: </strong>{history.link}</small>
+                    <br/>
                     <small><strong>Comments: </strong>{history.comments}</small>
                 </div>
                 <br/>
@@ -35,8 +37,8 @@ class HistoryShow extends Component {
             <div id="editanddelete">
                 <br/>
                 <br/>
-                <Button>Edit</Button> &nbsp; &nbsp; 
-                <Button>Delete</Button>
+                <Button><Link to={`/histories/${history.id}/edit`}>Edit</Link></Button> &nbsp; &nbsp; 
+                <Button onClick={() => this.props.handleDelete(history.id)}>Delete</Button>
                 <br/>
                 <br/>
                 <br/>
