@@ -23,94 +23,92 @@ class App extends Component {
     }
   }
 
-  // componentDidMount(){
-  //   this.getHistories()
-  // }
-  //
-  // getHistories = () => {
-  //   fetch("http://localhost:3000/histories")
-  //   .then((response)=>{
-  //     if(response.status === 200){
-  //       return(response.json())
-  //     }
-  //   })
-  //   .then((histories)=> {
-  //     this.setState({histories: histories})
-  //   })
-  // }
-  //
-  // createHistory = (attrs) =>{
-  //   return fetch("/histories", {
-  //     method: 'POST',
-  //     headers:{
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({histories: attrs})
-  //   })
-  //   .then(response => {
-  //     if(response.status === 201){
-  //       this.getHistories()
-  //     }
-  //   })
-  // }
-  //
-  // handleEdit = (id) => {
-  //   if(this.state.editable == id){
-  //     this.setState({ editable: null })
-  //     let is_favorite = this.is_favorite.value
-  //     let comment = this.comment.value
-  //     let history = { is_favorite: is_favorite, comment: comment}
-  //     this.handleUpdate(history, id)
-  //   }else{
-  //   this.setState({
-  //     editable: id
-  //   })}
-  // }
-  //
-  // handleUpdate = (history, id) => {
-  //   fetch(`/histories/${id}`,
-  //   {
-  //     method: 'PUT',
-  //     body: JSON.stringify({history: history}),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }).then((response) => {
-  //       this.setState({ success: true })
-  //       return this.props.getHistories()
-  //     })
-  // }
-  //
-  // handleDelete = (id) => {
-  //   fetch(`/histories/${id}`, {
-  //     method: 'DELETE',
-  //      headers: {
-  //        'Content-Type': 'application/json'
-  //        }
-  //      }
-  //    ).then((response) => {
-  //      if(response.ok){
-  //        alert("this entry is deleted")
-  //        this.setState({ delete_success: true })
-  //        return this.getHistories()
-  //        console.log("delete attempt!")
-  //      }
-  //    })
-  //   }
+  componentDidMount(){
+    this.getHistories()
+  }
+
+  getHistories = () => {
+    fetch("http://localhost:3000/histories")
+    .then((response)=>{
+      if(response.status === 200){
+        return(response.json())
+      }
+    })
+    .then((histories)=> {
+      this.setState({histories: histories})
+    })
+  }
+
+  createHistory = (attrs) =>{
+    return fetch("/histories", {
+      method: 'POST',
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({histories: attrs})
+    })
+    .then(response => {
+      if(response.status === 201){
+        this.getHistories()
+      }
+    })
+  }
+
+  handleEdit = (id) => {
+    if(this.state.editable == id){
+      this.setState({ editable: null })
+      let is_favorite = this.is_favorite.value
+      let comment = this.comment.value
+      let history = { is_favorite: is_favorite, comment: comment}
+      this.handleUpdate(history, id)
+    }else{
+    this.setState({
+      editable: id
+    })}
+  }
+
+  handleUpdate = (history, id) => {
+    fetch(`/histories/${id}`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({history: history}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+        this.setState({ success: true })
+        return this.props.getHistories()
+      })
+  }
+
+  handleDelete = (id) => {
+    fetch(`/histories/${id}`, {
+      method: 'DELETE',
+       headers: {
+         'Content-Type': 'application/json'
+         }
+       }
+     ).then((response) => {
+       if(response.ok){
+         alert("this entry is deleted")
+         this.setState({ delete_success: true })
+         return this.getHistories()
+         console.log("delete attempt!")
+       }
+     })
+    }
 
     retrieveWatchAnswer = (answer) => {
       this.setState({watchAnswer: answer})
-    }
-
-    displayAnswerBox = () => {
       this.setState({display: "AnswerBox"})
     }
 
     renderAnswerBox = () => {
-      const { display } = this.state;
+      event.preventDefault()
+      const { display } = this.state
 
       if (display === "AnswerBox") {
-        return <AnswerBox />
+        return <AnswerBox film={this.state.watchAnswer}/>
       }
     }
 
@@ -131,14 +129,9 @@ class App extends Component {
         <WatchButton
           sendAnswer={this.retrieveWatchAnswer}
           watchList={this.state.watchList}
-          displayAnswerBox={this.displayAnswerBox}
         />
 
-        {this.state.watchAnswer &&
-          <div>Title: {this.state.watchAnswer.title}</div>
-        }
-
-        <div>{this.renderAnswerBox()}</div>
+        {this.renderAnswerBox()}
 
         <Router>
           <Route exact path="/history/:id" render={ (props) => <HistoryShow {...props} histories={ this.state.histories }/> }/>
