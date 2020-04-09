@@ -1,0 +1,15 @@
+<h1>Add a new entry</h1>
+
+
+<%= form_with url: "/apartments", local: true do %>
+  <label for="decision">Title</label>
+  <input type="text" name="title">
+  <br>
+  <label for="is_favorite">Favorite? (True/False)</label>
+  <input name="is_favorite"></textarea>
+  <br>
+  <label for="comment">Contact Name</label>
+  <input name="comment"></textarea>
+  <br>
+  <input type="submit" value="submit">
+<% end %>
