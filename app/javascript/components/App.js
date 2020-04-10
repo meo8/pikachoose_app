@@ -140,7 +140,7 @@ class App extends Component {
         <Router>
           <Route
             path ="/history/:id"
-            render={ (props) => <HistoryShow {...props} histories={ histories }/> }/>
+            render={ (props) => <HistoryShow {...props} histories={ histories } getHistories={this.getHistories} />  }/>
           <Route
             path ="/user_history"
             render={ (props) => <HistoryIndex histories={ histories } /> }

@@ -8,56 +8,59 @@ class HistoryShow extends Component {
     this.state = {
       display: 'first',
       editable: false,
-      // historyState: {},
-      histories: []
+      histories: [],
+      newHistory: {}
     }
   }
 
   handleEdit = (history) => {
     const { editable } = this.state
-    let id = history.id
 
     if(editable) {
       // let comment = this.comment.value
       // let history.comment = this.comment.value
 
-      this.handleUpdate(history, id)
-      console.log("handleEdit(history)=", history)
+      this.handleUpdate(history)
+      console.log("handleEdit(history.comment)=", history.comment)
     }
 
+    // editable switches in between 'false' and 'true'
     this.setState({editable: !editable})
   }
 
-  handleUpdate = (history, id) => {
-    let comment = this.comment.value
-    console.log("id:", id)
-
-    fetch(`/histories/${id}`,
+  handleUpdate = (history) => {
+    // UPDATING the comment in this specific history
+    history.comment = this.comment.value
+      
+    // fetch method gets specific history with the id in our back-end and UPDATES it
+    fetch(`/histories/${history.id}`,
     {
       method: 'PUT',
+      // put in the new history!!!!
       body: JSON.stringify({history: history}),
       headers: {
         'Content-Type': 'application/json'
       }
     }).then((response) => {
-        this.updateHistory(history)
+        response.json().then((response) => {
+          this.updateHistory(history)
+        })
       })
   }
 
   updateHistory = (history) => {
-    let newHistories = this.props.histories.filter((f) => f.id !== history.id)
+    // make a new list newHistories that has all the histories except the one we just updated
+    let newHistories = this.props.histories.filter((value) => value.id !== history.id)
+
+    // pushing new history into the newHistories array
     newHistories.push(history)
+    console.log("newHistories", newHistories)
 
     this.setState({
       histories: newHistories
     })
   }
 
-
-  // changeDisplay = () => {
-  // let { display } = this.state;
-  // this.setState({ display: display === 'first' ? 'second' : 'first' });
-  // }
 
   render() {
     let { display, editable } = this.state;
