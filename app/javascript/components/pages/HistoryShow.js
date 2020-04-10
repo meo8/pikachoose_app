@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import {ListGroup, Button} from 'reactstrap';
 import {Link, Route, Switch, BrowserRouter as Router} from "react-router-dom"
-import Comment from './Comment'
-
-
-
-      
+import EditComment from './EditComment'
 
 
 class HistoryShow extends Component {
@@ -15,19 +11,37 @@ class HistoryShow extends Component {
             display: 'first',
             historyId: null,
             historyAttrs: {},
-            edit: false
+            edit: false,
+            comment: ""
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+
       }
+
 
     // Edit methods
     componentDidUpdate(prevProps){
         if(prevProps.match.params.id != this.props.match.params.id){
-          this.getHistory()
+          this.getHistories()
         }
       }
 
      //fetch history from show method
-    getHistory(){
+    getHistories(){
+    }
+
+    updateInputValue = (event) => {
+        const newComment = event.target.value;
+        this.setState({comment: newComment});
+        console.log(newComment)
+     }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        fetch(`/histories/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(this.state.comment),
+          });
     }
 
     changeDisplay = () => {
@@ -59,9 +73,18 @@ class HistoryShow extends Component {
                     <div className='comment'>
                         {/* {this.renderInner(history.comment)} */}
                         {display === 'first' && 
-                            <div> {history.comment}</div>}
+                            <div> 
+                                {history.comment}
+                            </div>}
                         {display === 'second' &&
-                            <div> form </div>}
+                            <div> 
+                                <form role="form" onSubmit={this.handleSubmit} >
+                                    <input type="text" defaultValue={this.state.comment} name="comment" placeholder="Add Comment Here" 
+                                    onChange={this.updateInputValue.bind(this)}
+                                    />
+                                    <input type="submit" value="Submit" />
+                                </form> 
+                            </div>}
                         <span className='button' onClick={this.changeDisplay}>Edit</span>
                         {/* <span className='button' onClick={() => this.props.handleDelete(history.id)}>Delete</span> */}
                      </div>
