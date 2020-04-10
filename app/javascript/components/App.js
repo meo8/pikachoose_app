@@ -1,11 +1,10 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import Header from "./components/Header"
 import WatchButton from "./components/WatchButton"
 import DecisionBox from "./components/DecisionBox"
 import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
-import mockMovielist from "./mockMovielist"
 import About from "./pages/About.js"
 
 
@@ -14,10 +13,9 @@ class App extends Component {
     super()
     this.state = {
       histories: [],
-      watchList: [],
-      watchAnswer: {},
+      filmList: [],
+      filmDecision: {},
       error: null,
-      delete_success: false,
       editable: null,
       display: null,
     }
@@ -35,13 +33,13 @@ class App extends Component {
       if(response.status === 200){
         return(response.json())
       }
-    })  
+    })
     .then((films)=> {
-      this.setState({watchList: films})
+      this.setState({filmList: films})
       console.log(films)
     })
   }
-  
+
   getHistories = () => {
     fetch("/histories")
     .then((response)=>{
@@ -55,7 +53,7 @@ class App extends Component {
   }
 
   retrieveFilmDecision = (decision) => {
-    this.setState({watchAnswer: decision})
+    this.setState({filmDecision: decision})
     this.setState({display: "DecisionBox"})
   }
 
@@ -63,7 +61,7 @@ class App extends Component {
     const { display } = this.state
 
     if (display === "DecisionBox") {
-      return <DecisionBox film={this.state.watchAnswer} />
+      return <DecisionBox film={this.state.filmDecision} />
     }
   }
 
@@ -74,9 +72,9 @@ class App extends Component {
       sign_out_path,
       sign_up_path } = this.props
 
-    const { histories, watchList } = this.state
+    const { histories, filmList } = this.state
 
-    
+
 
     return (
       <>
@@ -89,7 +87,7 @@ class App extends Component {
 
         <WatchButton
           sendFilmDecision={this.retrieveFilmDecision}
-          watchList={watchList}
+          filmList={filmList}
         />
 
         {this.renderDecisionBox()}
