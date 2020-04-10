@@ -14,19 +14,34 @@ class App extends Component {
     super()
     this.state = {
       histories: [],
-      watchList: mockMovielist,
+      watchList: [],
       watchAnswer: {},
       error: null,
       delete_success: false,
       editable: null,
-      display: null
+      display: null,
     }
   }
 
   componentDidMount(){
     this.getHistories()
+    this.getFilms()
   }
 
+  getFilms = () => {
+    let apiKey = process.env.REACT_APP_KEY
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
+    .then((response)=>{
+      if(response.status === 200){
+        return(response.json())
+      }
+    })  
+    .then((films)=> {
+      this.setState({watchList: films})
+      console.log(films)
+    })
+  }
+  
   getHistories = () => {
     fetch("/histories")
     .then((response)=>{
@@ -121,7 +136,7 @@ class App extends Component {
 
     const { histories, watchList } = this.state
 
-    let apiKey = process.env.REACT_APP_KEY
+    
 
     return (
       <>
