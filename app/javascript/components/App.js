@@ -2,19 +2,19 @@ import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 import Header from "./components/Header"
 import WatchButton from "./components/WatchButton"
-import AnswerBox from "./components/AnswerBox"
+import DecisionBox from "./components/DecisionBox"
 import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
-import EditHistory from "./pages/EditHistory.js"
 import mockMovielist from "./mockMovielist"
+import About from "./pages/About.js"
 
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      watchList: mockMovielist,
       histories: [],
+      watchList: mockMovielist,
       watchAnswer: {},
       error: null,
       delete_success: false,
@@ -98,16 +98,16 @@ class App extends Component {
      })
     }
 
-    retrieveWatchAnswer = (answer) => {
-      this.setState({watchAnswer: answer})
-      this.setState({display: "AnswerBox"})
+    retrieveFilmDecision = (decision) => {
+      this.setState({watchAnswer: decision})
+      this.setState({display: "DecisionBox"})
     }
 
-    renderAnswerBox = () => {
+    renderDecisionBox = () => {
       const { display } = this.state
 
-      if (display === "AnswerBox") {
-        return <AnswerBox film={this.state.watchAnswer}/>
+      if (display === "DecisionBox") {
+        return <DecisionBox film={this.state.watchAnswer}/>
       }
     }
 
@@ -118,27 +118,32 @@ class App extends Component {
       sign_out_path,
       sign_up_path } = this.props
 
+    const { histories, watchList } = this.state
+
     return (
       <>
         <Header
-          logged_in={logged_in} sign_in_path={sign_in_path} sign_out_path={sign_out_path} sign_up_path={sign_up_path}
+          logged_in={logged_in}
+          sign_in_path={sign_in_path}
+          sign_out_path={sign_out_path}
+          sign_up_path={sign_up_path}
         />
 
         <WatchButton
-          sendAnswer={this.retrieveWatchAnswer}
-          watchList={this.state.watchList}
+          sendFilmDecision={this.retrieveFilmDecision}
+          watchList={watchList}
         />
 
-        {this.renderAnswerBox()}
+        {this.renderDecisionBox()}
 
         <Router>
-          <Route exact path ="/history/:id" render={ (props) => <HistoryShow {...props} histories={ this.state.histories }/> }/>
-          <Route exact path ="/" render={ (props) => <HistoryIndex histories={ this.state.histories } getHistories={ this.getHistories}/> } />
-          {/* <Route exact path="/histories/:id/edit"
-                  render={ (props) => <EditHistory
-                  histories={ this.state.histories }
-                  getHistories={ this.getHistories }
-          /> } /> */}
+          <Route
+            exact path ="/history/:id"
+            render={ (props) => <HistoryShow {...props} histories={ histories }/> }/>
+          <Route
+            exact path ="/userhistory"
+            render={ (props) => <HistoryIndex histories={ histories } getHistories={ this.getHistories}/> } />
+          <Route exact path="/about" component= {About} />
         </Router>
       </>
     );

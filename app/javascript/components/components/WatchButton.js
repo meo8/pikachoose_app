@@ -2,12 +2,12 @@ import React, { Component } from "react"
 import { Button } from "reactstrap"
 
 const WatchButton = (props) =>{
-  const { watchList, sendAnswer, displayAnswerBox } = props
+  const { watchList, sendFilmDecision } = props
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     event.preventDefault()
     const randomIndex = Math.floor(Math.random() * Math.floor(watchList.length))
-    sendAnswer(watchList[randomIndex])
+    sendFilmDecision(watchList[randomIndex])
   }
 
   return (

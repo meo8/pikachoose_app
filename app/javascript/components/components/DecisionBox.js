@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 
-const AnswerBox = (props) => {
+const DecisionBox = (props) => {
   return (
     <div>
       <Jumbotron>
@@ -17,4 +17,4 @@ const AnswerBox = (props) => {
   );
 };
 
-export default AnswerBox;
+export default DecisionBox;
