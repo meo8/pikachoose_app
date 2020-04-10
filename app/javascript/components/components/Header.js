@@ -33,7 +33,7 @@ const Header = (props) => {
              <NavItem>
               <NavLink href="/about">About</NavLink>
             </NavItem>
-            
+
             {!logged_in &&
             <NavItem>
               <NavLink href={sign_in_path}>Sign In</NavLink>
@@ -50,7 +50,7 @@ const Header = (props) => {
               <DropdownToggle nav caret>Account</DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>Edit Account</DropdownItem>
-                <a href="/userhistory"><DropdownItem>History</DropdownItem></a>
+                <a href="/user_history"><DropdownItem>History</DropdownItem></a>
                 <DropdownItem divider />
                 <DropdownItem href={sign_out_path}>Sign Out</DropdownItem>
               </DropdownMenu>
