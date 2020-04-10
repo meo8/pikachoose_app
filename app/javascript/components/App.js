@@ -5,8 +5,8 @@ import WatchButton from "./components/WatchButton"
 import AnswerBox from "./components/AnswerBox"
 import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
-import EditHistory from "./pages/EditHistory.js"
 import mockMovielist from "./mockMovielist"
+import About from "./pages/About.js"
 
 
 class App extends Component {
@@ -134,11 +134,7 @@ class App extends Component {
         <Router>
           <Route exact path ="/history/:id" render={ (props) => <HistoryShow {...props} histories={ this.state.histories }/> }/>
           <Route exact path ="/userhistory" render={ (props) => <HistoryIndex histories={ this.state.histories } getHistories={ this.getHistories}/> } />
-          {/* <Route exact path="/histories/:id/edit"
-                  render={ (props) => <EditHistory
-                  histories={ this.state.histories }
-                  getHistories={ this.getHistories }
-          /> } /> */}
+          <Route exact path="/about" component= {About} />
         </Router>
       </>
     );
