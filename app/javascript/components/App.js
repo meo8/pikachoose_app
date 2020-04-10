@@ -10,7 +10,7 @@ import About from "./pages/About.js"
 
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
       histories: [],
@@ -23,7 +23,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getHistories()
   }
 
@@ -39,85 +39,25 @@ class App extends Component {
     })
   }
 
-  // createHistory = (attrs) =>{
-  //   return fetch("/histories", {
-  //     method: 'POST',
-  //     headers:{
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({histories: attrs})
-  //   })
-  //   .then(response => {
-  //     if(response.status === 201){
-  //       this.getHistories()
-  //     }
-  //   })
-  // }
+  retrieveFilmDecision = (decision) => {
+    this.setState({watchAnswer: decision})
+    this.setState({display: "DecisionBox"})
+  }
 
-  // handleEdit = (id) => {
-  //   if(this.state.editable == id){
-  //     this.setState({ editable: null })
-  //     let is_favorite = this.is_favorite.value
-  //     let comment = this.comment.value
-  //     let history = { is_favorite: is_favorite, comment: comment}
-  //     this.handleUpdate(history, id)
-  //   }else{
-  //   this.setState({
-  //     editable: id
-  //   })}
-  // }
+  renderDecisionBox = () => {
+    const { display } = this.state
 
-  // handleUpdate = (history, id) => {
-  //   fetch(`/histories/${id}`,
-  //   {
-  //     method: 'PUT',
-  //     body: JSON.stringify({history: history}),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }).then((response) => {
-  //       this.setState({ success: true })
-  //       return this.props.getHistories()
-  //     })
-  // }
-  //
-  // handleDelete = (id) => {
-  //   fetch(`/histories/${id}`, {
-  //     method: 'DELETE',
-  //      headers: {
-  //        'Content-Type': 'application/json'
-  //        }
-  //      }
-  //    ).then((response) => {
-  //      if(response.ok){
-  //        alert("this entry is deleted")
-  //        this.setState({ delete_success: true })
-  //        return this.getHistories()
-  //        console.log("delete attempt!")
-  //      }
-  //    })
-  //   }
-
-    retrieveFilmDecision = (decision) => {
-      this.setState({watchAnswer: decision})
-      this.setState({display: "DecisionBox"})
+    if (display === "DecisionBox") {
+      return <DecisionBox film={this.state.watchAnswer} />
     }
-
-    renderDecisionBox = () => {
-      const { display } = this.state
-
-      if (display === "DecisionBox") {
-        return <DecisionBox film={this.state.watchAnswer}/>
-      }
-    }
+  }
 
   render () {
     const {
       logged_in,
       sign_in_path,
       sign_out_path,
-      sign_up_path,
-      history_route } = this.props
+      sign_up_path } = this.props
 
     const { histories, watchList } = this.state
 

@@ -9,7 +9,6 @@ class HistoryShow extends Component {
       display: 'first',
       editable: false,
       histories: [],
-      newHistory: {}
     }
   }
 
@@ -31,7 +30,7 @@ class HistoryShow extends Component {
   handleUpdate = (history) => {
     // UPDATING the comment in this specific history
     history.comment = this.comment.value
-      
+
     // fetch method gets specific history with the id in our back-end and UPDATES it
     fetch(`/histories/${history.id}`,
     {
@@ -67,7 +66,7 @@ class HistoryShow extends Component {
     const {id} = this.props.match.params
     const history = this.props.histories.find((v) => v.id === parseInt(id))
 
-    let comment = editable ? <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>:<p>original comment</p>
+    // let comment = editable ? <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/> : <p>original comment</p>
 
     console.log(history)
 
@@ -88,26 +87,14 @@ class HistoryShow extends Component {
             <br/>
             <small><strong>Comment:</strong></small>
             <div className='comment'>
-              {/* {this.renderInner(history.comment)} */}
-              {/* {display === 'first' &&
-                  <div>
-                      {history.comment}
-                  </div>}
-              {display === 'second' &&
-                  <div>
-                      <form role="form" onSubmit={this.handleSubmit} >
-                          <input type="text" defaultValue={this.state.comment} name="comment" placeholder="Add Comment Here"
-                          onChange={this.updateInputValue.bind(this)}
-                          />
-                          <input type="submit" value="Submit" />
-                      </form>
-                  </div>} */}
-              {/* <span className='button' onClick={this.changeDisplay}>Edit</span> */}
+              {editable === true &&
+                <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
+              }
 
-              {comment}
-
-              <button onClick={() => this.handleEdit(history)}>{editable? 'Submit' : 'Edit'}</button>
-              {/* <span className='button' onClick={() => this.props.handleDelete(history.id)}>Delete</span> */}
+              { editable === false &&
+                <p>{history.comment}</p>
+              }
+              <button onClick={() => this.handleEdit(history)}>{editable ? 'Submit' : 'Edit'}</button>
             </div>
           </div>
           <br/>
