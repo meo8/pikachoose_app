@@ -8,13 +8,14 @@ class HistoryIndex extends Component{
               <>
                 <div>
                   <div >
+                    <h3>Your Saved Movies</h3>
                     {this.props.histories.map((history, index) => {
                       return(
-                        <ListGroup id="box1" key={ index }>
+                        <ListGroup className="decisionbox" key={ index }>
                             <Link to={`/history/${history.id}`} ><h4 id= "name"> {history.decision }</h4></Link>
                             <br/>
                             <div>
-                                <small>favorited?: {history.is_favorite }  </small>
+                                {/* <small>favorited?: {history.is_favorite }  </small> */}
                                 <br/>
                                 <small>link: {history.link }  </small>
                                 <br/>

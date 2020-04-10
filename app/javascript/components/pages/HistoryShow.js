@@ -9,50 +9,71 @@ class HistoryShow extends Component {
         super(props)
         this.state = {
             display: 'first',
-            historyId: null,
-            historyAttrs: {},
-            edit: false,
-            comment: ""
+            editable: false,
+            historystate: {},
+            histories: []
+ 
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
+
+        this.handleEdit = this.handleEdit.bind(this)
+        this.updateHistory = this.updateHistory.bind(this)
 
       }
 
-
-    // Edit methods
-    componentDidUpdate(prevProps){
-        if(prevProps.match.params.id != this.props.match.params.id){
-          this.getHistories()
+    handleEdit(){
+    if(this.state.editable){
+        let comment = this.comment.value
+        let id = this.state.historystate.id
+        let history = {id: id, comment: comment}
+        this.handleUpdate(history)
+        console.log("handleEdit(this.state.historystate)=",this.state.historystate)
+        console.log("handleEdit(history)=", history)
         }
+    this.setState({
+        editable: !this.state.editable
+    })
+    }
+
+    handleUpdate(history){
+        let comment = this.comment.value
+        let id = this.state.historystate.id
+        fetch(`/histories/${id}`, 
+        {
+          method: 'PUT',
+          body: JSON.stringify({history: history}),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then((response) => { 
+            this.updateHistory(history)
+          })
       }
+      updateHistory(history){
+        let newHistories = this.props.histories.filter((f) => f.id !== history.id)
+        newHistories.push(history)
+        this.setState({
+          histories: newHistories,
+          historystate: history
+        })
+      }
+    
 
-     //fetch history from show method
-    getHistories(){
-    }
-
-    updateInputValue = (event) => {
-        const newComment = event.target.value;
-        this.setState({comment: newComment});
-        console.log(newComment)
-     }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        fetch(`/histories/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(this.state.comment),
-          });
-    }
-
-    changeDisplay = () => {
-    let { display } = this.state;
-    this.setState({ display: display === 'first' ? 'second' : 'first' });
-    }
+    // changeDisplay = () => {
+    // let { display } = this.state;
+    // this.setState({ display: display === 'first' ? 'second' : 'first' });
+    // }
       
     render() {
+
         let { display } = this.state;
         const {id} = this.props.match.params
         const history = this.props.histories.find((v) => v.id === parseInt(id))
+
+        let comment = this.state.editable ? <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>:<p>original comment</p>
+
+        console.log(history)
+        
 
     return (
         <>
@@ -63,7 +84,7 @@ class HistoryShow extends Component {
             <br/>
             <br/>
             <div>
-                <div> 
+                <div className="decisionbox"> 
                     <h4>{history.decision}</h4>
                     <small><strong>Type: </strong>{history.kind}</small>
                     <br/>
@@ -72,7 +93,7 @@ class HistoryShow extends Component {
                     <small><strong>Comment:</strong></small>
                     <div className='comment'>
                         {/* {this.renderInner(history.comment)} */}
-                        {display === 'first' && 
+                        {/* {display === 'first' && 
                             <div> 
                                 {history.comment}
                             </div>}
@@ -84,8 +105,10 @@ class HistoryShow extends Component {
                                     />
                                     <input type="submit" value="Submit" />
                                 </form> 
-                            </div>}
-                        <span className='button' onClick={this.changeDisplay}>Edit</span>
+                            </div>} */}
+                        {/* <span className='button' onClick={this.changeDisplay}>Edit</span> */}
+                        {comment}
+                        <button onClick={() => this.handleEdit()}>{this.state.editable? 'Submit' : 'Edit'}</button>
                         {/* <span className='button' onClick={() => this.props.handleDelete(history.id)}>Delete</span> */}
                      </div>
                 </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -47,10 +47,10 @@ const Header = (props) => {
 
             {logged_in &&
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>Settings</DropdownToggle>
+              <DropdownToggle nav caret>Account</DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>Edit Account</DropdownItem>
-                <DropdownItem>History</DropdownItem>
+                <a href="/userhistory"><DropdownItem>History</DropdownItem></a>
                 <DropdownItem divider />
                 <DropdownItem href={sign_out_path}>Sign Out</DropdownItem>
               </DropdownMenu>
