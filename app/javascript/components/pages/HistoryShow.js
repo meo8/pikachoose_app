@@ -30,6 +30,7 @@ class HistoryShow extends Component {
 
   handleUpdate = (history, id) => {
     let comment = this.comment.value
+    console.log("id:", id)
 
     fetch(`/histories/${id}`,
     {

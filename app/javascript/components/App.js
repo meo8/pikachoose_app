@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   getHistories = () => {
-    fetch("http://localhost:3000/histories")
+    fetch("/histories")
     .then((response)=>{
       if(response.status === 200){
         return(response.json())
@@ -39,64 +39,64 @@ class App extends Component {
     })
   }
 
-  createHistory = (attrs) =>{
-    return fetch("/histories", {
-      method: 'POST',
-      headers:{
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({histories: attrs})
-    })
-    .then(response => {
-      if(response.status === 201){
-        this.getHistories()
-      }
-    })
-  }
+  // createHistory = (attrs) =>{
+  //   return fetch("/histories", {
+  //     method: 'POST',
+  //     headers:{
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({histories: attrs})
+  //   })
+  //   .then(response => {
+  //     if(response.status === 201){
+  //       this.getHistories()
+  //     }
+  //   })
+  // }
 
-  handleEdit = (id) => {
-    if(this.state.editable == id){
-      this.setState({ editable: null })
-      let is_favorite = this.is_favorite.value
-      let comment = this.comment.value
-      let history = { is_favorite: is_favorite, comment: comment}
-      this.handleUpdate(history, id)
-    }else{
-    this.setState({
-      editable: id
-    })}
-  }
+  // handleEdit = (id) => {
+  //   if(this.state.editable == id){
+  //     this.setState({ editable: null })
+  //     let is_favorite = this.is_favorite.value
+  //     let comment = this.comment.value
+  //     let history = { is_favorite: is_favorite, comment: comment}
+  //     this.handleUpdate(history, id)
+  //   }else{
+  //   this.setState({
+  //     editable: id
+  //   })}
+  // }
 
-  handleUpdate = (history, id) => {
-    fetch(`/histories/${id}`,
-    {
-      method: 'PUT',
-      body: JSON.stringify({history: history}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((response) => {
-        this.setState({ success: true })
-        return this.props.getHistories()
-      })
-  }
-
-  handleDelete = (id) => {
-    fetch(`/histories/${id}`, {
-      method: 'DELETE',
-       headers: {
-         'Content-Type': 'application/json'
-         }
-       }
-     ).then((response) => {
-       if(response.ok){
-         alert("this entry is deleted")
-         this.setState({ delete_success: true })
-         return this.getHistories()
-         console.log("delete attempt!")
-       }
-     })
-    }
+  // handleUpdate = (history, id) => {
+  //   fetch(`/histories/${id}`,
+  //   {
+  //     method: 'PUT',
+  //     body: JSON.stringify({history: history}),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }).then((response) => {
+  //       this.setState({ success: true })
+  //       return this.props.getHistories()
+  //     })
+  // }
+  //
+  // handleDelete = (id) => {
+  //   fetch(`/histories/${id}`, {
+  //     method: 'DELETE',
+  //      headers: {
+  //        'Content-Type': 'application/json'
+  //        }
+  //      }
+  //    ).then((response) => {
+  //      if(response.ok){
+  //        alert("this entry is deleted")
+  //        this.setState({ delete_success: true })
+  //        return this.getHistories()
+  //        console.log("delete attempt!")
+  //      }
+  //    })
+  //   }
 
     retrieveFilmDecision = (decision) => {
       this.setState({watchAnswer: decision})
@@ -116,7 +116,8 @@ class App extends Component {
       logged_in,
       sign_in_path,
       sign_out_path,
-      sign_up_path } = this.props
+      sign_up_path,
+      history_route } = this.props
 
     const { histories, watchList } = this.state
 
@@ -138,12 +139,13 @@ class App extends Component {
 
         <Router>
           <Route
-            exact path ="/history/:id"
+            path ="/history/:id"
             render={ (props) => <HistoryShow {...props} histories={ histories }/> }/>
           <Route
-            exact path ="/userhistory"
-            render={ (props) => <HistoryIndex histories={ histories } getHistories={ this.getHistories}/> } />
-          <Route exact path="/about" component= {About} />
+            path ="/user_history"
+            render={ (props) => <HistoryIndex histories={ histories } /> }
+            />
+          <Route path="/about" component= {About} />
         </Router>
       </>
     );
