@@ -121,6 +121,8 @@ class App extends Component {
 
     const { histories, watchList } = this.state
 
+    let apiKey = process.env.REACT_APP_KEY
+
     return (
       <>
         <Header
