@@ -75,7 +75,7 @@ class HistoryShow extends Component {
           <br/>
           <br/>
           <div>
-            <div className="decisionbox">
+            <div className="decision-box">
               <h4>{history.decision}</h4>
               <small><strong>Type:</strong> {history.kind}</small>
               <br/>

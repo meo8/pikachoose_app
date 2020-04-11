@@ -14,12 +14,54 @@
  *= require_self
  */
 
+$breakpoint-tablet: 768px;
+
 @import 'bootstrap';
 
 body {
   background-color: #FAD61D;
 }
 
+button.navbar-toggler {
+  background: white;
+}
+// WatchButton comp
+div#watch-btn {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 8rem 0px;
+}
+
+div#watch-btn button {
+  background: #E19720;
+  width: 400px;
+  height: 125px;
+  font-size: 3em;
+  border: none;
+}
+
+// nav bar
+nav.bg-light {
+  background: black !important;
+}
+// nav links
+nav.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+// nav links
+nav.navbar-light .navbar-brand {
+  color: white;
+}
+
+// Account button
+nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: white !important;
+}
+// Account button
+nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+  color: white;
+}
 
 .comment {
   margin-top: 10px;
@@ -44,9 +86,9 @@ body {
   border-color: #bbb;
 }
 
-.decisionbox {
+.decision-box {
   color: white;
-  background-color:#C57900;
+  background:#C57900;
   margin: 20px;
   padding: 20px;
   border-radius: 30px;
@@ -54,4 +96,14 @@ body {
   width: 500px;
 }
 
+/*
+ *
+ * MEDIA QUERIES
+ *
+ */
 
+@media (min-width: $breakpoint-tablet) {
+  .navbar-expand-md .navbar-collapse {
+    justify-content: flex-end;
+  }
+}

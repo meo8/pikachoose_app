@@ -26,7 +26,7 @@ const Header = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={ isOpen } navbar>
 
-          <Nav className="mr-auto" navbar>
+          <Nav navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>
             </NavItem>
@@ -35,14 +35,15 @@ const Header = (props) => {
             </NavItem>
 
             {!logged_in &&
-            <NavItem>
-              <NavLink href={sign_in_path}>Sign In</NavLink>
-            </NavItem>
-            }
-            {!logged_in &&
-             <NavItem>
-              <NavLink href={sign_up_path}>Sign Up</NavLink>
-            </NavItem>
+            <>
+              <NavItem>
+                <NavLink href={sign_in_path}>Sign In</NavLink>
+              </NavItem>
+
+               <NavItem>
+                <NavLink href={sign_up_path}>Sign Up</NavLink>
+              </NavItem>
+            </>
             }
 
             {logged_in &&

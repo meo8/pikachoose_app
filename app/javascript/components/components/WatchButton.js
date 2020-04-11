@@ -11,9 +11,11 @@ const WatchButton = (props) =>{
   }
 
   return (
-    <Button color="primary" size="lg" onClick={handleClick}>
-      <a href="">What to Watch</a>
-    </Button>
+    <div id="watch-btn">
+      <a href="">
+        <Button size="lg" onClick={handleClick}>What to Watch</Button>
+      </a>
+    </div>
   )
 }
 

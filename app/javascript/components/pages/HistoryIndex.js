@@ -9,7 +9,7 @@ const HistoryIndex = (props) => {
         <h3>Your Bookmarks</h3>
         {props.histories.map((history, index) => {
           return (
-            <ListGroup className="decisionbox" key={ index }>
+            <ListGroup className="decision-box" key={ index }>
               <Link to={`/history/${history.id}`} ><h4 id="name"> {history.decision }</h4></Link>
               <br/>
               <div>

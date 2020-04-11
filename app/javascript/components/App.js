@@ -85,9 +85,10 @@ class App extends Component {
           sign_up_path={sign_up_path}
         />
 
+
         <WatchButton
-          sendFilmDecision={this.retrieveFilmDecision}
-          filmList={filmList}
+        sendFilmDecision={this.retrieveFilmDecision}
+        filmList={filmList}
         />
 
         {this.renderDecisionBox()}
