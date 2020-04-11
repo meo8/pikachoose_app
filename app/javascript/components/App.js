@@ -28,26 +28,28 @@ class App extends Component {
 
   getFilms = () => {
     let apiKey = process.env.REACT_APP_KEY
+
     fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
     .then((response)=>{
-      if(response.status === 200){
-        return(response.json())
+      if (response.status === 200) {
+        return response.json()
       }
     })
-    .then((films)=> {
+    .then((films) => {
+      films = films.results
       this.setState({filmList: films})
-      console.log(films)
+      console.log("Entire Film List:", this.state.filmList)
     })
   }
 
   getHistories = () => {
     fetch("/histories")
-    .then((response)=>{
-      if(response.status === 200){
-        return(response.json())
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
       }
     })
-    .then((histories)=> {
+    .then((histories) => {
       this.setState({histories: histories})
     })
   }
@@ -58,10 +60,10 @@ class App extends Component {
   }
 
   renderDecisionBox = () => {
-    const { display } = this.state
+    const { display, filmDecision } = this.state
 
     if (display === "DecisionBox") {
-      return <DecisionBox film={this.state.filmDecision} />
+      return <DecisionBox film={filmDecision} />
     }
   }
 
@@ -73,8 +75,6 @@ class App extends Component {
       sign_up_path } = this.props
 
     const { histories, filmList } = this.state
-
-
 
     return (
       <>
@@ -95,7 +95,7 @@ class App extends Component {
         <Router>
           <Route
             path ="/history/:id"
-            render={ (props) => <HistoryShow {...props} histories={ histories } getHistories={this.getHistories} />  }/>
+            render={ (props) => <HistoryShow {...props} histories={ histories } />  }/>
           <Route
             path ="/user_history"
             render={ (props) => <HistoryIndex histories={ histories } /> }

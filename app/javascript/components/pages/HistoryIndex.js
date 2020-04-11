@@ -6,7 +6,7 @@ const HistoryIndex = (props) => {
   return (
     <>
       <div>
-        <h3>Your Saved Films</h3>
+        <h3>Your Bookmarks</h3>
         {props.histories.map((history, index) => {
           return (
             <ListGroup className="decisionbox" key={ index }>
@@ -15,7 +15,7 @@ const HistoryIndex = (props) => {
               <div>
                 {/* <small>favorited?: {history.is_favorite }  </small> */}
                 <br/>
-                <small>link: {history.link}  </small>
+                <small>link: <a href={history.link}>{history.link}</a>  </small>
                 <br/>
                 <small>type: {history.kind}  </small>
                 <br/>
