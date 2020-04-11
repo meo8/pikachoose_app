@@ -85,6 +85,7 @@ class App extends Component {
           sign_up_path={sign_up_path}
         />
 
+        <h1 id="attention-getter">Decision fatigue is a real thing. <br />What do you need help with today?</h1>
 
         <WatchButton
         sendFilmDecision={this.retrieveFilmDecision}

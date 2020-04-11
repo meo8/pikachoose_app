@@ -26,6 +26,14 @@ button.navbar-toggler {
   background: white;
 }
 
+#attention-getter {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 7rem;
+  line-height: 50px;
+  letter-spacing: 1px;
+}
+
 /*
  *
  * WatchButton Component
@@ -36,7 +44,7 @@ div#watch-btn {
   width: 100vw;
   display: flex;
   justify-content: center;
-  margin: 8rem 0px;
+  margin: 5rem 0px;
 }
 
 div#watch-btn button {
