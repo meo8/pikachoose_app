@@ -138,6 +138,17 @@ div.film-info p {
   width: 500px;
 }
 
+/*
+ *
+ * DecisionBox Component
+ *
+ */
+
+div.jumbotron {
+  margin: 7rem auto;
+  border-radius: 13rem;
+  width: 50%;
+}
 
 /*
  *
@@ -171,5 +182,11 @@ div.film-info p {
 @media (min-width: $breakpoint-tablet) {
   .navbar-expand-md .navbar-collapse {
     justify-content: flex-end;
+  }
+}
+
+@media (min-width: 576px) {
+  div.jumbotron {
+    padding: 3rem 6rem;
   }
 }
