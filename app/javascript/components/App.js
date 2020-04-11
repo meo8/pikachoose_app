@@ -18,6 +18,7 @@ class App extends Component {
       error: null,
       editable: null,
       display: null,
+      displayWatchButton: true
     }
   }
 
@@ -57,6 +58,7 @@ class App extends Component {
   retrieveFilmDecision = (decision) => {
     this.setState({filmDecision: decision})
     this.setState({display: "DecisionBox"})
+    this.setState({displayWatchButton: false})
   }
 
   renderDecisionBox = () => {
@@ -74,7 +76,7 @@ class App extends Component {
       sign_out_path,
       sign_up_path } = this.props
 
-    const { histories, filmList } = this.state
+    const { histories, filmList, displayWatchButton } = this.state
 
     return (
       <>
@@ -85,12 +87,16 @@ class App extends Component {
           sign_up_path={sign_up_path}
         />
 
-        <h1 id="attention-getter">Decision fatigue is a real thing. <br />What do you need help with today?</h1>
+        {displayWatchButton === true &&
+        <>
+          <h1 id="attention-getter">Decision fatigue is a real thing. <br />What do you need help with today?</h1>
 
-        <WatchButton
-        sendFilmDecision={this.retrieveFilmDecision}
-        filmList={filmList}
-        />
+          <WatchButton
+          sendFilmDecision={this.retrieveFilmDecision}
+          filmList={filmList}
+          />
+        </>
+        }
 
         {this.renderDecisionBox()}
 
