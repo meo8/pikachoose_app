@@ -1,5 +1,5 @@
-import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import React from "react";
+import { Jumbotron, Button } from "reactstrap";
 
 const DecisionBox = (props) => {
   const { film } = props

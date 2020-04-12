@@ -17,14 +17,13 @@ class App extends Component {
       filmDecision: {},
       error: null,
       editable: null,
-      display: null,
-      displayWatchButton: true
+      display: null
     }
   }
 
   componentDidMount() {
-    this.getHistories()
     this.getFilms()
+    this.getHistories()
   }
 
   getFilms = () => {
@@ -58,7 +57,23 @@ class App extends Component {
   retrieveFilmDecision = (decision) => {
     this.setState({filmDecision: decision})
     this.setState({display: "DecisionBox"})
-    this.setState({displayWatchButton: false})
+  }
+
+  renderWatchButton = () => {
+    const { display, filmList } = this.state
+
+    if (display === null) {
+      return (
+        <>
+          <h1 id="attention-getter">Decision fatigue is a real thing. <br />What do you need help with today?</h1>
+
+          <WatchButton
+          sendFilmDecision={this.retrieveFilmDecision}
+          filmList={filmList}
+          />
+        </>
+      )
+    }
   }
 
   renderDecisionBox = () => {
@@ -69,46 +84,39 @@ class App extends Component {
     }
   }
 
-  render () {
+  render() {
     const {
       logged_in,
       sign_in_path,
       sign_out_path,
-      sign_up_path } = this.props
+      sign_up_path,
+      edit_acct_path } = this.props
 
-    const { histories, filmList, displayWatchButton } = this.state
+    const { histories, filmList, display } = this.state
 
     return (
       <>
         <Header
-          logged_in={logged_in}
-          sign_in_path={sign_in_path}
-          sign_out_path={sign_out_path}
-          sign_up_path={sign_up_path}
+          logged_in={ logged_in }
+          sign_in_path={ sign_in_path }
+          sign_out_path={ sign_out_path }
+          sign_up_path={ sign_up_path }
+          edit_acct_path={ edit_acct_path }
         />
 
-        {displayWatchButton === true &&
-        <>
-          <h1 id="attention-getter">Decision fatigue is a real thing. <br />What do you need help with today?</h1>
-
-          <WatchButton
-          sendFilmDecision={this.retrieveFilmDecision}
-          filmList={filmList}
-          />
-        </>
-        }
-
+        {this.renderWatchButton()}
         {this.renderDecisionBox()}
 
         <Router>
           <Route
             path ="/history/:id"
-            render={ (props) => <HistoryShow {...props} histories={ histories } />  }/>
+            render={ props => <HistoryShow {...props} histories={ histories } />  }
+          />
           <Route
             path ="/user_history"
-            render={ (props) => <HistoryIndex histories={ histories } /> }
-            />
-          <Route path="/about" component= {About} />
+            render={ props => <HistoryIndex histories={ histories } /> }
+          />
+          <Route path="/about" component= { About } />
         </Router>
       </>
     );

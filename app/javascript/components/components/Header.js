@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 import {
   Collapse,
   Navbar,
@@ -12,10 +12,15 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem
-} from 'reactstrap';
+} from "reactstrap";
 
 const Header = (props) => {
-    const { logged_in, sign_in_path, sign_out_path, sign_up_path } = props
+    const {
+      logged_in,
+      sign_in_path,
+      sign_out_path,
+      sign_up_path,
+      edit_acct_path } = props
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
 
@@ -50,7 +55,7 @@ const Header = (props) => {
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>Account</DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>Edit Account</DropdownItem>
+                <a href={edit_acct_path}><DropdownItem>Edit Account</DropdownItem></a>
                 <a href="/user_history"><DropdownItem>History</DropdownItem></a>
                 <DropdownItem divider />
                 <DropdownItem href={sign_out_path}>Sign Out</DropdownItem>
