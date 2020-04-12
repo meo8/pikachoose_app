@@ -6,6 +6,7 @@ import DecisionBox from "./components/DecisionBox"
 import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
 import About from "./pages/About.js"
+import LandingPage from "./pages/LandingPage.js"
 
 
 class App extends Component {
@@ -104,8 +105,8 @@ class App extends Component {
           edit_acct_path={ edit_acct_path }
         />
 
-        {this.renderWatchButton()}
-        {this.renderDecisionBox()}
+        {/* {this.renderWatchButton()}
+        {this.renderDecisionBox()} */}
 
         <Router>
           <Route
@@ -117,7 +118,12 @@ class App extends Component {
             render={ props => <HistoryIndex histories={ histories } /> }
           />
           <Route path="/about" component= { About } />
+          <Route 
+          // remember to add "exact" for this route or else About page will also appear on the landing page
+            exact path="/"  
+            render={ props => <LandingPage renderWatchButton={ this.renderWatchButton } renderDecisionBox={this.renderDecisionBox} /> } />
         </Router>
+        
       </>
     );
   }

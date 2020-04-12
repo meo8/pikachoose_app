@@ -20,6 +20,8 @@ $breakpoint-tablet: 768px;
 
 body {
   background-color: #FAD61D;
+  margin: auto;
+  text-align: center;
 }
 // nav bar
 button.navbar-toggler {
@@ -48,7 +50,7 @@ div#watch-btn {
 }
 
 div#watch-btn button {
-  background: #E19720;
+  background: #C57900;
   width: 400px;
   height: 125px;
   font-size: 3em;
@@ -56,7 +58,8 @@ div#watch-btn button {
 }
 
 div#watch-btn button:hover {
-  background: #C57900;
+  background: #E19720;
+  
 }
 
 // nav bar
