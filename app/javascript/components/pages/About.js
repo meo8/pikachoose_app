@@ -9,12 +9,15 @@ const About = (props) =>{
       <br/>
       <h4>About the App </h4>
       <br/>
-      <p>Pikachoose is an app that tackles the modern day decision fatigue by allowing users to quickly make an everyday decision</p>
+      <p>What to watch? What to eat?</p>
+      <p>Everyday, we have to make so many little decisions.</p>
+      <p>Pikachoose is an app that tackles the modern day decision fatigue by letting users quickly arrive at a decision.</p>
       <br/>
       <br/>
       <h4>About the Team </h4>
       <br/>
-      <p>We are four web developers who met at LEARN Academy in San Diego. We love to build humorous and creative solutions to everyday problems and all suffer from the decision fatigue to a differing degree.</p>
+      <p>We are four web developers who met at LEARN Academy in San Diego.</p> 
+      <p>We love to build humorous and creative solutions to everyday problems and all suffer from the decision fatigue to differing degrees.</p>
     </div>
   )
 }
