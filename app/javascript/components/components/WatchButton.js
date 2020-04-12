@@ -13,7 +13,7 @@ const WatchButton = (props) =>{
   return (
     <div id="watch-btn">
       <a href="">
-        <Button size="lg" onClick={handleClick}>What to Watch</Button>
+        <Button size="lg" onClick={handleClick}><h5>What to Watch</h5></Button>
       </a>
     </div>
   )

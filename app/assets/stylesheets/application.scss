@@ -23,13 +23,14 @@ body {
   margin: auto;
   text-align: center;
 }
+
 // nav bar
 button.navbar-toggler {
   background: white;
 }
 
 #attention-getter {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-top: 7rem;
   line-height: 50px;
@@ -51,8 +52,8 @@ div#watch-btn {
 
 div#watch-btn button {
   background: #C57900;
-  width: 400px;
-  height: 125px;
+  width: 200px;
+  height: 65px;
   font-size: 3em;
   border: none;
 }
@@ -117,6 +118,13 @@ div.film-info p {
 .history-header {
   text-align: center;
   font-size: 2.75rem;
+}
+
+// About page
+#aboutpage {
+  padding-top: 20px;
+  width: 600px;
+  margin: auto;
 }
 
 /*
