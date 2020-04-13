@@ -76,10 +76,10 @@ class HistoryShow extends Component {
           <br/>
           <div>
             <div className="decision-box">
-              <h4>{history.decision}</h4>
-              <small><strong>Type:</strong> {history.kind}</small>
+              <h4>{history.title}</h4>
+              <small><strong>Release date:</strong> {history.release_date}</small>
               <br/>
-              <small><strong>Link:</strong> <a href={history.link}>{history.link}</a></small>
+              <small><strong>Summary:</strong>{history.overview}</small>
               <br/>
               <div className='comment'>
                 <small><strong>Comment:</strong></small>
