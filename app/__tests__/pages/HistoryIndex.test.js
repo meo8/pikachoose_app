@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {Link, Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Enzyme, { mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import HistoryIndex from "../javascript/components/pages/HistoryIndex";
+import HistoryIndex from "../../javascript/components/pages/HistoryIndex";
 import {shallow} from 'enzyme';
 
 
