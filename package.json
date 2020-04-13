@@ -28,9 +28,18 @@
     "test": "jest",
     "test-watch": "jest --watch"
   },
+  "name": "continuous-test-code-coverage-guide",
+  "scripts": {
+    "start": "webpack",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
+  },
   "jest": {
     "roots": [ 
       "app/__tests__"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
     ]
   }
 }
