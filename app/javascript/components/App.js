@@ -123,6 +123,7 @@ class App extends Component {
 
     return (
       <>
+      <Router>
         <Header
           logged_in={logged_in}
           sign_in_path={sign_in_path}
@@ -137,7 +138,6 @@ class App extends Component {
 
         {this.renderDecisionBox()}
 
-        <Router>
           <Route
             path ="/history/:id"
             render={ (props) => <HistoryShow {...props} histories={ histories }/> }/>
