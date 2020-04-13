@@ -61,7 +61,7 @@ class App extends Component {
     const { histories, filmList } = this.state
 
     return (
-      <>
+      <Router>
         <Header
           logged_in={ logged_in }
           sign_in_path={ sign_in_path }
@@ -69,8 +69,6 @@ class App extends Component {
           sign_up_path={ sign_up_path }
           edit_acct_path={ edit_acct_path }
         />
-
-        <Router>
           <Route
             path ="/history/:id"
             render={ props => <HistoryShow {...props} histories={ histories } />  }
@@ -85,8 +83,7 @@ class App extends Component {
             exact path="/"
             render={ props => <LandingPage filmList={ filmList } /> }
           />
-        </Router>
-      </>
+       </Router>
     );
   }
 }
