@@ -11,8 +11,9 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      histories: [],
       filmList: [],
+      filmDecision: [],
+      histories: [],
       editable: null,
     }
   }
@@ -23,7 +24,7 @@ class App extends Component {
   }
 
   getFilms = () => {
-    let apiKey = process.env.REACT_APP_KEY
+    const apiKey = process.env.REACT_APP_KEY
 
     fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
     .then((response) => {
@@ -35,6 +36,17 @@ class App extends Component {
       films = films.results
       this.setState({filmList: films})
       console.log("Entire Film List:", this.state.filmList)
+
+      // results come back empty if the state is deconstructed
+      // const { filmList, filmDecision } = this.state
+
+      // generate random number between 0 and filmList length
+      let randomIndex = Math.floor(Math.random() * Math.floor(this.state.filmList.length))
+      // retrieve random film from filmList
+      let decision = this.state.filmList[randomIndex]
+      // store the single record above to filmDecision
+      this.setState({filmDecision: decision})
+      console.log("Film Decision:", this.state.filmDecision)
     })
   }
 
@@ -58,7 +70,7 @@ class App extends Component {
       sign_up_path,
       edit_acct_path } = this.props
 
-    const { histories, filmList } = this.state
+    const { histories, filmList, filmDecision } = this.state
 
     return (
       <Router>
@@ -69,22 +81,23 @@ class App extends Component {
           sign_up_path={ sign_up_path }
           edit_acct_path={ edit_acct_path }
         />
-          <Route
-            path ="/history/:id"
-            render={ props => <HistoryShow {...props} histories={ histories } />  }
-          />
-          <Route
-            path ="/user_history"
-            render={ props => <HistoryIndex histories={ histories } /> }
-          />
-          <Route path="/about" component={ About } />
-          <Route
+
+        <Route
+          path ="/history/:id"
+          render={ props => <HistoryShow {...props} histories={ histories } />  }
+        />
+        <Route
+          path ="/user_history"
+          render={ props => <HistoryIndex histories={ histories } /> }
+        />
+        <Route path="/about" component={ About } />
+        <Route
           // remember to add "exact" for this route or else About page will also appear on the landing page
-            exact path="/"
-            render={ props => <LandingPage filmList={ filmList } /> }
-          />
-       </Router>
-    );
+          exact path="/"
+          render={ props => <LandingPage filmList={ filmList } filmDecision={filmDecision}/> }
+        />
+      </Router>
+    )
   }
 }
 

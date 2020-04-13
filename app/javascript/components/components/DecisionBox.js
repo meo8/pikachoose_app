@@ -2,15 +2,15 @@ import React from "react";
 import { Jumbotron, Button } from "reactstrap";
 
 const DecisionBox = (props) => {
-  const { film } = props
+  const { filmDecision } = props
 
   return (
     <Jumbotron>
-      <h1 className="display-4">{film.title}</h1>
-      <p className="lead">{film.overview}</p>
+      <h1 className="display-4">{filmDecision.title}</h1>
+      <p className="lead">{filmDecision.overview}</p>
       <hr className="my-2" />
-      <p>Rating: {film.vote_average}/10</p>
-      <p>Release date: {film.release_date}</p>
+      <p>Rating: {filmDecision.vote_average}/10</p>
+      <p>Release date: {filmDecision.release_date}</p>
       <p className="lead"><Button color="success">Bookmark</Button></p>
     </Jumbotron>
   );

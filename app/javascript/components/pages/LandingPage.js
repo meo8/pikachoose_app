@@ -6,19 +6,17 @@ class LandingPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      display: null,
-      filmDecision: {}
+      display: null
     }
   }
 
-  retrieveFilmDecision = (decision) => {
-    this.setState({filmDecision: decision})
+  setDisplayToDecisionBox = () => {
     this.setState({display: "DecisionBox"})
   }
 
   renderWatchButton = () => {
     const { display } = this.state
-    const { filmList } = this.props
+    const { filmList, filmDecision } = this.props
 
     if (display === null) {
       return (
@@ -26,8 +24,8 @@ class LandingPage extends Component {
           <h1 id="attention-getter">Decision fatigue is a real thing. <br />What do you need help with today?</h1>
 
           <WatchButton
-            sendFilmDecision={this.retrieveFilmDecision}
-            filmList={filmList}
+            renderDecisionBox={this.setDisplayToDecisionBox}
+            filmDecision={filmDecision}
           />
         </>
       )
@@ -35,10 +33,11 @@ class LandingPage extends Component {
   }
 
   renderDecisionBox = () => {
-    const { display, filmDecision } = this.state
+    const { display } = this.state
+    const { filmDecision } = this.props
 
     if (display === "DecisionBox") {
-      return <DecisionBox film={filmDecision} />
+      return <DecisionBox filmDecision={filmDecision} />
     }
   }
 

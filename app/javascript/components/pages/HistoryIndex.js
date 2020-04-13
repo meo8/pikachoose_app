@@ -6,17 +6,17 @@ const HistoryIndex = (props) => {
   return (
     <>
       <div>
-        <h3 className="history-header">Your Bookmarks</h3>
+        <h3 className="history-header">History</h3>
         {props.histories.map((history, index) => {
           return (
             <ListGroup className="decision-box" key={ index }>
-              <Link to={`/history/${history.id}`} ><h4 className="film-title"> {history.decision}</h4></Link>
+              <Link to={`/history/${history.id}`} ><h4 className="film-title"> {history.title}</h4></Link>
 
               <div className="film-info">
                 {/* <small>favorited?: {history.is_favorite }  </small> */}
-                <p>link: <a href={history.link}>{history.link}</a></p>
-                <p>type: {history.kind}</p>
-                <p>notes: {history.comment}</p>
+                <p>Realease date: {history.release_date}</p>
+                <p>Summary: {history.overview}</p>
+                <p>Notes: {history.comment}</p>
               </div>
             </ListGroup>
           )

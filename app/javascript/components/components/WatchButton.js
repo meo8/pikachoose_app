@@ -1,20 +1,41 @@
 import React from "react"
 import { Button } from "reactstrap"
 
-const WatchButton = (props) =>{
-  const { filmList, sendFilmDecision } = props
+const WatchButton = (props) => {
+  const { filmDecision, renderDecisionBox } = props
 
-  const handleClick = (event) => {
+  const addHistory = (event) => {
     event.preventDefault()
-    const randomIndex = Math.floor(Math.random() * Math.floor(filmList.length))
-    sendFilmDecision(filmList[randomIndex])
+    renderDecisionBox()
+
+    let newHistory = {
+      film_id: filmDecision.id,
+      title: filmDecision.title,
+      overview: filmDecision.overview,
+      vote_average: filmDecision.vote_average,
+      release_date: filmDecision.release_date,
+      comment: "Add comment"
+    }
+
+    console.log("newHistory:",newHistory)
+
+    fetch("/histories",
+    {
+      method: 'POST',
+      body: JSON.stringify(newHistory),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      if (response.ok) {
+        return response.json()
+      }
+    })
   }
 
   return (
     <div id="watch-btn">
-      <a href="">
-        <Button size="lg" onClick={handleClick}><h5>What to Watch</h5></Button>
-      </a>
+      <Button type="button" size="lg" onClick={addHistory}><h5>What to Watch</h5></Button>
     </div>
   )
 }
