@@ -126,6 +126,22 @@ div.film-info p {
   margin: auto;
 }
 
+img{
+  width: 150px;
+  height:150px;
+  border-radius:50%;
+  float: left;
+}
+
+.about_us_imgs{
+  width: 150px;
+  margin-left: 10px;
+  float: left;
+}
+
+.text{
+  text-align:center;
+}
 /*
  *
  * HistoryShow Component
