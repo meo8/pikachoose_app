@@ -14,10 +14,8 @@ const WatchButton = (props) => {
       overview: filmDecision.overview,
       vote_average: filmDecision.vote_average,
       release_date: filmDecision.release_date,
-      comment: "Add comment"
+      comment: "No comments yet"
     }
-
-    console.log("newHistory:",newHistory)
 
     fetch("/histories",
     {
