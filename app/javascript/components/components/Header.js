@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 import {
   Collapse,
   Navbar,
@@ -12,55 +12,60 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem
-} from 'reactstrap';
+} from "reactstrap";
 
 const Header = (props) => {
-    const { logged_in, sign_in_path, sign_out_path, sign_up_path } = props
-    const [isOpen, setIsOpen] = useState(false)
-    const toggle = () => setIsOpen(!isOpen)
+  const {
+    logged_in,
+    sign_in_path,
+    sign_out_path,
+    sign_up_path,
+    edit_acct_path } = props
+
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Pikachoose</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={ isOpen } navbar>
+    <Navbar color="light" light expand="md">
+      <NavbarBrand href="/">Pikachoose</NavbarBrand>
+      <NavbarToggler onClick={ toggle } />
+      <Collapse isOpen={ isOpen } navbar>
 
-          <Nav className="mr-auto" navbar>
+        <Nav navbar>
+          <NavItem>
+            <NavLink href="/">Home</NavLink>
+          </NavItem>
+           <NavItem>
+            <NavLink href="/about">About</NavLink>
+          </NavItem>
+
+          {!logged_in &&
+          <>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href={ sign_in_path }>Sign In</NavLink>
             </NavItem>
+
              <NavItem>
-              <NavLink href="/about">About</NavLink>
+              <NavLink href={ sign_up_path }>Sign Up</NavLink>
             </NavItem>
+          </>
+          }
 
-            {!logged_in &&
-            <NavItem>
-              <NavLink href={sign_in_path}>Sign In</NavLink>
-            </NavItem>
-            }
-            {!logged_in &&
-             <NavItem>
-              <NavLink href={sign_up_path}>Sign Up</NavLink>
-            </NavItem>
-            }
+          {logged_in &&
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>Account</DropdownToggle>
+            <DropdownMenu right>
+              <a href={ edit_acct_path }><DropdownItem>Edit Account</DropdownItem></a>
+              <a href="/user_history"><DropdownItem>History</DropdownItem></a>
+              <DropdownItem divider />
+              <DropdownItem href={ sign_out_path }>Sign Out</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+          }
 
-            {logged_in &&
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>Account</DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Edit Account</DropdownItem>
-                <a href="/user_history"><DropdownItem>History</DropdownItem></a>
-                <DropdownItem divider />
-                <DropdownItem href={sign_out_path}>Sign Out</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            }
-
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+        </Nav>
+      </Collapse>
+    </Navbar>
   );
 }
 

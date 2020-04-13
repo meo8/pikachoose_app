@@ -1,12 +1,10 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import Header from "./components/Header"
-import WatchButton from "./components/WatchButton"
-import DecisionBox from "./components/DecisionBox"
 import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
-import mockMovielist from "./mockMovielist"
 import About from "./pages/About.js"
+import LandingPage from "./pages/LandingPage.js"
 
 
 class App extends Component {
@@ -14,95 +12,79 @@ class App extends Component {
     super()
     this.state = {
       histories: [],
-      watchList: [],
-      watchAnswer: {},
-      error: null,
-      delete_success: false,
+      filmList: [],
       editable: null,
-      display: null,
     }
   }
 
   componentDidMount() {
-    this.getHistories()
     this.getFilms()
+    this.getHistories()
   }
 
   getFilms = () => {
     let apiKey = process.env.REACT_APP_KEY
+
     fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
-    .then((response)=>{
-      if(response.status === 200){
-        return(response.json())
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
       }
-    })  
-    .then((films)=> {
-      this.setState({watchList: films})
-      console.log(films)
+    })
+    .then((films) => {
+      films = films.results
+      this.setState({filmList: films})
+      console.log("Entire Film List:", this.state.filmList)
     })
   }
-  
+
   getHistories = () => {
     fetch("/histories")
-    .then((response)=>{
-      if(response.status === 200){
-        return(response.json())
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
       }
     })
-    .then((histories)=> {
+    .then((histories) => {
       this.setState({histories: histories})
     })
   }
 
-  retrieveFilmDecision = (decision) => {
-    this.setState({watchAnswer: decision})
-    this.setState({display: "DecisionBox"})
-  }
-
-  renderDecisionBox = () => {
-    const { display } = this.state
-
-    if (display === "DecisionBox") {
-      return <DecisionBox film={this.state.watchAnswer} />
-    }
-  }
-
-  render () {
+  render() {
     const {
       logged_in,
       sign_in_path,
       sign_out_path,
-      sign_up_path } = this.props
+      sign_up_path,
+      edit_acct_path } = this.props
 
-    const { histories, watchList } = this.state
-
-    
+    const { histories, filmList } = this.state
 
     return (
       <>
         <Header
-          logged_in={logged_in}
-          sign_in_path={sign_in_path}
-          sign_out_path={sign_out_path}
-          sign_up_path={sign_up_path}
+          logged_in={ logged_in }
+          sign_in_path={ sign_in_path }
+          sign_out_path={ sign_out_path }
+          sign_up_path={ sign_up_path }
+          edit_acct_path={ edit_acct_path }
         />
-
-        <WatchButton
-          sendFilmDecision={this.retrieveFilmDecision}
-          watchList={watchList}
-        />
-
-        {this.renderDecisionBox()}
 
         <Router>
           <Route
             path ="/history/:id"
-            render={ (props) => <HistoryShow {...props} histories={ histories } getHistories={this.getHistories} />  }/>
+            render={ props => <HistoryShow {...props} histories={ histories } />  }
+          />
           <Route
             path ="/user_history"
-            render={ (props) => <HistoryIndex histories={ histories } /> }
-            />
-          <Route path="/about" component= {About} />
+            render={ props => <HistoryIndex histories={ histories } /> }
+          />
+          <Route path="/about" component={ About } />
+          <Route
+          // remember to add "exact" for this route or else About page will also appear on the landing page
+            exact path="/"
+            render={ props => <LandingPage filmList={ filmList } /> }
+          />
         </Router>
       </>
     );

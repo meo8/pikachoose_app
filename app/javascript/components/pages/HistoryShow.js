@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import {ListGroup, Button} from 'reactstrap';
-import {Link, Route, Switch, BrowserRouter as Router} from "react-router-dom"
+import { ListGroup, Button } from 'reactstrap';
+import { Link } from "react-router-dom"
 
 class HistoryShow extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      display: 'first',
       editable: false,
       histories: [],
     }
@@ -15,10 +14,7 @@ class HistoryShow extends Component {
   handleEdit = (history) => {
     const { editable } = this.state
 
-    if(editable) {
-      // let comment = this.comment.value
-      // let history.comment = this.comment.value
-
+    if (editable) {
       this.handleUpdate(history)
       console.log("handleEdit(history.comment)=", history.comment)
     }
@@ -62,8 +58,8 @@ class HistoryShow extends Component {
 
 
   render() {
-    let { display, editable } = this.state;
-    const {id} = this.props.match.params
+    let { editable } = this.state;
+    const { id } = this.props.match.params
     const history = this.props.histories.find((v) => v.id === parseInt(id))
 
     // let comment = editable ? <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/> : <p>original comment</p>
@@ -73,38 +69,38 @@ class HistoryShow extends Component {
     return (
       <>
       {history &&
-      <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         <div>
-          <div className="decisionbox">
-            <h4>{history.decision}</h4>
-            <small><strong>Type: </strong>{history.kind}</small>
-            <br/>
-            <small><strong>Link: </strong>{history.link}</small>
-            <br/>
-            <small><strong>Comment:</strong></small>
-            <div className='comment'>
-              {editable === true &&
-                <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
-              }
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <div>
+            <div className="decision-box">
+              <h4>{history.decision}</h4>
+              <small><strong>Type:</strong> {history.kind}</small>
+              <br/>
+              <small><strong>Link:</strong> <a href={history.link}>{history.link}</a></small>
+              <br/>
+              <div className='comment'>
+                <small><strong>Comment:</strong></small>
+                {editable === true &&
+                  <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
+                }
 
-              { editable === false &&
-                <p>{history.comment}</p>
-              }
-              <button onClick={() => this.handleEdit(history)}>{editable ? 'Submit' : 'Edit'}</button>
+                { editable === false &&
+                  <p>{history.comment}</p>
+                }
+                <button onClick={() => this.handleEdit(history)}>{editable ? 'Submit' : 'Edit'}</button>
+              </div>
             </div>
+            <br/>
+            <br/>
+            <br/>
           </div>
           <br/>
           <br/>
           <br/>
         </div>
-        <br/>
-        <br/>
-        <br/>
-      </div>
       }
       </>
     )
