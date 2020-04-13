@@ -5,6 +5,7 @@ import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
 import About from "./pages/About.js"
 import LandingPage from "./pages/LandingPage.js"
+import GenreButton from "./components/GenreButton"
 
 
 class App extends Component {
@@ -85,6 +86,8 @@ class App extends Component {
           sign_up_path={ sign_up_path }
           edit_acct_path={ edit_acct_path }
         />
+
+        <GenreButton />
 
         <Route
           path ="/history/:id"
