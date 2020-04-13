@@ -1,19 +1,18 @@
-import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import React from "react";
+import { Jumbotron, Button } from "reactstrap";
 
 const DecisionBox = (props) => {
+  const { film } = props
+
   return (
-    <div>
-      <Jumbotron>
-        <h1 className="display-3">{props.film.title}</h1>
-        <p className="lead">Cool, great movie plot here wowowowowoowowowowowo</p>
-        <hr className="my-2" />
-        <p>Note here when it's created?</p>
-        <p className="lead">
-          <Button color="primary">Bookmark</Button>
-        </p>
-      </Jumbotron>
-    </div>
+    <Jumbotron>
+      <h1 className="display-4">{film.title}</h1>
+      <p className="lead">{film.overview}</p>
+      <hr className="my-2" />
+      <p>Rating: {film.vote_average}/10</p>
+      <p>Release date: {film.release_date}</p>
+      <p className="lead"><Button color="success">Bookmark</Button></p>
+    </Jumbotron>
   );
 };
 

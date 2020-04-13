@@ -1,19 +1,21 @@
-import React, { Component } from "react"
+import React from "react"
 import { Button } from "reactstrap"
 
 const WatchButton = (props) =>{
-  const { watchList, sendFilmDecision } = props
+  const { filmList, sendFilmDecision } = props
 
   const handleClick = (event) => {
     event.preventDefault()
-    const randomIndex = Math.floor(Math.random() * Math.floor(watchList.length))
-    sendFilmDecision(watchList[randomIndex])
+    const randomIndex = Math.floor(Math.random() * Math.floor(filmList.length))
+    sendFilmDecision(filmList[randomIndex])
   }
 
   return (
-    <Button color="primary" size="lg" onClick={handleClick}>
-      <a href="">What to Watch</a>
-    </Button>
+    <div id="watch-btn">
+      <a href="">
+        <Button size="lg" onClick={handleClick}>What to Watch</Button>
+      </a>
+    </div>
   )
 }
 
