@@ -9,5 +9,5 @@ Enzyme.configure({ adapter: new Adapter() });
 
 it('DecisionBox renders without crashing', () => {
     const film={comment: "test"}
-    shallow(<DecisionBox film={film}/>)
+    shallow(<DecisionBox filmDecision={film}/>)
 })
