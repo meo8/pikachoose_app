@@ -23,6 +23,15 @@ class App extends Component {
     this.getHistories()
   }
 
+  generateRandomDecisionIndex = () => {
+    // generate random number between 0 and filmList length
+    let randomIndex = Math.floor(Math.random() * Math.floor(this.state.filmList.length))
+    // retrieve random film from filmList
+    let decision = this.state.filmList[randomIndex]
+    // store the single record above to filmDecision
+    return decision
+  }
+
   getFilms = () => {
     const apiKey = process.env.REACT_APP_KEY
 
@@ -39,12 +48,7 @@ class App extends Component {
 
       // results come back empty if the state is deconstructed
       // const { filmList, filmDecision } = this.state
-
-      // generate random number between 0 and filmList length
-      let randomIndex = Math.floor(Math.random() * Math.floor(this.state.filmList.length))
-      // retrieve random film from filmList
-      let decision = this.state.filmList[randomIndex]
-      // store the single record above to filmDecision
+      let decision = this.generateRandomDecisionIndex()
       this.setState({filmDecision: decision})
       console.log("Film Decision:", this.state.filmDecision)
     })
