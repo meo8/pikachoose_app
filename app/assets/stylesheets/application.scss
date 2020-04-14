@@ -17,207 +17,212 @@
  $breakpoint-tablet: 768px;
 
  @import 'bootstrap';
- 
+
  body {
    background-color: #FAD61D;
    margin: auto;
    text-align: center;
  }
- 
+
+ /*
+  *
+  * Header Component
+  *
+  */
+
+// nav bar
+button.navbar-toggler {
+  background: white;
+}
+
+#attention-getter {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 10rem;
+  line-height: 50px;
+  letter-spacing: 1px;
+}
+
  // nav bar
- button.navbar-toggler {
-   background: white;
+nav.bg-light {
+  background: black !important;
  }
- 
- #attention-getter {
-   font-size: 1.4rem;
-   text-align: center;
-   margin-top: 10rem;
-   line-height: 50px;
-   letter-spacing: 1px;
+ // nav links
+nav.navbar-light .navbar-nav .nav-link {
+  color: white;
  }
- 
+ // nav links
+nav.navbar-light .navbar-brand {
+  color: white;
+}
+
+// Account button
+nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: white !important;
+ }
+// Account button
+nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+  color: white;
+}
+
  /*
   *
   * WatchButton Component
   *
   */
- 
- div#watch-btn {
-   width: 100vw;
-   display: flex;
-   justify-content: center;
-   margin: 5rem 0px;
- }
- 
- div#watch-btn button {
-   background: #C57900;
-   width: 200px;
-   height: 65px;
-   font-size: 3em;
-   border: none;
- }
- 
- div#watch-btn button:hover {
-   background: #E19720;
- }
- 
- // nav bar
- nav.bg-light {
-   background: black !important;
- }
- // nav links
- nav.navbar-light .navbar-nav .nav-link {
-   color: white;
- }
- // nav links
- nav.navbar-light .navbar-brand {
-   color: white;
- }
- 
- // Account button
- nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
-   color: white !important;
- }
- // Account button
- nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-   color: white;
- }
- 
+
+div#watch-btn {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 5rem 0px;
+}
+
+div#watch-btn button {
+  background: #C57900;
+  width: 200px;
+  height: 65px;
+  font-size: 3em;
+  border: none;
+}
+
+div#watch-btn button:hover {
+  background: #E19720;
+}
+
  /*
   *
   * HistoryIndex Component
   *
   */
- 
+
  // Film title link to HistoryShow for individual view
- ul.decision-box.list-group a {
-   color: white;
-   text-decoration: none;
- }
- 
- ul.decision-box.list-group a:hover {
-   color: #FAD61D;
- }
- 
- div.film-info p {
-   margin: 0;
- }
- 
- .film-title {
-   font-size: 2rem;
-   text-align: center;
- }
+ul.decision-box.list-group a {
+  color: white;
+  text-decoration: none;
+}
+
+ul.decision-box.list-group a:hover {
+  color: #FAD61D;
+}
+
+div.film-info p {
+  margin: 0;
+}
+
+.film-title {
+  font-size: 2rem;
+  text-align: center;
+}
  // Information about the film in div after the film title
- .film-info {
-   margin-top: 20px;
-   margin-bottom: 0;
- }
- 
- .history-header {
-   text-align: center;
-   font-size: 2.75rem;
- }
- 
+.film-info {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.history-header {
+  text-align: center;
+  font-size: 2.75rem;
+}
+
  // About page
- #aboutpage {
-   padding-top: 20px;
-   width: 700px;
-   margin: auto;
- }
- 
- img{
-   width: 50%;
-   height:auto;
-   display:flex;
- 
- }
- #button{
-   padding: 10px;
-   margin:10px;
- }
- 
+#aboutpage {
+  padding-top: 20px;
+  width: 700px;
+  margin: auto;
+}
+
+img.card-img {
+  height: auto;
+  display: flex;
+}
+
+.linkedin-gihub-btn {
+  padding: 10px;
+  margin: 10px;
+}
+
  // .about_us_imgs{
  //   width: 150px;
  //   margin-left: 10px;
  //   float: left;
  // }
- 
+
  // .text{
  //   text-align:center;
  // }
+
  /*
   *
   * HistoryShow Component
   *
   */
- 
- .comment {
-   margin-top: 10px;
-   width: 400px;
-   height: 100px;
- }
- 
- .decision-box {
-   color: white;
-   background:#C57900;
-   margin: 20px;
-   padding: 20px;
-   border-radius: 30px;
-   display: inline-block;
-   width: 500px;
- }
- 
+
+.comment {
+  margin-top: 10px;
+  width: 400px;
+  height: 100px;
+}
+
+.decision-box {
+  color: white;
+  background:#C57900;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 30px;
+  display: inline-block;
+  width: 500px;
+}
+
  /*
   *
   * DecisionBox Component
   *
   */
- 
- div.jumbotron {
-   margin: 7rem auto;
-   border-radius: 13rem;
-   width: 50%;
- }
- 
+
+div.jumbotron {
+  margin: 7rem auto;
+  border-radius: 13rem;
+  width: 50%;
+}
+
  /*
   *
   * Not sure where the button class is coming from
   *
   */
- 
- .button {
-   padding: 5px 12px;
-   border: 1px solid #ccc;
-   background: rgb(0, 0, 0);
-   color: white;
-   border-radius: 3px;
-   display: inline-block;
-   margin: 5px;
-   cursor: pointer;
-   user-select: none;
- }
- 
- .button:hover {
-   background: #ccc;
-   border-color: #bbb;
- }
- 
+
+.button {
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  background: rgb(0, 0, 0);
+  color: white;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button:hover {
+  background: #ccc;
+  border-color: #bbb;
+}
+
  /*
   *
   * MEDIA QUERIES
   *
   */
- 
- @media (min-width: $breakpoint-tablet) {
-   .navbar-expand-md .navbar-collapse {
-     justify-content: flex-end;
-   }
- }
- 
- @media (min-width: 576px) {
-   div.jumbotron {
-     padding: 3rem 6rem;
-   }
- }
- 
+
+@media (min-width: $breakpoint-tablet) {
+  .navbar-expand-md .navbar-collapse {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 576px) {
+  div.jumbotron {
+    padding: 3rem 6rem;
+  }
+}
