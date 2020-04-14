@@ -1,14 +1,29 @@
-import React, { useEffect } from "react";
+import React, { Component } from "react";
 import { Jumbotron, Button } from "reactstrap";
 
-const DecisionBox = (props) => {
-  const { filmDecision } = props
-  // React hook; works like componentDidMount
-  useEffect(() => {
-    addHistory()
-  })
+class DecisionBox extends Component {
+  constructor() {
+    super()
+    this.state = {
+      filmList: [],
+      // filmDecision: [],
+      histories: [],
+      favorites: [],
+      editable: null
+    }
+  }
 
-  const addHistory = () => {
+  componentDidMount() {
+    this.addHistory()
+  }
+
+  // React hook; works like componentDidMount
+  // useEffect(() => {
+  //   addHistory()
+  // })
+
+  addHistory = () => {
+    const { filmDecision } = this.props
     let newHistory = {
       film_id: filmDecision.id,
       title: filmDecision.title,
@@ -31,6 +46,7 @@ const DecisionBox = (props) => {
   }
 
   addFavorite = (history) => {
+    const { filmDecision } = this.props
     console.log("addFavorite(history):",history)
     let newFavorite = {
       film_id: history.id,
@@ -54,6 +70,9 @@ const DecisionBox = (props) => {
     console.log("newFavorite:", JSON.stringify(newFavorite))
   }
 
+  render() {
+    const { filmDecision } = this.props
+
   return (
     <Jumbotron>
       <h1 className="display-4">{filmDecision.title}</h1>
@@ -64,6 +83,7 @@ const DecisionBox = (props) => {
       <p className="lead"><Button color="success" onClick={() => this.addFavorite(filmDecision)}>Add to Favorite</Button></p>
     </Jumbotron>
   );
+  }
 };
 
 export default DecisionBox;

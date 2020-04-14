@@ -101,8 +101,9 @@ class FavoriteShow extends Component {
                   <p>{favorite.comment}</p>
                 }
                 <button onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit' : 'Edit'}</button>
+                <button onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</button>
+
               </div>
-              <button onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</button>
             </div>
             <br/>
             <br/>
