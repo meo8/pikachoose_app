@@ -4,8 +4,8 @@ import { Button } from "reactstrap"
 const WatchButton = (props) => {
   const { filmDecision, renderDecisionBox } = props
 
-  const addHistory = (event) => {
-    event.preventDefault()
+  const addHistory = () => {
+    // event.preventDefault()
     // renderDecisionBox()
 
     console.log("button works")
