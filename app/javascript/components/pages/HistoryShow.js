@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { ListGroup, Button } from 'reactstrap';
-import { Link } from "react-router-dom"
 
 class HistoryShow extends Component {
   constructor(props) {
@@ -8,6 +6,7 @@ class HistoryShow extends Component {
     this.state = {
       editable: false,
       histories: [],
+      favorites: []
     }
   }
 
@@ -56,13 +55,37 @@ class HistoryShow extends Component {
     })
   }
 
+  // when user clicks 'add to favorites' this method will be triggered (this method will post a new favorite into our favorites database):
+
+  addFavorite = (history) => {
+    console.log("addFavorite(history):",history)
+    let newFavorite = {
+      film_id: history.id,
+      title: history.title,
+      overview: history.overview,
+      vote_average: history.vote_average,
+      release_date: history.release_date,
+      comment: history.comment
+    }
+
+    // fetch method gets specific history with the id in our back-end and UPDATES it
+    fetch("/favorites",
+    {
+      method: 'POST',
+      body: JSON.stringify(newFavorite),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    console.log("newFavorite:", JSON.stringify(newFavorite))
+  }
+  
 
   render() {
     let { editable } = this.state;
     const { id } = this.props.match.params
     const history = this.props.histories.find((v) => v.id === parseInt(id))
-
-    // let comment = editable ? <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/> : <p>original comment</p>
 
     console.log(history)
 
@@ -92,6 +115,7 @@ class HistoryShow extends Component {
                 }
                 <button onClick={() => this.handleEdit(history)}>{editable ? 'Submit' : 'Edit'}</button>
               </div>
+              <button onClick={() => this.addFavorite(history)}>add to favorites</button>
             </div>
             <br/>
             <br/>

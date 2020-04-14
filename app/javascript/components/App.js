@@ -5,6 +5,8 @@ import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
 import About from "./pages/About.js"
 import LandingPage from "./pages/LandingPage.js"
+import FavoriteIndex from "./pages/FavoriteIndex.js"
+import FavoriteShow from "./pages/FavoriteShow.js"
 
 class App extends Component {
   constructor() {
@@ -12,13 +14,15 @@ class App extends Component {
     this.state = {
       filmList: [],
       histories: [],
-      editable: null,
+      favorites: [],
+      editable: null
     }
   }
 
   componentDidMount() {
     this.getFilms()
     this.getHistories()
+    this.getFavorites()
   }
 
   generateRandomDecisionIndex = () => {
@@ -64,6 +68,19 @@ class App extends Component {
       this.setState({histories: histories})
     })
   }
+  
+  getFavorites = () => {
+    fetch("/favorites")
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      }
+    })
+    .then((favorites) => {
+      this.setState({favorites: favorites})
+    })
+  }
+
 
   render() {
     const {
@@ -73,7 +90,7 @@ class App extends Component {
       sign_up_path,
       edit_acct_path } = this.props
 
-    const { histories, filmList, filmDecision } = this.state
+    const { histories, favorites, filmList, filmDecision } = this.state
 
     return (
       <Router>
@@ -90,8 +107,16 @@ class App extends Component {
           render={ props => <HistoryShow {...props} histories={ histories } />  }
         />
         <Route
+          path="/favorite/:id"
+          render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
+        />
+        <Route
           path="/user_history"
           render={ props => <HistoryIndex histories={ histories } /> }
+        />
+        <Route
+          path="/user_favorites"
+          render={ props => <FavoriteIndex favorites={ favorites } /> }
         />
         <Route path="/about" component={ About } />
         <Route
