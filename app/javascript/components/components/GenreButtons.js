@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Button } from "reactstrap";
 
-class GenreIndex extends Component {
+class GenreButtons extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -39,36 +39,48 @@ class GenreIndex extends Component {
       userSelection.push(genre)
       this.setState({selectedGenres: userSelection})
     }
+    console.log("User Selected Genres:", selectedGenres)
+  }
 
-     console.log("Genre IDs:", genre)
-    // #call API with ID of genre
-    
+  decisionFromGenreSelection = (e) => {
+    e.preventDefault()
+    // call API with ID of genre
+    // calling randomized movie from genre buttons
     const apiKey = process.env.REACT_APP_KEY
-  
-   //calling randomized movie from genre buttons
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genre}`)
+    // const { selectedGenres } = this.state
+    const { setDisplayToDecisionBox } = this.props
+    let genreQuery = this.state.selectedGenres.join("&")
+
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)
     .then((response) => {
       if(response.status === 200) {
         return response.json()
       }
     })
     .then((results) => {
-      let randomnumber = Math.random()*results.results.length;
-      console.log(results.results[Math.floor(randomnumber)]);
-        
-      
-      
+      let randomNumber = Math.random()*results.results.length;
+      let randomFilm = results.results[Math.floor(randomNumber)]
+      console.log("Random film based on genre selection:", randomFilm);
+
+      if (this.state.selectedGenres !== []) {
+        setDisplayToDecisionBox(randomFilm)
+      } else {
+        console.log("Selected Genres is empty:", this.state.selectedGenres)
+      }
     })
   }
 
-
+  resetUserSelection = (e) => {
+    e.preventDefault()
+    this.setState({selectedGenres: []})
+    console.log("User Selection Clears:", this.state.selectedGenres)
+  }
 
   render() {
     // Genre API keys are "id" and "name"
     const { genreList, selectedGenres } = this.state
 
     return (
-      <div>
       <div className="genre-grid">
       {genreList.map(genre => {
         return (
@@ -80,12 +92,15 @@ class GenreIndex extends Component {
           </Button>
         )
       })}
-      </div>
-      <Button>Clear</Button>
-      <Button>Submit</Button>
+        <Button onClick={this.resetUserSelection}>
+          Clear
+        </Button>
+        <Button onClick={this.decisionFromGenreSelection}>
+          Submit
+        </Button>
       </div>
     )
   }
 }
 
-export default GenreIndex
+export default GenreButtons

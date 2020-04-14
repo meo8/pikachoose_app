@@ -2,11 +2,11 @@ import React from "react"
 import { Button } from "reactstrap"
 
 const WatchButton = (props) => {
-  const { filmDecision, renderDecisionBox } = props
+  const { filmDecision, setDisplayToGenreButtons } = props
 
-  const addHistory = () => {
-    // event.preventDefault()
-    // renderDecisionBox()
+  const addHistory = (e) => {
+    e.preventDefault()
+    setDisplayToGenreButtons()
 
     let newHistory = {
       film_id: filmDecision.id,
@@ -31,11 +31,9 @@ const WatchButton = (props) => {
 
   return (
     <div id="watch-btn">
-      <a href="/genres">
-        <Button type="button" size="lg" onClick={addHistory}>
-          What to Watch
-        </Button>
-      </a>
+      <Button type="button" size="lg" onClick={addHistory}>
+        What to Watch
+      </Button>
     </div>
   )
 }

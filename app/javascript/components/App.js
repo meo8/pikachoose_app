@@ -5,15 +5,13 @@ import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
 import About from "./pages/About.js"
 import LandingPage from "./pages/LandingPage.js"
-import GenreIndex from "./pages/GenreIndex"
-
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       filmList: [],
-      filmDecision: [],
+      // filmDecision: [],
       histories: [],
       editable: null,
     }
@@ -49,9 +47,9 @@ class App extends Component {
 
       // results come back empty if the state is deconstructed
       // const { filmList, filmDecision } = this.state
-      let decision = this.generateRandomDecisionIndex()
-      this.setState({filmDecision: decision})
-      console.log("Film Decision:", this.state.filmDecision)
+      // let decision = this.generateRandomDecisionIndex()
+      // this.setState({filmDecision: decision})
+      // console.log("Film Decision:", this.state.filmDecision)
     })
   }
 
@@ -87,7 +85,6 @@ class App extends Component {
           edit_acct_path={ edit_acct_path }
         />
 
-        <Route path="/genres" component={ GenreIndex } />
         <Route
           path="/history/:id"
           render={ props => <HistoryShow {...props} histories={ histories } />  }
