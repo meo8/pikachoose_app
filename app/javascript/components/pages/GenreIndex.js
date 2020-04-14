@@ -40,8 +40,28 @@ class GenreIndex extends Component {
       this.setState({selectedGenres: userSelection})
     }
 
-    console.log("Genre IDs:", selectedGenres)
+     console.log("Genre IDs:", genre)
+    // #call API with ID of genre
+    
+    const apiKey = process.env.REACT_APP_KEY
+  
+   //calling randomized movie from genre buttons
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genre}`)
+    .then((response) => {
+      if(response.status === 200) {
+        return response.json()
+      }
+    })
+    .then((results) => {
+      let randomnumber = Math.random()*results.results.length;
+      console.log(results.results[Math.floor(randomnumber)]);
+        
+      
+      
+    })
   }
+
+
 
   render() {
     // Genre API keys are "id" and "name"
@@ -49,6 +69,7 @@ class GenreIndex extends Component {
 
     return (
       <div>
+      <div className="genre-grid">
       {genreList.map(genre => {
         return (
           <Button
@@ -59,6 +80,7 @@ class GenreIndex extends Component {
           </Button>
         )
       })}
+      </div>
       <Button>Clear</Button>
       <Button>Submit</Button>
       </div>

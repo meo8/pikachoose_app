@@ -4,11 +4,9 @@ import { Button } from "reactstrap"
 const WatchButton = (props) => {
   const { filmDecision, renderDecisionBox } = props
 
-  const addHistory = () => {
-    // event.preventDefault()
-    // renderDecisionBox()
-
-    console.log("button works")
+  const addHistory = (event) => {
+    event.preventDefault()
+    renderDecisionBox()
 
     let newHistory = {
       film_id: filmDecision.id,
@@ -16,8 +14,10 @@ const WatchButton = (props) => {
       overview: filmDecision.overview,
       vote_average: filmDecision.vote_average,
       release_date: filmDecision.release_date,
-      comment: "No comments yet"
+      comment: "Add comment"
     }
+
+    console.log("newHistory:",newHistory)
 
     fetch("/histories",
     {
@@ -31,11 +31,7 @@ const WatchButton = (props) => {
 
   return (
     <div id="watch-btn">
-      <a href="/genres">
-        <Button type="button" size="lg" onClick={addHistory}>
-          What to Watch
-        </Button>
-      </a>
+      <Button type="button" size="lg" onClick={addHistory}><h5>What to Watch</h5></Button>
     </div>
   )
 }
