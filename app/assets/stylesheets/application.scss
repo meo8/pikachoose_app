@@ -130,7 +130,19 @@ ul.decision-box.list-group a {
 }
 
 ul.decision-box.list-group a:hover {
-  color: #FAD61D;
+  color: black;
+}
+
+div.history-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+div.history-box .decision-box {
+  min-height: 350px;
+  text-align: left;
+  display: block;
 }
 
 div.film-info p {
@@ -150,6 +162,7 @@ div.film-info p {
 .history-header {
   text-align: center;
   font-size: 2.75rem;
+  margin: 40px;
 }
 
  // About page
