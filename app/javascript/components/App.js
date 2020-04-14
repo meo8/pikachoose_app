@@ -22,6 +22,7 @@ class App extends Component {
   componentDidMount() {
     this.getFilms()
     this.getHistories()
+    this.getFavorites()
   }
 
   generateRandomDecisionIndex = () => {
@@ -67,6 +68,19 @@ class App extends Component {
       this.setState({histories: histories})
     })
   }
+  
+  getFavorites = () => {
+    fetch("/favorites")
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      }
+    })
+    .then((favorites) => {
+      this.setState({favorites: favorites})
+    })
+  }
+
 
   render() {
     const {
