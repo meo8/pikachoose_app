@@ -23,10 +23,11 @@ class App extends Component {
   }
 
   generateRandomDecisionIndex = () => {
+    const { filmList } = this.state
     // generate random number between 0 and filmList length
-    let randomIndex = Math.floor(Math.random() * Math.floor(this.state.filmList.length))
+    let randomIndex = Math.floor(Math.random() * Math.floor(filmList.length))
     // retrieve random film from filmList
-    let decision = this.state.filmList[randomIndex]
+    let decision = filmList[randomIndex]
     // store the single record above to filmDecision
     return decision
   }

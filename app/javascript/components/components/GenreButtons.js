@@ -29,7 +29,7 @@ class GenreButtons extends Component {
     })
   }
 
-  selectGenre = (e) => {
+  userSelectGenre = (e) => {
     e.preventDefault()
     const { selectedGenres } = this.state
     let userSelection = selectedGenres
@@ -42,38 +42,39 @@ class GenreButtons extends Component {
     console.log("User Selected Genres:", selectedGenres)
   }
 
-  decisionFromGenreSelection = (e) => {
-    e.preventDefault()
+  decisionFromGenreSelection = () => {
     // call API with ID of genre
     // calling randomized movie from genre buttons
     const apiKey = process.env.REACT_APP_KEY
-    // const { selectedGenres } = this.state
+    const { selectedGenres } = this.state
     const { setDisplayToDecisionBox } = this.props
-    let genreQuery = this.state.selectedGenres.join("&")
 
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)
-    .then((response) => {
-      if(response.status === 200) {
-        return response.json()
-      }
-    })
-    .then((results) => {
-      let randomNumber = Math.random()*results.results.length;
-      let randomFilm = results.results[Math.floor(randomNumber)]
-      console.log("Random film based on genre selection:", randomFilm);
+    if (selectedGenres.length !== 0) {
+      let genreQuery = selectedGenres.join("&")
 
-      if (this.state.selectedGenres !== []) {
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)
+      .then((response) => {
+        if(response.status === 200) {
+          return response.json()
+        }
+      })
+      .then((films) => {
+        let randomNumber = Math.floor(Math.random() * films.results.length);
+        let randomFilm = films.results[randomNumber]
+        console.log("Genereated decision based on genre selection:", randomFilm);
+        // setState of display to DecisionBox
         setDisplayToDecisionBox(randomFilm)
-      } else {
-        console.log("Selected Genres is empty:", this.state.selectedGenres)
-      }
-    })
+      })
+    } else if (selectedGenres.length === 0) {
+      console.log("User did not select any genre. Selected genre list is empty:", selectedGenres)
+    }
   }
 
   resetUserSelection = (e) => {
     e.preventDefault()
     this.setState({selectedGenres: []})
-    console.log("User Selection Clears:", this.state.selectedGenres)
+
+    setTimeout(() => console.log("User Selection Clears:", this.state.selectedGenres), 1000)
   }
 
   render() {
@@ -88,7 +89,7 @@ class GenreButtons extends Component {
             key={genre.id}
             value={genre.id}
             className="genre-btn"
-            onClick={this.selectGenre}>{genre.name}
+            onClick={this.userSelectGenre}>{genre.name}
           </Button>
         )
       })}
