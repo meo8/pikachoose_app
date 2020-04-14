@@ -1,11 +1,11 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import Header from "./components/Header"
 import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
 import About from "./pages/About.js"
 import LandingPage from "./pages/LandingPage.js"
-import GenreButton from "./components/GenreButton"
+import GenreIndex from "./pages/GenreIndex"
 
 
 class App extends Component {
@@ -87,14 +87,13 @@ class App extends Component {
           edit_acct_path={ edit_acct_path }
         />
 
-        <GenreButton />
-
+        <Route path="/genres" component={ GenreIndex } />
         <Route
-          path ="/history/:id"
+          path="/history/:id"
           render={ props => <HistoryShow {...props} histories={ histories } />  }
         />
         <Route
-          path ="/user_history"
+          path="/user_history"
           render={ props => <HistoryIndex histories={ histories } /> }
         />
         <Route path="/about" component={ About } />
