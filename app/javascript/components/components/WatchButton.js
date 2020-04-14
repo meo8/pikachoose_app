@@ -2,40 +2,13 @@ import React from "react"
 import { Button } from "reactstrap"
 
 const WatchButton = (props) => {
-  const { filmDecision, renderDecisionBox } = props
-
-  const addHistory = () => {
-    // event.preventDefault()
-    // renderDecisionBox()
-
-    let newHistory = {
-      film_id: filmDecision.id,
-      title: filmDecision.title,
-      overview: filmDecision.overview,
-      vote_average: filmDecision.vote_average,
-      release_date: filmDecision.release_date,
-      comment: "Add comment"
-    }
-
-    console.log("newHistory:",newHistory)
-
-    fetch("/histories",
-    {
-      method: 'POST',
-      body: JSON.stringify(newHistory),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
+  const { setDisplayToGenreButtons } = props
 
   return (
     <div id="watch-btn">
-      <a href="/genres">
-        <Button type="button" size="lg" onClick={addHistory}>
-          What to Watch
-        </Button>
-      </a>
+      <Button type="button" size="lg" onClick={setDisplayToGenreButtons}>
+        What to Watch
+      </Button>
     </div>
   )
 }
