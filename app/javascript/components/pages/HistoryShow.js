@@ -9,13 +9,6 @@ class HistoryShow extends Component {
       favorites: []
     }
   }
-  // useEffect(() => {
-  //   addFavorite()
-  // })
-
-  // componentDidMount() {
-  //   this.addFavorite()
-  // }
 
   handleEdit = (history) => {
     const { editable } = this.state
