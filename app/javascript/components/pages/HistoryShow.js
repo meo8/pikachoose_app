@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { Jumbotron, Button } from 'reactstrap';
 import { Link } from "react-router-dom"
 
+
 class HistoryShow extends Component {
   constructor(props) {
     super(props)
     this.state = {
       editable: false,
       histories: [],
+      favorites: []
     }
   }
 
@@ -56,6 +58,32 @@ class HistoryShow extends Component {
     })
   }
 
+  // when user clicks 'add to favorites' this method will be triggered (this method will post a new favorite into our favorites database):
+
+  addFavorite = (history) => {
+    console.log("addFavorite(history):",history)
+    let newFavorite = {
+      film_id: history.id,
+      title: history.title,
+      overview: history.overview,
+      vote_average: history.vote_average,
+      release_date: history.release_date,
+      comment: history.comment
+    }
+
+    // fetch method gets specific history with the id in our back-end and UPDATES it
+    fetch("/favorites",
+    {
+      method: 'POST',
+      body: JSON.stringify(newFavorite),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    console.log("newFavorite:", JSON.stringify(newFavorite))
+  }
+  
 
   render() {
     let { editable } = this.state;
@@ -83,6 +111,7 @@ class HistoryShow extends Component {
             <Button color="success" onClick={() => this.handleEdit(history)}>
             {editable ? "Submit" : "Edit"}
             </Button>
+            <Button onClick={() => this.addFavorite(history)}>add to favorites</Button>
           </p>
         </Jumbotron>
       }
