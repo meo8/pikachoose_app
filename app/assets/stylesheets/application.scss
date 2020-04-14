@@ -18,11 +18,11 @@
 
  @import 'bootstrap';
 
- body {
-   background-color: #FAD61D;
-   margin: auto;
-   text-align: center;
- }
+body {
+  background-color: #FAD61D;
+  margin: auto;
+  text-align: center;
+}
 
  /*
   *
@@ -82,7 +82,7 @@ div#watch-btn button {
   background: #C57900;
   width: 200px;
   height: 65px;
-  font-size: 3em;
+  font-size: 1.5em;
   border: none;
 }
 
@@ -163,12 +163,12 @@ img.card-img {
    width: 400px;
    height: 100px;
  }
- 
+
  .genre-btn{
   min-height:62px;
   background:black;
  }
- 
+
  .genre-grid{
     width: 100%;
     box-sizing: border-box;
@@ -178,7 +178,7 @@ img.card-img {
     grid-gap: 5px;
     grid-template-columns: repeat(auto-fill,125px)
  }
- 
+
  .decision-box {
    color: white;
    background:#C57900;
@@ -188,7 +188,7 @@ img.card-img {
    display: inline-block;
    width: 500px;
  }
- 
+
  /*
   *
   * DecisionBox Component
