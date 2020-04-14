@@ -4,7 +4,7 @@ class HistoriesController < ApplicationController
   # skip_before_action :verify_authenticity_token
 
   def index
-    @histories = History.all
+    @histories = History.order(created_at: :desc).limit(20)
     render json: @histories
   end
 

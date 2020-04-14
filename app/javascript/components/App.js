@@ -13,7 +13,6 @@ class App extends Component {
     super()
     this.state = {
       filmList: [],
-      // filmDecision: [],
       histories: [],
       favorites: [],
       editable: null

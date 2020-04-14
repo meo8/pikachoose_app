@@ -28,7 +28,7 @@ class LandingPage extends Component {
     if (display === null) {
       return (
         <>
-          <h1 id="attention-getter">Decision fatigue is a real thing. <br />What do you need help with today?</h1>
+          <h1 id="attention-getter">Decision fatigue is a real thing. <br />We have you covered.</h1>
 
           <WatchButton
             filmDecision={filmDecision}

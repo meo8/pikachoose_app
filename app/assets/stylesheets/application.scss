@@ -90,6 +90,33 @@ div#watch-btn button:hover {
   background: #E19720;
 }
 
+/*
+ *
+ * GenreButtons Component
+ *
+ */
+
+.genre-btn {
+  min-height:62px;
+  background:black;
+  border-radius:100px;
+}
+
+.genre-grid {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 25px;
+  padding-top:15%;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fill,125px)
+}
+
+.clear-submit-btn:hover {
+  background: #E19720;
+  border: none;
+}
+
  /*
   *
   * HistoryIndex Component
@@ -103,7 +130,19 @@ ul.decision-box.list-group a {
 }
 
 ul.decision-box.list-group a:hover {
-  color: #FAD61D;
+  color: black;
+}
+
+div.history-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+div.history-box .decision-box {
+  min-height: 350px;
+  text-align: left;
+  display: block;
 }
 
 div.film-info p {
@@ -123,20 +162,25 @@ div.film-info p {
 .history-header {
   text-align: center;
   font-size: 2.75rem;
+  margin: 40px;
 }
 
  // About page
 #aboutpage {
-  padding-top: 20px;
-  width: 700px;
-  margin: auto;
+  width: 800px;
+  margin: 50px auto 70px auto;
 }
-
+div#aboutpage p{
+  line-height: 2;
+  letter-spacing: 1.5px;
+}
 img.card-img {
   height: auto;
   display: flex;
 }
-
+#aboutimgs{
+margin-bottom:70px;
+}
 .linkedin-gihub-btn {
   padding: 10px;
   margin: 10px;
@@ -164,20 +208,6 @@ img.card-img {
    height: 100px;
  }
 
- .genre-btn{
-  min-height:62px;
-  background:black;
- }
-
- .genre-grid{
-    width: 100%;
-    box-sizing: border-box;
-    padding: 25px;
-    padding-top:15%;
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(auto-fill,125px)
- }
 
  .decision-box {
    color: white;
@@ -199,29 +229,6 @@ div.jumbotron {
   margin: 7rem auto;
   border-radius: 13rem;
   width: 50%;
-}
-
- /*
-  *
-  * Not sure where the button class is coming from
-  *
-  */
-
-.button {
-  padding: 5px 12px;
-  border: 1px solid #ccc;
-  background: rgb(0, 0, 0);
-  color: white;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 5px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.button:hover {
-  background: #ccc;
-  border-color: #bbb;
 }
 
  /*

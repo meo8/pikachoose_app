@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { Jumbotron, Button } from 'reactstrap';
+import { Link } from "react-router-dom"
+
 
 class HistoryShow extends Component {
   constructor(props) {
@@ -87,44 +90,30 @@ class HistoryShow extends Component {
     const { id } = this.props.match.params
     const history = this.props.histories.find((v) => v.id === parseInt(id))
 
-    console.log(history)
-
     return (
       <>
       {history &&
-        <div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <div>
-            <div className="decision-box">
-              <h4>{history.title}</h4>
-              <small><strong>Release date:</strong> {history.release_date}</small>
-              <br/>
-              <small><strong>Summary:</strong>{history.overview}</small>
-              <br/>
-              <div className='comment'>
-                <small><strong>Comment:</strong></small>
-                {editable === true &&
-                  <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
-                }
+        <Jumbotron>
+          <h1 className="display-3">{history.title}</h1>
+          <p className="lead">{history.overview}</p>
+          <p className="lead">{history.release_date}</p>
+          <hr className="my-2" />
 
-                { editable === false &&
-                  <p>{history.comment}</p>
-                }
-                <button onClick={() => this.handleEdit(history)}>{editable ? 'Submit' : 'Edit'}</button>
-              </div>
-              <button onClick={() => this.addFavorite(history)}>add to favorites</button>
-            </div>
-            <br/>
-            <br/>
-            <br/>
-          </div>
-          <br/>
-          <br/>
-          <br/>
-        </div>
+          { editable === true &&
+            <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
+          }
+
+          { editable === false &&
+            <p>{history.comment}</p>
+          }
+
+          <p className="lead">
+            <Button color="success" onClick={() => this.handleEdit(history)}>
+            {editable ? "Submit" : "Edit"}
+            </Button>
+            <Button onClick={() => this.addFavorite(history)}>add to favorites</Button>
+          </p>
+        </Jumbotron>
       }
       </>
     )

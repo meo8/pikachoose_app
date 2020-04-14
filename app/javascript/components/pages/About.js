@@ -43,21 +43,12 @@ const About = (props) =>{
   return (
     <>
       <div id="aboutpage">
-        {/* <h1>About</h1> */}
-        <br/>
-        <br/>
-        <h2>About the App </h2>
-        <br/>
-        <p>What to watch? What to eat? What to buy?</p>
-        <p>Everyday, we have to make so many little decisions.</p>
-        <p>Pikachoose is an app that tackles the modern day decision fatigue by letting users quickly arrive at a decision.</p>
-        <br/>
-        <br/>
-        <h2>About the Team </h2>
-        <br/>
-        <p>We are four web developers who met at LEARN Academy in San Diego.</p>
-        <p>We love to build humorous and creative solutions to everyday problems and all suffer from the decision fatigue to differing degrees.</p>
-        <br/>
+        <h1>About the App </h1>
+        <p>Pikachoose is an app that tackles modern day decision fatigue by letting users quickly arrive at a decision.
+          Specifically, one that appears frequently in their daily lives, <br/>What To Watch?</p>
+        <h1>About the Team </h1>
+        <p>We are four web developers who met at LEARN Academy in San Diego.
+          We love to build humorous and creative solutions to everyday problems and all suffer from the decision fatigue to differing degrees.</p>
       </div>
 
       <Container id="aboutimgs">
