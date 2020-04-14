@@ -127,16 +127,20 @@ div.film-info p {
 
  // About page
 #aboutpage {
-  padding-top: 20px;
-  width: 700px;
-  margin: auto;
+  width: 800px;
+  margin: 50px auto 70px auto;
 }
-
+div#aboutpage p{
+  line-height: 2;
+  letter-spacing: 1.5px;
+}
 img.card-img {
   height: auto;
   display: flex;
 }
-
+#aboutimgs{
+margin-bottom:70px;
+}
 .linkedin-gihub-btn {
   padding: 10px;
   margin: 10px;
