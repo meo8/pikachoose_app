@@ -6,7 +6,7 @@ const FavoriteIndex = (props) => {
   return (
     <>
       <div>
-        <h3 className="favorite-header">Favorite</h3>
+        <h3 className="favorite-header"> My Favorites</h3>
         {props.favorites.map((favorite, index) => {
           return (
             <ListGroup className="decision-box" key={ index }>

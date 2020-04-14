@@ -5,6 +5,7 @@ import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
 import About from "./pages/About.js"
 import LandingPage from "./pages/LandingPage.js"
+import FavoriteIndex from "./pages/FavoriteIndex.js"
 
 class App extends Component {
   constructor() {
@@ -13,7 +14,8 @@ class App extends Component {
       filmList: [],
       // filmDecision: [],
       histories: [],
-      editable: null,
+      favorites: [],
+      editable: null
     }
   }
 
@@ -74,7 +76,7 @@ class App extends Component {
       sign_up_path,
       edit_acct_path } = this.props
 
-    const { histories, filmList, filmDecision } = this.state
+    const { histories, favorites, filmList, filmDecision } = this.state
 
     return (
       <Router>
@@ -93,6 +95,10 @@ class App extends Component {
         <Route
           path="/user_history"
           render={ props => <HistoryIndex histories={ histories } /> }
+        />
+        <Route
+          path="/user_favorites"
+          render={ props => <FavoriteIndex favorites={ favorites } /> }
         />
         <Route path="/about" component={ About } />
         <Route
