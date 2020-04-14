@@ -6,6 +6,7 @@ import HistoryShow from "./pages/HistoryShow.js"
 import About from "./pages/About.js"
 import LandingPage from "./pages/LandingPage.js"
 import FavoriteIndex from "./pages/FavoriteIndex.js"
+import FavoriteShow from "./pages/FavoriteShow.js"
 
 class App extends Component {
   constructor() {
@@ -105,6 +106,10 @@ class App extends Component {
         <Route
           path="/history/:id"
           render={ props => <HistoryShow {...props} histories={ histories } />  }
+        />
+        <Route
+          path="/favorite/:id"
+          render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
         />
         <Route
           path="/user_history"
