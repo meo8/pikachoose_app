@@ -71,8 +71,12 @@ const About = (props) =>{
                     <CardTitle>{member.name}</CardTitle>
                     <CardSubtitle>{member.title}</CardSubtitle>
                     <CardText>{member.funFact}</CardText>
-                    <Button className="linkedin-gihub-btn" color="warning"><a href={member.linkedin} target="_blank">Linkedin</a></Button>
-                    <Button className="linkedin-gihub-btn" color="warning"><a href={member.github} target="_blank">GitHub</a></Button>
+                    <Button className="linkedin-gihub-btn" color="warning">
+                      <a href={member.linkedin} target="_blank">Linkedin</a>
+                    </Button>
+                    <Button className="linkedin-gihub-btn" color="warning">
+                      <a href={member.github} target="_blank">GitHub</a>
+                    </Button>
                   </CardBody>
                 </Card>
               </Col>
