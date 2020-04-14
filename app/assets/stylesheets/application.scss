@@ -158,22 +158,37 @@ img.card-img {
   *
   */
 
-.comment {
-  margin-top: 10px;
-  width: 400px;
-  height: 100px;
-}
-
-.decision-box {
-  color: white;
-  background:#C57900;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 30px;
-  display: inline-block;
-  width: 500px;
-}
-
+ .comment {
+   margin-top: 10px;
+   width: 400px;
+   height: 100px;
+ }
+ 
+ .genre-btn{
+  min-height:62px;
+  background:black;
+ }
+ 
+ .genre-grid{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 25px;
+    padding-top:15%;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fill,125px)
+ }
+ 
+ .decision-box {
+   color: white;
+   background:#C57900;
+   margin: 20px;
+   padding: 20px;
+   border-radius: 30px;
+   display: inline-block;
+   width: 500px;
+ }
+ 
  /*
   *
   * DecisionBox Component
