@@ -6,7 +6,7 @@ class GenreButtons extends Component {
     super(props)
     this.state = {
       genreList: [],
-      selectedGenres: []
+      selectedGenres: [],
     }
   }
 
@@ -27,20 +27,6 @@ class GenreButtons extends Component {
       genres = genres.genres
       this.setState({genreList: genres})
     })
-  }
-
-  userSelectGenre = (e) => {
-    e.preventDefault()
-    const { selectedGenres } = this.state
-
-    let userSelection = selectedGenres
-    let genre = e.target.value
-
-    if (userSelection.includes(genre) === false) {
-      userSelection.push(genre)
-      this.setState({selectedGenres: userSelection})
-    }
-    console.log("User Selected Genres:", selectedGenres)
   }
 
   decisionFromGenreSelection = () => {
@@ -71,10 +57,42 @@ class GenreButtons extends Component {
     }
   }
 
+  activeBtnColor = (genre) => {
+    // checks to see if the genre passed through exists in selectedGenres
+    // convert genre toString cause values in selectedGenres are strings
+    if (this.state.selectedGenres.includes(genre.toString())) {
+      return "#5a6268"
+    } else {
+      return ""
+    }
+  }
+
+  userSelectGenre = (e) => {
+    e.preventDefault()
+    const { selectedGenres } = this.state
+    let genre = e.target.value
+    // makes a copy to manipulate then setState later
+    let userSelection = selectedGenres
+    // finds the index of the genre passed as argument
+    const index = userSelection.indexOf(genre);
+    // if indexOf returns -1, push that genre to the userSelection array
+    if (index === -1) {
+      userSelection.push(genre);
+    }
+    // removes the genre from the array if it's clicked on again
+    else {
+      userSelection.splice(index, 1);
+    }
+
+    this.setState({selectedGenres: userSelection})
+    console.log("User Selected Genres:", selectedGenres)
+  }
+
   resetUserSelection = (e) => {
     e.preventDefault()
     this.setState({selectedGenres: []})
-
+    // setState is asynchronous so it doesn't necessarily updates instantaniously
+    // setTimeout gives setState some time before it logs the state to the console
     setTimeout(() => console.log("User Selection Clears:", this.state.selectedGenres), 1000)
   }
 
@@ -90,16 +108,18 @@ class GenreButtons extends Component {
             key={genre.id}
             value={genre.id}
             className="genre-btn"
+            style={{backgroundColor: this.activeBtnColor(genre.id)}}
             onClick={this.userSelectGenre}>{genre.name}
           </Button>
         )
       })}
-        <Button className="genre-btn clear-submit-btn" onClick={this.resetUserSelection}>
-          Clear
-        </Button>
-        <Button className="genre-btn clear-submit-btn" onClick={this.decisionFromGenreSelection}>
-          Submit
-        </Button>
+
+        <Button
+          className="genre-btn clear-submit-btn"
+          onClick={this.resetUserSelection}>Clear</Button>
+        <Button
+          className="genre-btn clear-submit-btn"
+          onClick={this.decisionFromGenreSelection}>Submit</Button>
       </div>
     )
   }
