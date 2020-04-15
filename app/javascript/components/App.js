@@ -113,7 +113,7 @@ class App extends Component {
       sign_up_path,
       edit_acct_path } = this.props
 
-    const { histories, favorites, filmList, filmDecision } = this.state
+    const { histories, favorites } = this.state
 
     return (
       <Router>

@@ -77,13 +77,6 @@ nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-lin
   *
   */
 
-div#watch-btn {
-  // width: 100vw;
-  // display: flex;
-  // justify-content: center;
-  // margin: 5rem 0px;
-}
-
 div#watch-btn button {
   background: #FAD61D;
   color: black;
@@ -91,6 +84,7 @@ div#watch-btn button {
   height: 70px;
   font-size: 1.75em;
   border: 1px solid black;
+  margin-top: 1rem;
 }
 
 div#watch-btn button:hover {
@@ -137,7 +131,7 @@ div#genre-page {
 }
 
 div#genre-page .pikachu {
-  width: 240px;
+  width: 265px;
 }
 
  /*
