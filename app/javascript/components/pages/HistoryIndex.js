@@ -5,7 +5,8 @@ import { Link } from "react-router-dom"
 const HistoryIndex = (props) => {
   return (
     <>
-      <h3 className="history-header">History</h3>
+      <h3 className="history-header">My History</h3>
+      <p className="lead">Your previous 10 searches</p>
         {props.histories.map((history, index) => {
           return (
             // <Card  body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="decision-box" key={ index }>
