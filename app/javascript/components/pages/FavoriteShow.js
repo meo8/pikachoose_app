@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { useHistory } from 'react-router-dom';
+import {Button, Container} from 'reactstrap'
 
 class FavoriteShow extends Component {
   constructor(props) {
@@ -53,6 +55,7 @@ class FavoriteShow extends Component {
       favorites: newFavorites
     })
   }
+ 
 
   deleteFavorite = (history) => {
     
@@ -100,9 +103,12 @@ class FavoriteShow extends Component {
                 { editable === false &&
                   <p>{favorite.comment}</p>
                 }
-                <button onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit' : 'Edit'}</button>
-                <button onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</button>
-
+                <Container>
+                <Button className="editdel_btns" color="warning" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit' : 'Edit'}</Button>
+                <Button className="editdel_btns" href="/user_favorites" color="warning" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
+                </Container>
+                <Button className="back_btn"  color="info" size="lg" block href="/user_favorites">Go Back To Favorites</Button>
+                
               </div>
             </div>
             <br/>
