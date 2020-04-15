@@ -30,7 +30,7 @@ class DecisionBox extends Component {
       overview: filmDecision.overview,
       vote_average: filmDecision.vote_average,
       release_date: filmDecision.release_date,
-      comment: "Maybe remove comment column from history table?"
+      comment: "No comments yet"
     }
 
     console.log("Added to History:", newHistory)
@@ -54,7 +54,7 @@ class DecisionBox extends Component {
       overview: history.overview,
       vote_average: history.vote_average,
       release_date: history.release_date,
-      comment: "No comment yet"
+      comment: "No comments yet"
     }
 
     // fetch method gets specific history with the id in our back-end and UPDATES it
@@ -88,7 +88,7 @@ class DecisionBox extends Component {
                 onClick={() => this.addFavorite(filmDecision)}>Add to Favorite
               </Button>
             </p>
-          }      
+          }
         </Jumbotron>
         <img src={Pikachu3} className="pikachu2" />
         <br/>

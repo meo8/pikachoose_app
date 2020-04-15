@@ -103,12 +103,12 @@ class App extends Component {
         />
 
         <Route
-          path="/history/:id"
-          render={ props => <HistoryShow {...props} histories={ histories } />  }
+        path="/favorite/:id"
+        render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
         />
         <Route
-          path="/favorite/:id"
-          render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
+          path="/history/:id"
+          render={ props => <HistoryShow {...props} histories={ histories } />  }
         />
         <Route
           path="/user_history"
@@ -122,7 +122,7 @@ class App extends Component {
         <Route
           // remember to add "exact" for this route or else About page will also appear on the landing page
           exact path="/"
-          render={ props => <LandingPage logged_in={logged_in} filmDecision={filmDecision}/> }
+          render={ props => <LandingPage logged_in={logged_in} /> }
         />
       </Router>
     )

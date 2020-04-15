@@ -55,10 +55,10 @@ class FavoriteShow extends Component {
       favorites: newFavorites
     })
   }
- 
+
 
   deleteFavorite = (history) => {
-    
+
     // fetch method gets specific history with the id in our back-end and UPDATES it
     fetch(`/favorites/${ history.id }`,
     {
@@ -106,6 +106,7 @@ class FavoriteShow extends Component {
                 <Button  href="/user_favorites" color="warning" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
                 <br/>
               </Jumbotron>
+
               <Button id="go-back-button" className="se_btns" block href="/user_favorites">Back To Favorites</Button>
 
             <br/>

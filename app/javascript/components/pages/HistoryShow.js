@@ -8,8 +8,7 @@ class HistoryShow extends Component {
     super(props)
     this.state = {
       // editable: false,
-      histories: [],
-      favorites: []
+      histories: []
     }
   }
 
@@ -57,7 +56,6 @@ class HistoryShow extends Component {
   // }
 
   // when user clicks 'add to favorites' this method will be triggered (this method will post a new favorite into our favorites database):
-
   addFavorite = (history) => {
     console.log("addFavorite(history):",history)
     let newFavorite = {
