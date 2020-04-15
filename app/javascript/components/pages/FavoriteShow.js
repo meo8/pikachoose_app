@@ -55,10 +55,10 @@ class FavoriteShow extends Component {
       favorites: newFavorites
     })
   }
- 
+
 
   deleteFavorite = (history) => {
-    
+
     // fetch method gets specific history with the id in our back-end and UPDATES it
     fetch(`/favorites/${ history.id }`,
     {

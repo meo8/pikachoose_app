@@ -9,16 +9,20 @@ const HistoryIndex = (props) => {
       <p className="lead">Your previous 10 searches</p>
         {props.histories.map((history, index) => {
           return (
-            // <Card  body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="decision-box" key={ index }>
             <Jumbotron className="lead" key={index}>
               <Link to={`/history/${history.id}`} >
                 <h4 className="film-title"> {history.title}</h4>
               </Link>
+              <Button
+                className="se_btns"
+                href="/user_favorites"
+                color="success"
+                onClick={() => props.addFavorite(history)}>
+                Add to favorites</Button>
               <p><small>{history.overview}</small></p>
               <hr className="my-2" />
               <p><small>Released on: {history.release_date}</small></p>
             </Jumbotron>
-
           )
         })}
     </>

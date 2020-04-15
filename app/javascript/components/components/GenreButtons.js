@@ -31,8 +31,8 @@ class GenreButtons extends Component {
   }
 
   generateDecision = (e) => {
-    // e.persist() is used when you want to access the event properties in an asynchronous way
-    // removes the synthetic event from the pool and allow references to the event to be retained by user code.
+    // e.persist() is used when you want to access event properties in an asynchronous way
+    // removes the synthetic event from the pool and allow references to the event to be retained by user code
     e.persist()
     const apiKey = process.env.REACT_APP_KEY
     const { selectedGenres } = this.state
@@ -136,7 +136,8 @@ class GenreButtons extends Component {
             onClick={this.generateDecision}>Surprise Me</Button>
 
         <div id="genre-page">
-          {/* <img src={Pikachu2} className="pikachu"/> */}
+          <p>Choose genres (optional)</p>
+          <img src={Pikachu2} className="pikachu"/>
 
         </div>
       </div>

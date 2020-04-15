@@ -81,6 +81,29 @@ class App extends Component {
     })
   }
 
+  addFavorite = (film) => {
+    console.log("addFavorite(film):",film)
+    let newFavorite = {
+      film_id: film.id,
+      title: film.title,
+      overview: film.overview,
+      vote_average: film.vote_average,
+      release_date: film.release_date,
+      comment: "No comments yet"
+    }
+
+    // fetch method gets specific film with the id in our back-end and UPDATES it
+    fetch("/favorites",
+    {
+      method: 'POST',
+      body: JSON.stringify(newFavorite),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    console.log("newFavorite:", JSON.stringify(newFavorite))
+  }
 
   render() {
     const {
@@ -90,7 +113,7 @@ class App extends Component {
       sign_up_path,
       edit_acct_path } = this.props
 
-    const { histories, favorites, filmList, filmDecision } = this.state
+    const { histories, favorites } = this.state
 
     return (
       <Router>
@@ -103,16 +126,16 @@ class App extends Component {
         />
 
         <Route
-          path="/history/:id"
-          render={ props => <HistoryShow {...props} histories={ histories } />  }
+        path="/favorite/:id"
+        render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
         />
         <Route
-          path="/favorite/:id"
-          render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
+          path="/history/:id"
+          render={ props => <HistoryShow {...props} addFavorite={this.addFavorite} histories={ histories } />  }
         />
         <Route
           path="/user_history"
-          render={ props => <HistoryIndex histories={ histories } /> }
+          render={ props => <HistoryIndex addFavorite={this.addFavorite} histories={ histories } /> }
         />
         <Route
           path="/user_favorites"
@@ -122,7 +145,7 @@ class App extends Component {
         <Route
           // remember to add "exact" for this route or else About page will also appear on the landing page
           exact path="/"
-          render={ props => <LandingPage logged_in={logged_in} filmDecision={filmDecision}/> }
+          render={ props => <LandingPage addFavorite={this.addFavorite} logged_in={logged_in} /> }
         />
       </Router>
     )

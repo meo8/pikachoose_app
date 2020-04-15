@@ -30,7 +30,7 @@ class DecisionBox extends Component {
       overview: filmDecision.overview,
       vote_average: filmDecision.vote_average,
       release_date: filmDecision.release_date,
-      comment: "Maybe remove comment column from history table?"
+      comment: "No comments yet"
     }
 
     console.log("Added to History:", newHistory)
@@ -45,33 +45,8 @@ class DecisionBox extends Component {
     })
   }
 
-  addFavorite = (history) => {
-    const { filmDecision } = this.props
-    console.log("addFavorite(history):",history)
-    let newFavorite = {
-      film_id: history.id,
-      title: history.title,
-      overview: history.overview,
-      vote_average: history.vote_average,
-      release_date: history.release_date,
-      comment: "No comment yet"
-    }
-
-    // fetch method gets specific history with the id in our back-end and UPDATES it
-    fetch("/favorites",
-    {
-      method: 'POST',
-      body: JSON.stringify(newFavorite),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    console.log("newFavorite:", JSON.stringify(newFavorite))
-  }
-
   render() {
-    const { filmDecision, logged_in } = this.props
+    const { filmDecision, logged_in, addFavorite } = this.props
     return (
       <>
         <Jumbotron>
@@ -86,10 +61,10 @@ class DecisionBox extends Component {
               <Button
                 color="success"
                 href="/user_favorites"
-                onClick={() => this.addFavorite(filmDecision)}>Add to Favorite
+                onClick={() => addFavorite(filmDecision)}>Add to Favorite
               </Button>
             </p>
-          }      
+          }
         </Jumbotron>
         {/* <img src={Pikachu3} className="pikachu2" /> */}
         <br/>

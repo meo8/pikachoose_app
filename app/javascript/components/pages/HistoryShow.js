@@ -8,8 +8,7 @@ class HistoryShow extends Component {
     super(props)
     this.state = {
       // editable: false,
-      histories: [],
-      favorites: []
+      histories: []
     }
   }
 
@@ -55,33 +54,6 @@ class HistoryShow extends Component {
   //     histories: newHistories
   //   })
   // }
-
-  // when user clicks 'add to favorites' this method will be triggered (this method will post a new favorite into our favorites database):
-
-  addFavorite = (history) => {
-    console.log("addFavorite(history):",history)
-    let newFavorite = {
-      film_id: history.id,
-      title: history.title,
-      overview: history.overview,
-      vote_average: history.vote_average,
-      release_date: history.release_date,
-      comment: history.comment
-    }
-
-    // fetch method gets specific history with the id in our back-end and UPDATES it
-    fetch("/favorites",
-    {
-      method: 'POST',
-      body: JSON.stringify(newFavorite),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    console.log("newFavorite:", JSON.stringify(newFavorite))
-  }
-
 
   render() {
     // let { editable } = this.state;

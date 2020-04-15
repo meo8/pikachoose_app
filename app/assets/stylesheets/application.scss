@@ -27,7 +27,7 @@ body {
 }
 
 #landingpage {
-  margin: 200px;
+  margin: 200px auto;
 }
 
 #genrepage {
@@ -81,20 +81,15 @@ nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-lin
   *
   */
 
-div#watch-btn {
-  // width: 100vw;
-  // display: flex;
-  // justify-content: center;
-  // margin: 5rem 0px;
-}
-
 div#watch-btn button {
   // background: #FAD61D;
   // color: black;
   width: 210px;
   height: 70px;
   font-size: 1.35em;
-  // border: 1px solid black;
+  border: 1px solid black;
+  margin-top: 1rem;
+  box-shadow: 2px 3px 2px 0px grey;
 }
 
 div#watch-btn button:hover {
@@ -147,7 +142,22 @@ div#genre-page {
 }
 
 div#genre-page .pikachu {
-  width: 240px;
+  width: 265px;
+  animation: nudge 5s linear 1;
+}
+
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(-1100px, 0);
+  }
+
+  // 50% {
+  //   transform: translate(1100px, 0);
+  // }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
  /*
@@ -286,6 +296,29 @@ div.jumbotron {
   width: 50%;
 }
 
+#the-decision {
+  animation-name: stretch;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
  /*
   *
   * MEDIA QUERIES
@@ -301,5 +334,11 @@ div.jumbotron {
 @media (min-width: 576px) {
   div.jumbotron {
     padding: 3rem 6rem;
+  }
+}
+
+@media (max-width: 660px) {
+  body {
+    background: pink
   }
 }
