@@ -18,9 +18,7 @@ class HistoryShow extends Component {
 
     if (editable) {
       this.handleUpdate(history)
-      console.log("handleEdit(history.comment)=", history.comment)
     }
-
     // editable switches in between 'false' and 'true'
     this.setState({editable: !editable})
   }
@@ -92,30 +90,29 @@ class HistoryShow extends Component {
 
     return (
       <>
-      {history &&
-        <Jumbotron>
-          <h1 className="display-3">{history.title}</h1>
-          <p className="lead">{history.overview}</p>
-          <p className="lead">{history.release_date}</p>
-          <hr className="my-2" />
+        {history &&
+          <Jumbotron>
+            <h1 className="display-3">{history.title}</h1>
+            <p className="lead">{history.overview}</p>
+            <p className="lead">{history.release_date}</p>
+            <hr className="my-2" />
 
-          { editable === true &&
-            <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
-          }
+            { editable === true &&
+              <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
+            }
 
-          { editable === false &&
-            <p>{history.comment}</p>
-          }
-
-          <p className="lead">
-            <Button className="se_btns" color="success" onClick={() => this.handleEdit(history)}>
+            { editable === false &&
+              <p>{history.comment}</p>
+            }
+              <Button className="se_btns" color="success" onClick={() => this.handleEdit(history)}>
             {editable ? "Submit" : "Edit"}
             </Button>
             <Button className="se_btns" href="/user_favorites" onClick={() => this.addFavorite(history)}>add to favorites</Button>
             <Button className="se_btns" href="/user_history">back to history</Button>
-          </p>
-        </Jumbotron>
-      }
+          </Jumbotron>
+
+        }
+
       </>
     )
   }

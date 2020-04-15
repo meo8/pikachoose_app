@@ -55,8 +55,8 @@ const Header = (props) => {
             <DropdownToggle nav caret>Account</DropdownToggle>
             <DropdownMenu right>
               <a href={ edit_acct_path }><DropdownItem>Edit Account</DropdownItem></a>
-              <a href="/user_history"><DropdownItem>History</DropdownItem></a>
-              <a href="/user_favorites"><DropdownItem>Favorites</DropdownItem></a>
+              <a href="/user_history"><DropdownItem>My History</DropdownItem></a>
+              <a href="/user_favorites"><DropdownItem>My Favorites</DropdownItem></a>
               <DropdownItem divider />
               <DropdownItem href={ sign_out_path }>Sign Out</DropdownItem>
             </DropdownMenu>

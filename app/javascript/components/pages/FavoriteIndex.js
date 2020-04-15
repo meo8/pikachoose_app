@@ -1,5 +1,5 @@
 import React from "react"
-import { ListGroup } from "reactstrap"
+import { Jumbotron, Button } from 'reactstrap';
 import { Link } from "react-router-dom"
 
 const FavoriteIndex = (props) => {
@@ -9,7 +9,7 @@ const FavoriteIndex = (props) => {
         <h3 className="history-header"> My Favorites</h3>
         {props.favorites.map((favorite, index) => {
           return (
-            <ListGroup className="decision-box" key={ index }>
+            <Jumbotron className="lead">
               <Link to={`/favorite/${favorite.id}`} ><h4 className="film-title"> {favorite.title}</h4></Link>
 
               <div className="film-info">
@@ -17,7 +17,7 @@ const FavoriteIndex = (props) => {
                 <p>Summary: {favorite.overview}</p>
                 <p>Notes: {favorite.comment}</p>
               </div>
-            </ListGroup>
+              </Jumbotron>
           )
         })}
       </div>
