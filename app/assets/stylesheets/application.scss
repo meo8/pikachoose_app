@@ -42,7 +42,7 @@ button.navbar-toggler {
 }
 
 #attention-getter {
-  font-size: 1.4rem;
+  font-size: 1.75rem;
   text-align: center;
   // margin-top: 10rem;
   line-height: 50px;
@@ -87,9 +87,9 @@ div#watch-btn {
 div#watch-btn button {
   background: #FAD61D;
   color: black;
-  width: 200px;
-  height: 65px;
-  font-size: 1.5em;
+  width: 210px;
+  height: 70px;
+  font-size: 1.75em;
   border: 1px solid black;
 }
 
@@ -119,6 +119,10 @@ div#watch-btn button:hover {
   grid-template-columns: repeat(auto-fill, 125px)
 }
 
+.functional-btn {
+  background: #6c757d;
+}
+
 .functional-btn:hover {
   background: #E19720;
   border: none;
@@ -126,6 +130,14 @@ div#watch-btn button:hover {
 
 .btn-secondary:focus, .btn-secondary.focus {
   background-color: black;
+}
+
+div#genre-page {
+  margin: 4.5rem;
+}
+
+div#genre-page .pikachu {
+  width: 240px;
 }
 
  /*

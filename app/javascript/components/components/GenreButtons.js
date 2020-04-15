@@ -7,7 +7,7 @@ class GenreButtons extends Component {
     super(props)
     this.state = {
       genreList: [],
-      selectedGenres: [],
+      selectedGenres: []
     }
   }
 
@@ -49,15 +49,11 @@ class GenreButtons extends Component {
     .then((films) => {
       let randomNumber = Math.floor(Math.random() * films.results.length);
       let randomFilm = films.results[randomNumber]
-      console.log("Generated decision from genre API:", randomFilm);
 
       if (selectedGenres.length !== 0 && e.target.value === "Submit") {
-        // setState of display to DecisionBox
         setDisplayToDecisionBox(randomFilm)
       } else if (e.target.value === "Surprise Me") {
         setDisplayToDecisionBox(randomFilm)
-      } else {
-        console.log("Something went wrong in generateDecision()")
       }
     })
   }
@@ -66,7 +62,7 @@ class GenreButtons extends Component {
     // checks to see if the button passed through exists in selectedGenres
     // convert button toString to match datatype in selectedGenres
     if (this.state.selectedGenres.includes(button.toString())) {
-      return "#5a6268"
+      return "#811E09"
     } else {
       return ""
     }
@@ -133,9 +129,10 @@ class GenreButtons extends Component {
             className="genre-btn functional-btn"
             onClick={this.generateDecision}>Surprise Me</Button>
         </div>
-        <div>
+
+        <div id="genre-page">
           <img src={Pikachu2} className="pikachu"/>
-          <p>Choose genres (optional).</p>
+          <p>Choose genres (optional)</p>
         </div>
       </Container>
     )

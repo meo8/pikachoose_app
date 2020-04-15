@@ -14,10 +14,9 @@ const HistoryIndex = (props) => {
               <Link to={`/history/${history.id}`} >
                 <h4 className="film-title"> {history.title}</h4>
               </Link>
-                {/* <Button color="secondary">Button</Button> */}
-                <p>{history.overview}</p>
-                <p>{history.release_date}</p>
-                <p>{history.comment}</p>
+              {/* <Button color="secondary">Button</Button> */}
+              <p>{history.overview}</p>
+              <p>Release date: {history.release_date}</p>
             </Jumbotron>
 
           )
