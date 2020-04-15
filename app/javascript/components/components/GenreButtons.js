@@ -1,7 +1,6 @@
 import React, { Component } from "react"
-import { Button } from "reactstrap";
+import { Button, Container } from "reactstrap"
 import Pikachu2 from "./pikachu2.png"
-
 
 class GenreButtons extends Component {
   constructor(props) {
@@ -31,38 +30,42 @@ class GenreButtons extends Component {
     })
   }
 
-  decisionFromGenreSelection = () => {
-    // call API with ID of genre
-    // calling randomized movie from genre buttons
+  generateDecision = (e) => {
+    // e.persist() is used when you want to access the event properties in an asynchronous way
+    // removes the synthetic event from the pool and allow references to the event to be retained by user code.
+    e.persist()
     const apiKey = process.env.REACT_APP_KEY
     const { selectedGenres } = this.state
     const { setDisplayToDecisionBox } = this.props
 
-    if (selectedGenres.length !== 0) {
-      let genreQuery = selectedGenres.join("&")
+    let genreQuery = selectedGenres.join("&")
 
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)
-      .then((response) => {
-        if(response.status === 200) {
-          return response.json()
-        }
-      })
-      .then((films) => {
-        let randomNumber = Math.floor(Math.random() * films.results.length);
-        let randomFilm = films.results[randomNumber]
-        console.log("Genereated decision based on genre selection:", randomFilm);
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)
+    .then((response) => {
+      if(response.status === 200) {
+        return response.json()
+      }
+    })
+    .then((films) => {
+      let randomNumber = Math.floor(Math.random() * films.results.length);
+      let randomFilm = films.results[randomNumber]
+      console.log("Generated decision from genre API:", randomFilm);
+
+      if (selectedGenres.length !== 0 && e.target.value === "Submit") {
         // setState of display to DecisionBox
         setDisplayToDecisionBox(randomFilm)
-      })
-    } else if (selectedGenres.length === 0) {
-      console.log("User did not select any genre. Selected genre list is empty:", selectedGenres)
-    }
+      } else if (e.target.value === "Surprise Me") {
+        setDisplayToDecisionBox(randomFilm)
+      } else {
+        console.log("Something went wrong in generateDecision()")
+      }
+    })
   }
 
-  activeBtnColor = (genre) => {
-    // checks to see if the genre passed through exists in selectedGenres
-    // convert genre toString cause values in selectedGenres are strings
-    if (this.state.selectedGenres.includes(genre.toString())) {
+  activateBtnColor = (button) => {
+    // checks to see if the button passed through exists in selectedGenres
+    // convert button toString to match datatype in selectedGenres
+    if (this.state.selectedGenres.includes(button.toString())) {
       return "#5a6268"
     } else {
       return ""
@@ -75,9 +78,9 @@ class GenreButtons extends Component {
     let genre = e.target.value
     // makes a copy to manipulate then setState later
     let userSelection = selectedGenres
-    // finds the index of the genre passed as argument
+    // finds the index of the genre
     const index = userSelection.indexOf(genre);
-    // if indexOf returns -1, push that genre to the userSelection array
+    // if genre index is -1, push it to the userSelection array
     if (index === -1) {
       userSelection.push(genre);
     }
@@ -103,33 +106,38 @@ class GenreButtons extends Component {
     const { genreList, selectedGenres } = this.state
 
     return (
-      <div>
-      <div className="genre-grid">
-      {genreList.map(genre => {
-        return (
+      <Container>
+        <div className="genre-grid">
+        {genreList.map(genre => {
+          return (
+            <Button
+              key={genre.id}
+              value={genre.id}
+              className="genre-btn"
+              style={{backgroundColor: this.activateBtnColor(genre.id)}}
+              onClick={this.userSelectGenre}>{genre.name}
+            </Button>
+          )
+        })}
+
           <Button
-            key={genre.id}
-            value={genre.id}
-            className="genre-btn"
-            style={{backgroundColor: this.activeBtnColor(genre.id)}}
-            onClick={this.userSelectGenre}>{genre.name}
-          </Button>
-        )
-      })}
-        <Button
-          className="genre-btn clear-submit-btn"
-          onClick={this.resetUserSelection}>Clear</Button>
-        <Button
-          className="genre-btn clear-submit-btn"
-          onClick={this.decisionFromGenreSelection}>Submit</Button>
-      </div>
-      <br/>
-        <img src={Pikachu2} className="pikachu"/>
-        <br/>
-        <br/>
-        <br/>
-        <p>Choose the genre you want (or none if you don't care).</p>
-      </div>
+            value="Clear"
+            className="genre-btn functional-btn"
+            onClick={this.resetUserSelection}>Clear</Button>
+          <Button
+            value="Submit"
+            className="genre-btn functional-btn"
+            onClick={this.generateDecision}>Submit</Button>
+          <Button
+            value="Surprise Me"
+            className="genre-btn functional-btn"
+            onClick={this.generateDecision}>Surprise Me</Button>
+        </div>
+        <div>
+          <img src={Pikachu2} className="pikachu"/>
+          <p>Choose genres (optional).</p>
+        </div>
+      </Container>
     )
   }
 }
