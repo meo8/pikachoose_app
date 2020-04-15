@@ -84,6 +84,7 @@ div#watch-btn button {
   font-size: 1.75em;
   border: 1px solid black;
   margin-top: 1rem;
+  box-shadow: 2px 3px 2px 0px grey;
 }
 
 div#watch-btn button:hover {
@@ -131,11 +132,7 @@ div#genre-page {
 
 div#genre-page .pikachu {
   width: 265px;
-}
-
-div#genre-page .pikachu {
   animation: nudge 5s linear 1;
-  // border-radius: 50%;
 }
 
 @keyframes nudge {
@@ -150,14 +147,6 @@ div#genre-page .pikachu {
   100% {
     transform: translate(0, 0);
   }
-}
-
-@keyframes bounce {
-    0%   { transform: scale(1,1)    translateY(0); }
-    10%  { transform: scale(1.1,.9) translateY(0); }
-    30%  { transform: scale(.9,1.1) translateY(-100px); }
-    50%  { transform: scale(1,1)    translateY(0); }
-    100% { transform: scale(1,1)    translateY(0); }
 }
 
  /*
