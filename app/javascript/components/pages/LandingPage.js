@@ -31,10 +31,7 @@ class LandingPage extends Component {
         <div id="landingpage">
           <img className="pikachu" src={Pikachu1}/>
           <h1 id="attention-getter">Stuck at home and don't know what to watch? <br />We got your back.</h1>
-          <WatchButton
-            filmDecision={filmDecision}
-            setDisplayToGenreButtons={this.setDisplayToGenreButtons}
-          />
+          <WatchButton setDisplayToGenreButtons={this.setDisplayToGenreButtons} />
         </div>
       )
     }
@@ -50,13 +47,13 @@ class LandingPage extends Component {
 
   renderDecisionBox = () => {
     const { display, filmDecision } = this.state
-    const { logged_in, sign_up_path } = this.props
+    const { logged_in, addFavorite } = this.props
 
     if (display === "DecisionBox") {
       return <DecisionBox
         logged_in={logged_in}
-        sign_up_path={sign_up_path}
-        filmDecision={filmDecision} />
+        filmDecision={filmDecision}
+        addFavorite={addFavorite} />
     }
   }
 
