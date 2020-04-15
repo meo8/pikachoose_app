@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import WatchButton from "../components/WatchButton"
 import DecisionBox from "../components/DecisionBox"
 import GenreButtons from "../components/GenreButtons"
-import Pikachu1 from "./pikachu1.png"
+import Pikachu1 from "./pikachu1.gif"
 
 class LandingPage extends Component {
   constructor(props) {
@@ -30,8 +30,12 @@ class LandingPage extends Component {
       return (
         <div id="landingpage">
           <img className="pikachu" src={Pikachu1}/>
-          <h1 id="attention-getter">Stuck at home and don't know what to watch? <br />We got your back.</h1>
-          <WatchButton setDisplayToGenreButtons={this.setDisplayToGenreButtons} />
+          <br/>
+          <h2 id="attention-getter">Bored and don't know what to watch? <br />We got your back.</h2> <br/>
+          <WatchButton
+            filmDecision={filmDecision}
+            setDisplayToGenreButtons={this.setDisplayToGenreButtons}
+          />
         </div>
       )
     }

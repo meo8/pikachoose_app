@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Button, Container } from "reactstrap"
-import Pikachu2 from "./pikachu2.png"
+import Pikachu2 from "./pikachu2.gif"
 
 class GenreButtons extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class GenreButtons extends Component {
     // checks to see if the button passed through exists in selectedGenres
     // convert button toString to match datatype in selectedGenres
     if (this.state.selectedGenres.includes(button.toString())) {
-      return "#811E09"
+      return "#288745"
     } else {
       return ""
     }
@@ -102,39 +102,45 @@ class GenreButtons extends Component {
     const { genreList, selectedGenres } = this.state
 
     return (
-      <Container>
+      <div id="genrepage">
+        <h5 className="lead">What genre would you like?</h5>
         <div className="genre-grid">
         {genreList.map(genre => {
           return (
             <Button
               key={genre.id}
               value={genre.id}
+              color="success"
               className="genre-btn"
               style={{backgroundColor: this.activateBtnColor(genre.id)}}
               onClick={this.userSelectGenre}>{genre.name}
             </Button>
           )
         })}
+        </div>
 
           <Button
             value="Clear"
             className="genre-btn functional-btn"
+            color="info"
             onClick={this.resetUserSelection}>Clear</Button>
           <Button
             value="Submit"
             className="genre-btn functional-btn"
+            color="info"
             onClick={this.generateDecision}>Submit</Button>
           <Button
             value="Surprise Me"
+            color="info"
             className="genre-btn functional-btn"
             onClick={this.generateDecision}>Surprise Me</Button>
-        </div>
 
         <div id="genre-page">
-          <img src={Pikachu2} className="pikachu" />
           <p>Choose genres (optional)</p>
+          <img src={Pikachu2} className="pikachu"/>
+
         </div>
-      </Container>
+      </div>
     )
   }
 }

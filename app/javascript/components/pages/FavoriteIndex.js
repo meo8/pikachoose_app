@@ -11,15 +11,15 @@ const FavoriteIndex = (props) => {
           return (
             <Jumbotron className="lead" key={index}>
               <Link to={`/favorite/${favorite.id}`}>
-                <h4 className="film-title"> {favorite.title}</h4>
+                <h4 className="film-title">{favorite.title}</h4>
               </Link>
-
               <div className="film-info">
-                <p>{favorite.overview}</p>
+                <small>{favorite.overview}</small>
+                <br/>
                 <hr className="my-2" />
-                <p>Rating: {favorite.vote_average}/10</p>
-                <p>Realeased on: {favorite.release_date}</p>
-                <p>Comment: {favorite.comment}</p>
+                <small>Realeased on: {favorite.release_date}</small>
+                <br/>
+                <small>Comment: {favorite.comment}</small>
               </div>
             </Jumbotron>
           )
