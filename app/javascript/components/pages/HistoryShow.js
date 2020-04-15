@@ -104,14 +104,15 @@ class HistoryShow extends Component {
             { editable === false &&
               <p>{history.comment}</p>
             }
-              <Button color="success" onClick={() => this.handleEdit(history)}>
-              {editable ? "Submit" : "Edit"}
-              </Button>
-              <br/>
-              <Button onClick={() => this.addFavorite(history)}>add to favorites</Button>
+              <Button className="se_btns" color="success" onClick={() => this.handleEdit(history)}>
+            {editable ? "Submit" : "Edit"}
+            </Button>
+            <Button className="se_btns" href="/user_favorites" onClick={() => this.addFavorite(history)}>add to favorites</Button>
+            <Button className="se_btns" href="/user_history">back to history</Button>
           </Jumbotron>
 
         }
+
       </>
     )
   }

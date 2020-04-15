@@ -98,9 +98,9 @@ div#watch-btn button:hover {
  */
 
 .genre-btn {
-  min-height:62px;
-  background:black;
-  border-radius:100px;
+  min-height: 62px;
+  background: black;
+  border-radius: 100px;
 }
 
 .genre-grid {
@@ -110,10 +110,10 @@ div#watch-btn button:hover {
   padding-top:15%;
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: repeat(auto-fill,125px)
+  grid-template-columns: repeat(auto-fill, 125px)
 }
 
-.clear-submit-btn:hover {
+.functional-btn:hover {
   background: #E19720;
   border: none;
 }
@@ -196,10 +196,24 @@ img.card-img {
 }
 
 
-
  .pikachu {
    width: 200px;
  }
+
+//  buttons
+.editdel_btns{
+margin:2px;
+float:left;
+}
+
+.se_btns{
+  margin:2px;
+}
+
+.back_btn{
+  margin:100px;
+  padding:10px;
+}
 
 
  /*

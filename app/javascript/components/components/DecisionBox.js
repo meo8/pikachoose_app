@@ -80,7 +80,7 @@ class DecisionBox extends Component {
       <hr className="my-2" />
       <p>Rating: {filmDecision.vote_average}/10</p>
       <p>Release date: {filmDecision.release_date}</p>
-      <p className="lead"><Button color="success" onClick={() => this.addFavorite(filmDecision)}>Add to Favorite</Button></p>
+      <p className="lead"><Button color="success" href="/user_favorites"onClick={() => this.addFavorite(filmDecision)}>Add to Favorite</Button></p>
     </Jumbotron>
   );
   }
