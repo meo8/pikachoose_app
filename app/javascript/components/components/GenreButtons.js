@@ -73,25 +73,26 @@ class GenreButtons extends Component {
     let genre = e.target.value
     // makes a copy to manipulate then setState later
     let userSelection = selectedGenres
+    // finds the index of the genre passed as argument
     const index = userSelection.indexOf(genre);
     // if indexOf returns -1, push that genre to the userSelection array
-    if (index < 0) {
+    if (index === -1) {
       userSelection.push(genre);
     }
-    // this else statement removes the genre from the array if it's clicked on again
+    // removes the genre from the array if it's clicked on again
     else {
       userSelection.splice(index, 1);
     }
 
     this.setState({selectedGenres: userSelection})
-
     console.log("User Selected Genres:", selectedGenres)
   }
 
   resetUserSelection = (e) => {
     e.preventDefault()
     this.setState({selectedGenres: []})
-
+    // setState is asynchronous so it doesn't necessarily updates instantaniously
+    // setTimeout gives setState some time before it logs the state to the console
     setTimeout(() => console.log("User Selection Clears:", this.state.selectedGenres), 1000)
   }
 
@@ -112,12 +113,13 @@ class GenreButtons extends Component {
           </Button>
         )
       })}
-        <Button className="genre-btn clear-submit-btn" onClick={this.resetUserSelection}>
-          Clear
-        </Button>
-        <Button className="genre-btn clear-submit-btn" onClick={this.decisionFromGenreSelection}>
-          Submit
-        </Button>
+
+        <Button
+          className="genre-btn clear-submit-btn"
+          onClick={this.resetUserSelection}>Clear</Button>
+        <Button
+          className="genre-btn clear-submit-btn"
+          onClick={this.decisionFromGenreSelection}>Submit</Button>
       </div>
     )
   }
