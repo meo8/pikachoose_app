@@ -32,6 +32,7 @@ class GenreButtons extends Component {
   userSelectGenre = (e) => {
     e.preventDefault()
     const { selectedGenres } = this.state
+
     let userSelection = selectedGenres
     let genre = e.target.value
 
@@ -93,10 +94,10 @@ class GenreButtons extends Component {
           </Button>
         )
       })}
-        <Button onClick={this.resetUserSelection}>
+        <Button className="genre-btn clear-submit-btn" onClick={this.resetUserSelection}>
           Clear
         </Button>
-        <Button onClick={this.decisionFromGenreSelection}>
+        <Button className="genre-btn clear-submit-btn" onClick={this.decisionFromGenreSelection}>
           Submit
         </Button>
       </div>
