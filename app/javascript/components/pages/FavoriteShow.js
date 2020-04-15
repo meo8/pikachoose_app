@@ -87,33 +87,32 @@ class FavoriteShow extends Component {
           <br/>
           <br/>
           <br/>
-            <Jumbotron className="lead">
-              <h4 className="film-title">{favorite.title}</h4>
-              <small> Released on {favorite.release_date}</small>
+          <Jumbotron className="lead">
+            <h4 className="film-title">{favorite.title}</h4>
+            <small><strong></strong>{favorite.overview}</small>
+            <br/>
+            <hr className="my-2" />
+            <small> Released on {favorite.release_date}</small>
+            <br/>
+              <small>Comment: 
+              {editable === true &&
+                <input type='text' ref={input => this.comment = input} defaultValue={favorite.comment}/>
+              }
+              { editable === false &&
+                <span>{favorite.comment}</span>
+              }
+              </small>
               <br/>
-              <small><strong></strong>{favorite.overview}</small>
-              <br/>
-                <p>Comment:
-                {editable === true &&
-                  <input type='text' ref={input => this.comment = input} defaultValue={favorite.comment}/>
-                }
-
-                { editable === false &&
-                  <p>{favorite.comment}</p>
-                }
-                <Button color="warning" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit' : 'Edit'}</Button>
-                </p>
-                <Button  href="/user_favorites" color="warning" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
-                <br/>
-              </Jumbotron>
-              <Button id="go-back-button" className="se_btns" block href="/user_favorites">Back To Favorites</Button>
-
+              <Button color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
+            </Jumbotron>
+            <Button id="addmargin" href="/user_favorites" color="danger" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
+            <Button id="addmargin" href="/user_favorites">Back To Favorites</Button>
             <br/>
             <br/>
             <br/>
-          <br/>
-          <br/>
-          <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
       }
       </>
