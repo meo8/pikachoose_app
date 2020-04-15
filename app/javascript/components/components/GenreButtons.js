@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Button } from "reactstrap";
+import Pikachu2 from "./pikachu2.png"
+
 
 class GenreButtons extends Component {
   constructor(props) {
@@ -101,6 +103,7 @@ class GenreButtons extends Component {
     const { genreList, selectedGenres } = this.state
 
     return (
+      <div>
       <div className="genre-grid">
       {genreList.map(genre => {
         return (
@@ -113,13 +116,19 @@ class GenreButtons extends Component {
           </Button>
         )
       })}
-
         <Button
           className="genre-btn clear-submit-btn"
           onClick={this.resetUserSelection}>Clear</Button>
         <Button
           className="genre-btn clear-submit-btn"
           onClick={this.decisionFromGenreSelection}>Submit</Button>
+      </div>
+      <br/>
+        <img src={Pikachu2} className="pikachu"/>
+        <br/>
+        <br/>
+        <br/>
+        <p>Choose the genre you want (or none if you don't care).</p>
       </div>
     )
   }
