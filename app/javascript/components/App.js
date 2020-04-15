@@ -12,7 +12,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      filmList: [],
+      // filmList: [],
       histories: [],
       favorites: [],
       editable: null
@@ -20,42 +20,42 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getFilms()
+    // this.getFilms()
     this.getHistories()
     this.getFavorites()
   }
 
-  generateRandomDecisionIndex = () => {
-    const { filmList } = this.state
-    // generate random number between 0 and filmList length
-    let randomIndex = Math.floor(Math.random() * Math.floor(filmList.length))
-    // retrieve random film from filmList
-    let decision = filmList[randomIndex]
-    // store the single record above to filmDecision
-    return decision
-  }
-
-  getFilms = () => {
-    const apiKey = process.env.REACT_APP_KEY
-
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
-    .then((response) => {
-      if (response.status === 200) {
-        return response.json()
-      }
-    })
-    .then((films) => {
-      films = films.results
-      this.setState({filmList: films})
-      console.log("Entire Film List:", this.state.filmList)
-
-      // results come back empty if the state is deconstructed
-      // const { filmList, filmDecision } = this.state
-      // let decision = this.generateRandomDecisionIndex()
-      // this.setState({filmDecision: decision})
-      // console.log("Film Decision:", this.state.filmDecision)
-    })
-  }
+  // generateRandomDecisionIndex = () => {
+  //   const { filmList } = this.state
+  //   // generate random number between 0 and filmList length
+  //   let randomIndex = Math.floor(Math.random() * Math.floor(filmList.length))
+  //   // retrieve random film from filmList
+  //   let decision = filmList[randomIndex]
+  //   // store the single record above to filmDecision
+  //   return decision
+  // }
+  //
+  // getFilms = () => {
+  //   const apiKey = process.env.REACT_APP_KEY
+  //
+  //   fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
+  //   .then((response) => {
+  //     if (response.status === 200) {
+  //       return response.json()
+  //     }
+  //   })
+  //   .then((films) => {
+  //     films = films.results
+  //     this.setState({filmList: films})
+  //     console.log("Entire Film List:", this.state.filmList)
+  //
+  //     // results come back empty if the state is deconstructed
+  //     // const { filmList, filmDecision } = this.state
+  //     // let decision = this.generateRandomDecisionIndex()
+  //     // this.setState({filmDecision: decision})
+  //     // console.log("Film Decision:", this.state.filmDecision)
+  //   })
+  // }
 
   getHistories = () => {
     fetch("/histories")
@@ -68,7 +68,7 @@ class App extends Component {
       this.setState({histories: histories})
     })
   }
-  
+
   getFavorites = () => {
     fetch("/favorites")
     .then((response) => {
@@ -122,7 +122,7 @@ class App extends Component {
         <Route
           // remember to add "exact" for this route or else About page will also appear on the landing page
           exact path="/"
-          render={ props => <LandingPage filmList={ filmList } filmDecision={filmDecision}/> }
+          render={ props => <LandingPage logged_in={logged_in} filmDecision={filmDecision}/> }
         />
       </Router>
     )

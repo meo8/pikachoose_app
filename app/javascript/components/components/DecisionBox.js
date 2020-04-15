@@ -6,7 +6,6 @@ class DecisionBox extends Component {
     super()
     this.state = {
       filmList: [],
-      // filmDecision: [],
       histories: [],
       favorites: [],
       editable: null
@@ -30,10 +29,10 @@ class DecisionBox extends Component {
       overview: filmDecision.overview,
       vote_average: filmDecision.vote_average,
       release_date: filmDecision.release_date,
-      comment: "Add comment"
+      comment: "Maybe remove comment column from history table?"
     }
 
-    console.log("Added to History:",newHistory)
+    console.log("Added to History:", newHistory)
 
     fetch("/histories",
     {
@@ -54,7 +53,7 @@ class DecisionBox extends Component {
       overview: history.overview,
       vote_average: history.vote_average,
       release_date: history.release_date,
-      comment: history.comment
+      comment: "No comment yet"
     }
 
     // fetch method gets specific history with the id in our back-end and UPDATES it
@@ -71,18 +70,27 @@ class DecisionBox extends Component {
   }
 
   render() {
-    const { filmDecision } = this.props
+    const { filmDecision, logged_in } = this.props
 
-  return (
-    <Jumbotron>
-      <h1 className="display-4">{filmDecision.title}</h1>
-      <p className="lead">{filmDecision.overview}</p>
-      <hr className="my-2" />
-      <p>Rating: {filmDecision.vote_average}/10</p>
-      <p>Release date: {filmDecision.release_date}</p>
-      <p className="lead"><Button color="success" href="/user_favorites"onClick={() => this.addFavorite(filmDecision)}>Add to Favorite</Button></p>
-    </Jumbotron>
-  );
+    return (
+      <Jumbotron>
+        <h1 className="display-4">{filmDecision.title}</h1>
+        <p className="lead">{filmDecision.overview}</p>
+        <hr className="my-2" />
+        <p>Rating: {filmDecision.vote_average}/10</p>
+        <p>Release date: {filmDecision.release_date}</p>
+
+        {logged_in &&
+          <p className="lead">
+            <Button
+              color="success"
+              href="/user_favorites"
+              onClick={() => this.addFavorite(filmDecision)}>Add to Favorite
+            </Button>
+          </p>
+        }
+      </Jumbotron>
+    );
   }
 };
 

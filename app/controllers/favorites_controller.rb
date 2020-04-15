@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   # skip_before_action :verify_authenticity_token
 
   def index
-    @favorites = Favorite.all
+    @favorites = Favorite.all.order(created_at: :desc)
     render json: @favorites
   end
 
@@ -56,5 +56,3 @@ class FavoritesController < ApplicationController
   end
 
 end
-
-

@@ -10,14 +10,16 @@ const FavoriteIndex = (props) => {
         {props.favorites.map((favorite, index) => {
           return (
             <Jumbotron className="lead">
-              <Link to={`/favorite/${favorite.id}`} ><h4 className="film-title"> {favorite.title}</h4></Link>
+              <Link to={`/favorite/${favorite.id}`}>
+                <h4 className="film-title"> {favorite.title}</h4>
+              </Link>
 
               <div className="film-info">
+                <p>{favorite.overview}</p>
                 <p>Realease date: {favorite.release_date}</p>
-                <p>Summary: {favorite.overview}</p>
                 <p>Notes: {favorite.comment}</p>
               </div>
-              </Jumbotron>
+            </Jumbotron>
           )
         })}
       </div>

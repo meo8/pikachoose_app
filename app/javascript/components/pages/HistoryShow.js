@@ -7,54 +7,54 @@ class HistoryShow extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      editable: false,
+      // editable: false,
       histories: [],
       favorites: []
     }
   }
 
-  handleEdit = (history) => {
-    const { editable } = this.state
+  // handleEdit = (history) => {
+  //   const { editable } = this.state
+  //
+  //   if (editable) {
+  //     this.handleUpdate(history)
+  //   }
+  //   // editable switches in between 'false' and 'true'
+  //   this.setState({editable: !editable})
+  // }
 
-    if (editable) {
-      this.handleUpdate(history)
-    }
-    // editable switches in between 'false' and 'true'
-    this.setState({editable: !editable})
-  }
-
-  handleUpdate = (history) => {
-    // UPDATING the comment in this specific history
-    history.comment = this.comment.value
-
-    // fetch method gets specific history with the id in our back-end and UPDATES it
-    fetch(`/histories/${history.id}`,
-    {
-      method: 'PUT',
-      // put in the new history!!!!
-      body: JSON.stringify({history: history}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((response) => {
-        response.json().then((response) => {
-          this.updateHistory(history)
-        })
-      })
-  }
-
-  updateHistory = (history) => {
-    // make a new list newHistories that has all the histories except the one we just updated
-    let newHistories = this.props.histories.filter((value) => value.id !== history.id)
-
-    // pushing new history into the newHistories array
-    newHistories.push(history)
-    console.log("newHistories", newHistories)
-
-    this.setState({
-      histories: newHistories
-    })
-  }
+  // handleUpdate = (history) => {
+  //   // UPDATING the comment in this specific history
+  //   history.comment = this.comment.value
+  //
+  //   // fetch method gets specific history with the id in our back-end and UPDATES it
+  //   fetch(`/histories/${history.id}`,
+  //   {
+  //     method: 'PUT',
+  //     // put in the new history!!!!
+  //     body: JSON.stringify({history: history}),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }).then((response) => {
+  //       response.json().then((response) => {
+  //         this.updateHistory(history)
+  //       })
+  //     })
+  // }
+  //
+  // updateHistory = (history) => {
+  //   // make a new list newHistories that has all the histories except the one we just updated
+  //   let newHistories = this.props.histories.filter((value) => value.id !== history.id)
+  //
+  //   // pushing new history into the newHistories array
+  //   newHistories.push(history)
+  //   console.log("newHistories", newHistories)
+  //
+  //   this.setState({
+  //     histories: newHistories
+  //   })
+  // }
 
   // when user clicks 'add to favorites' this method will be triggered (this method will post a new favorite into our favorites database):
 
@@ -81,10 +81,10 @@ class HistoryShow extends Component {
 
     console.log("newFavorite:", JSON.stringify(newFavorite))
   }
-  
+
 
   render() {
-    let { editable } = this.state;
+    // let { editable } = this.state;
     const { id } = this.props.match.params
     const history = this.props.histories.find((v) => v.id === parseInt(id))
 
@@ -94,25 +94,20 @@ class HistoryShow extends Component {
           <Jumbotron>
             <h1 className="display-3">{history.title}</h1>
             <p className="lead">{history.overview}</p>
-            <p className="lead">{history.release_date}</p>
+            <p className="lead">Release date: {history.release_date}</p>
             <hr className="my-2" />
 
-            { editable === true &&
-              <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>
-            }
+            <Button
+              className="se_btns"
+              href="/user_favorites"
+              onClick={() => this.addFavorite(history)}>
+              Add to favorites</Button>
 
-            { editable === false &&
-              <p>{history.comment}</p>
-            }
-              <Button className="se_btns" color="success" onClick={() => this.handleEdit(history)}>
-            {editable ? "Submit" : "Edit"}
-            </Button>
-            <Button className="se_btns" href="/user_favorites" onClick={() => this.addFavorite(history)}>add to favorites</Button>
-            <Button className="se_btns" href="/user_history">back to history</Button>
+            <Button
+              className="se_btns"
+              href="/user_history">Back to history</Button>
           </Jumbotron>
-
         }
-
       </>
     )
   }

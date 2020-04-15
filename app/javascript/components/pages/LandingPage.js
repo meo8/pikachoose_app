@@ -51,9 +51,13 @@ class LandingPage extends Component {
 
   renderDecisionBox = () => {
     const { display, filmDecision } = this.state
+    const { logged_in, sign_up_path } = this.props
 
     if (display === "DecisionBox") {
-      return <DecisionBox filmDecision={filmDecision} />
+      return <DecisionBox
+        logged_in={logged_in}
+        sign_up_path={sign_up_path}
+        filmDecision={filmDecision} />
     }
   }
 
