@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Jumbotron, Button } from "reactstrap";
+import Pikachu3 from "./pikachu3.png"
 
 class DecisionBox extends Component {
   constructor() {
@@ -74,14 +75,18 @@ class DecisionBox extends Component {
     const { filmDecision } = this.props
 
   return (
-    <Jumbotron>
-      <h1 className="display-4">{filmDecision.title}</h1>
-      <p className="lead">{filmDecision.overview}</p>
-      <hr className="my-2" />
-      <p>Rating: {filmDecision.vote_average}/10</p>
-      <p>Release date: {filmDecision.release_date}</p>
-      <p className="lead"><Button color="success" href="/user_favorites"onClick={() => this.addFavorite(filmDecision)}>Add to Favorite</Button></p>
-    </Jumbotron>
+    <>
+      <Jumbotron>
+        <h1 className="display-4">{filmDecision.title}</h1>
+        <p className="lead">{filmDecision.overview}</p>
+        <hr className="my-2" />
+        <p>Rating: {filmDecision.vote_average}/10</p>
+        <p>Release date: {filmDecision.release_date}</p>
+        <p className="lead"><Button color="success" href="/user_favorites"onClick={() => this.addFavorite(filmDecision)}>Add to Favorite</Button></p>
+      </Jumbotron>
+      <img src={Pikachu3} className="pikachu2" />
+      <br/>
+    </>
   );
   }
 };

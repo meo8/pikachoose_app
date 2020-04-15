@@ -22,6 +22,12 @@ body {
   background-color: #FAD61D;
   margin: auto;
   text-align: center;
+
+}
+
+#landingpage {
+  margin: 200px;
+
 }
 
  /*
@@ -38,7 +44,7 @@ button.navbar-toggler {
 #attention-getter {
   font-size: 1.4rem;
   text-align: center;
-  margin-top: 10rem;
+  // margin-top: 10rem;
   line-height: 50px;
   letter-spacing: 1px;
 }
@@ -72,10 +78,10 @@ nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-lin
   */
 
 div#watch-btn {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  margin: 5rem 0px;
+  // width: 100vw;
+  // display: flex;
+  // justify-content: center;
+  // margin: 5rem 0px;
 }
 
 div#watch-btn button {
@@ -200,6 +206,9 @@ img.card-img {
    width: 200px;
  }
 
+ .pikachu2 {
+  width: 120px;
+}
 //  buttons
 .editdel_btns{
 margin:2px;
@@ -215,6 +224,9 @@ float:left;
   padding:10px;
 }
 
+.go-back-button {
+  width: 50px;
+}
 
  /*
   *
