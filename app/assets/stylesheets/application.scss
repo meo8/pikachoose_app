@@ -79,11 +79,12 @@ div#watch-btn {
 }
 
 div#watch-btn button {
-  background: #C57900;
+  background: #FAD61D;
+  color: black;
   width: 200px;
   height: 65px;
   font-size: 1.5em;
-  border: none;
+  border: 1px solid black;
 }
 
 div#watch-btn button:hover {
@@ -195,6 +196,10 @@ margin-bottom:70px;
  // .text{
  //   text-align:center;
  // }
+
+ .pikachu {
+   width: 200px;
+ }
 
  /*
   *

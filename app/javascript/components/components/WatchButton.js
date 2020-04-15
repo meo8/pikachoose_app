@@ -7,7 +7,7 @@ const WatchButton = (props) => {
   return (
     <div id="watch-btn">
       <Button type="button" size="lg" onClick={setDisplayToGenreButtons}>
-        What to Watch
+        Pika-Choose!
       </Button>
     </div>
   )

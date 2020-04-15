@@ -26,7 +26,7 @@ const Header = (props) => {
 
   return (
     <Navbar color="light" light expand="md">
-      <NavbarBrand href="/">Pikachoose</NavbarBrand>
+      <NavbarBrand href="/">PikaMovie⚡️</NavbarBrand>
       <NavbarToggler onClick={ toggle } />
       <Collapse isOpen={ isOpen } navbar>
 
