@@ -26,8 +26,7 @@ body {
 }
 
 #landingpage {
-  margin: 200px;
-
+  margin: 200px auto;
 }
 
  /*
@@ -268,6 +267,29 @@ div.jumbotron {
   width: 50%;
 }
 
+#the-decision {
+  animation-name: stretch;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
  /*
   *
   * MEDIA QUERIES
@@ -283,5 +305,11 @@ div.jumbotron {
 @media (min-width: 576px) {
   div.jumbotron {
     padding: 3rem 6rem;
+  }
+}
+
+@media (max-width: 660px) {
+  body {
+    background: pink
   }
 }

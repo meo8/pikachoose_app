@@ -16,6 +16,8 @@ const FavoriteIndex = (props) => {
 
               <div className="film-info">
                 <p>{favorite.overview}</p>
+                <hr className="my-2" />
+                <p>Rating: {favorite.vote_average}/10</p>
                 <p>Realeased on: {favorite.release_date}</p>
                 <p>Comment: {favorite.comment}</p>
               </div>

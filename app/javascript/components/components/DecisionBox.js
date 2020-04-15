@@ -49,7 +49,7 @@ class DecisionBox extends Component {
     const { filmDecision, logged_in, addFavorite } = this.props
     return (
       <>
-        <Jumbotron>
+        <Jumbotron id="the-decision">
           <h1 className="display-4">{filmDecision.title}</h1>
           <p className="lead">{filmDecision.overview}</p>
           <hr className="my-2" />
@@ -66,7 +66,6 @@ class DecisionBox extends Component {
           }
         </Jumbotron>
         <img src={Pikachu3} className="pikachu2" />
-        <br/>
       </>
     );
   }

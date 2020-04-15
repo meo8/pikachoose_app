@@ -64,7 +64,7 @@ class HistoryShow extends Component {
       <>
         {history &&
           <Jumbotron>
-            <h1 className="display-3">{history.title}</h1>
+            <h1 className="display-4">{history.title}</h1>
             <p className="lead">{history.overview}</p>
             <p className="lead">Release date: {history.release_date}</p>
             <hr className="my-2" />
@@ -72,6 +72,7 @@ class HistoryShow extends Component {
             <Button
               className="se_btns"
               href="/user_favorites"
+              color="success"
               onClick={() => this.props.addFavorite(history)}>
               Add to favorites</Button>
 
