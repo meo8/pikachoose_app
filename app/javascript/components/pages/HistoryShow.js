@@ -91,22 +91,18 @@ class HistoryShow extends Component {
     return (
       <>
         {history &&
-          <Jumbotron>
-            <h1 className="display-3">{history.title}</h1>
-            <p className="lead">{history.overview}</p>
-            <p className="lead">Release date: {history.release_date}</p>
+        <>
+          <Jumbotron id="lead">
+            <h4 className="film-title">{history.title}</h4>
+            <p className="lead"><small>{history.overview}</small></p>
             <hr className="my-2" />
-
-            <Button
-              className="se_btns"
-              href="/user_favorites"
-              onClick={() => this.addFavorite(history)}>
-              Add to favorites</Button>
-
-            <Button
-              className="se_btns"
-              href="/user_history">Back to history</Button>
+            <p className="lead"><small>Released on: {history.release_date}</small></p>
           </Jumbotron>
+          <Button id="addmargin" href="/user_favorites"
+          onClick={() => this.addFavorite(history)}>
+          Add to Favorites</Button>
+          <Button id="addmargin" href="/user_history">Back to History</Button>
+          </>
         }
       </>
     )

@@ -22,12 +22,16 @@ body {
   background-color: #FAD61D;
   margin: auto;
   text-align: center;
+  font-family:  "noto sans"
 
 }
 
 #landingpage {
   margin: 200px;
+}
 
+#genrepage {
+  margin-top: 200px;
 }
 
  /*
@@ -42,9 +46,9 @@ button.navbar-toggler {
 }
 
 #attention-getter {
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   text-align: center;
-  // margin-top: 10rem;
+  margin-bottom: 1rem;
   line-height: 50px;
   letter-spacing: 1px;
 }
@@ -85,12 +89,12 @@ div#watch-btn {
 }
 
 div#watch-btn button {
-  background: #FAD61D;
-  color: black;
+  // background: #FAD61D;
+  // color: black;
   width: 210px;
   height: 70px;
-  font-size: 1.75em;
-  border: 1px solid black;
+  font-size: 1.35em;
+  // border: 1px solid black;
 }
 
 div#watch-btn button:hover {
@@ -105,22 +109,28 @@ div#watch-btn button:hover {
 
 .genre-btn {
   min-height: 62px;
-  background: black;
-  border-radius: 100px;
+  // background: rgba($color: #000000, $alpha: 0);
+  // border-radius: 30px;
+  // color: #007BFF;
 }
 
 .genre-grid {
-  width: 100%;
+  width: 50%;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
   box-sizing: border-box;
-  padding: 25px;
-  padding-top:15%;
+  // padding: 25px;
+  // padding-top:15%;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fill, 125px)
 }
 
 .functional-btn {
-  background: #6c757d;
+  // background: rgba($color: #000000, $alpha: 0);
+  margin: 3px;
+
 }
 
 .functional-btn:hover {
@@ -216,6 +226,7 @@ img.card-img {
 
  .pikachu {
    width: 200px;
+   margin: 20px;
  }
 
  .pikachu2 {
@@ -227,18 +238,19 @@ margin:2px;
 float:left;
 }
 
-.se_btns{
-  margin:2px;
-}
+// .se_btns{
+//   margin:2px;
+// }
 
 .back_btn{
   margin:100px;
   padding:10px;
 }
 
-.go-back-button {
-  width: 50px;
+#addmargin {
+  margin: 10px;
 }
+
 
  /*
   *
@@ -269,7 +281,7 @@ float:left;
   */
 
 div.jumbotron {
-  margin: 7rem auto;
+  margin: 2rem auto;
   border-radius: 13rem;
   width: 50%;
 }

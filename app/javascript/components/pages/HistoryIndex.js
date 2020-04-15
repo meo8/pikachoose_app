@@ -10,13 +10,13 @@ const HistoryIndex = (props) => {
         {props.histories.map((history, index) => {
           return (
             // <Card  body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="decision-box" key={ index }>
-            <Jumbotron className="lead">
+            <Jumbotron className="lead" key={index}>
               <Link to={`/history/${history.id}`} >
                 <h4 className="film-title"> {history.title}</h4>
               </Link>
-              {/* <Button color="secondary">Button</Button> */}
-              <p>{history.overview}</p>
-              <p>Release date: {history.release_date}</p>
+              <p><small>{history.overview}</small></p>
+              <hr className="my-2" />
+              <p><small>Released on: {history.release_date}</small></p>
             </Jumbotron>
 
           )
