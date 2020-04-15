@@ -14,9 +14,9 @@
  *= require_self
  */
 
- $breakpoint-tablet: 768px;
+$breakpoint-tablet: 768px;
 
- @import 'bootstrap';
+@import 'bootstrap';
 
 body {
   background-color: #FAD61D;
@@ -117,6 +117,10 @@ div#watch-btn button:hover {
   border: none;
 }
 
+.btn-secondary:focus, .btn-secondary.focus {
+  background-color: black;
+}
+
  /*
   *
   * HistoryIndex Component
@@ -170,31 +174,25 @@ div.film-info p {
   width: 800px;
   margin: 50px auto 70px auto;
 }
-div#aboutpage p{
+
+div#aboutpage p {
   line-height: 2;
   letter-spacing: 1.5px;
 }
+
+#aboutimgs {
+  margin-bottom: 70px;
+}
+
 img.card-img {
   height: auto;
   display: flex;
 }
-#aboutimgs{
-margin-bottom:70px;
-}
+
 .linkedin-gihub-btn {
   padding: 10px;
   margin: 10px;
 }
-
- // .about_us_imgs{
- //   width: 150px;
- //   margin-left: 10px;
- //   float: left;
- // }
-
- // .text{
- //   text-align:center;
- // }
 
  /*
   *
@@ -202,22 +200,21 @@ margin-bottom:70px;
   *
   */
 
- .comment {
-   margin-top: 10px;
-   width: 400px;
-   height: 100px;
- }
+.comment {
+  margin-top: 10px;
+  width: 400px;
+  height: 100px;
+}
 
-
- .decision-box {
-   color: white;
-   background:#C57900;
-   margin: 20px;
-   padding: 20px;
-   border-radius: 30px;
-   display: inline-block;
-   width: 500px;
- }
+.decision-box {
+  color: white;
+  background:#C57900;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 30px;
+  display: inline-block;
+  width: 500px;
+}
 
  /*
   *
