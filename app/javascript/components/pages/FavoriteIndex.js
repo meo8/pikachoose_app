@@ -13,9 +13,9 @@ const FavoriteIndex = (props) => {
               <Link to={`/favorite/${favorite.id}`} ><h4 className="film-title"> {favorite.title}</h4></Link>
 
               <div className="film-info">
-                <p>Realease date: {favorite.release_date}</p>
-                <p>Summary: {favorite.overview}</p>
-                <p>Notes: {favorite.comment}</p>
+                <p>Realeased on: {favorite.release_date}</p>
+                <p>{favorite.overview}</p>
+                <p>Comment: {favorite.comment}</p>
               </div>
               </Jumbotron>
           )

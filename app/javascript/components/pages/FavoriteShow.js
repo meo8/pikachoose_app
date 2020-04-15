@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { useHistory } from 'react-router-dom';
-import {Button, Container} from 'reactstrap'
+import {Button, Jumbotron} from 'reactstrap'
 
 class FavoriteShow extends Component {
   constructor(props) {
@@ -87,15 +87,13 @@ class FavoriteShow extends Component {
           <br/>
           <br/>
           <br/>
-          <div>
-            <div className="decision-box">
-              <h4>{favorite.title}</h4>
-              <small><strong>Release date:</strong> {favorite.release_date}</small>
+            <Jumbotron className="lead">
+              <h4 className="film-title">{favorite.title}</h4>
+              <small> Released on {favorite.release_date}</small>
               <br/>
-              <small><strong>Summary:</strong>{favorite.overview}</small>
+              <small><strong></strong>{favorite.overview}</small>
               <br/>
-              <div className='comment'>
-                <small><strong>Comment:</strong></small>
+                <p>Comment:
                 {editable === true &&
                   <input type='text' ref={input => this.comment = input} defaultValue={favorite.comment}/>
                 }
@@ -103,18 +101,16 @@ class FavoriteShow extends Component {
                 { editable === false &&
                   <p>{favorite.comment}</p>
                 }
-                <Container>
-                <Button className="editdel_btns" color="warning" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit' : 'Edit'}</Button>
-                <Button className="editdel_btns" href="/user_favorites" color="warning" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
-                </Container>
-                <Button className="back_btn"  color="info" size="lg" block href="/user_favorites">Go Back To Favorites</Button>
-                
-              </div>
-            </div>
+                <Button color="warning" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit' : 'Edit'}</Button>
+                </p>
+                <Button  href="/user_favorites" color="warning" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
+                <br/>
+              </Jumbotron>
+              <Button id="go-back-button" className="se_btns" block href="/user_favorites">Back To Favorites</Button>
+
             <br/>
             <br/>
             <br/>
-          </div>
           <br/>
           <br/>
           <br/>
