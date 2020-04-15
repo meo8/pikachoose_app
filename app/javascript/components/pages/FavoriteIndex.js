@@ -15,9 +15,9 @@ const FavoriteIndex = (props) => {
               </Link>
 
               <div className="film-info">
+                <p>Realeased on: {favorite.release_date}</p>
                 <p>{favorite.overview}</p>
-                <p>Realease date: {favorite.release_date}</p>
-                <p>Notes: {favorite.comment}</p>
+                <p>Comment: {favorite.comment}</p>
               </div>
             </Jumbotron>
           )
