@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## PikaMovie App
 
-Things you may want to cover:
+## Setting up
+To create this project, we used:
+* Ruby 2.6.3p2
+* Rails 6.0.2.2
+* React
+* Devise
+* Jest/Enzyme
+* Rspec (rspec-rails 4.0.0)
 
-* Ruby version
+For you to use this project, you should run:
+* rails db:create
+* rails db:migrate
+* yarn
+* bundle
 
-* System dependencies
+To implement the tests, you should run:
+* yarn test (runs Jest)
+* rsepc spec (runs Rspec)
 
-* Configuration
+(For more info, go to http://heyakwon.com/project3_notes)
 
-* Database creation
+---
 
-* Database initialization
+## Important Links:
 
-* How to run the test suite
+* User Stories: https://docs.google.com/document/d/1Uet2t8wTUNYb2eNkNMNGTEYRkhobTtYTRsdjXU4WSRs/edit
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Deployment: http://pikamovie.herokuapp.com
