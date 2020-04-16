@@ -41,11 +41,12 @@ const About = (props) =>{
   ]
 
   return (
-    <>
-      <div id="aboutpage">
+    <div id="aboutpage">
+      <div id="aboutcontent">
         <h1>About the App </h1>
-        <p>Pikachoose is an app that tackles modern day decision fatigue by letting users quickly arrive at a decision.
-          Specifically, one that appears frequently in their daily lives, <br/>What To Watch?</p>
+        <p>PikaMovie is an app that tackles the modern day decision fatigue by allowing to users quickly arrive at a decision that we must make ever so often: <br/>What To Watch?</p>
+      </div>
+      <div id="aboutcontent">
         <h1>About the Team </h1>
         <p>We are four <strong>web developers</strong> who met at LEARN Academy in San Diego.
           We love to build humorous and creative solutions to everyday problems and all suffer from the decision fatigue to differing degrees.</p>
@@ -55,27 +56,28 @@ const About = (props) =>{
         <Row>
           {teamMembers.map((member, id) => {
             return (
-              <Col xs={4} md={3} key={id}>
+              <div key={id} id="cardcontainer">
                 <Card id="card">
                   <CardImg src={member.headshot}/>
-                  <CardBody>
+                  <CardBody id="aboutteamcard">
                     <CardTitle><h5><strong>{member.name}</strong></h5></CardTitle>
-                    <br/>
-                    <CardText>Favorite Movie: <br/> {member.movie}</CardText>
-                    <Button className="linkedin-gihub-btn" color="warning">
-                      <a href={member.linkedin} target="_blank">Linkedin</a>
-                    </Button>
-                    <Button className="linkedin-gihub-btn" color="warning">
-                      <a href={member.github} target="_blank">GitHub</a>
-                    </Button>
+                    <small>
+                      <CardText>Favorite Movie: <br/> {member.movie}</CardText>
+                      <Button className="linkedin-gihub-btn" color="warning">
+                        <a href={member.linkedin} target="_blank">Linkedin</a>
+                      </Button>
+                      <Button className="linkedin-gihub-btn" color="warning">
+                        <a href={member.github} target="_blank">GitHub</a>
+                      </Button>
+                    </small>
                   </CardBody>
                 </Card>
-              </Col>
+              </div>
             )
           })}
         </Row>
       </Container>
-    </>
+    </div>
   )
 }
 
