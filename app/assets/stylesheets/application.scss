@@ -44,6 +44,13 @@ body {
   display: flex;
 }
 
+
+#aboutpage {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+
 #show-page {
   margin-top: 170px;
 }
@@ -335,8 +342,8 @@ div.film-info p {
 }
 
  // About page
-#aboutpage {
-  width: 800px;
+#aboutcontent {
+  width: 70%;
   margin: 50px auto 70px auto;
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
@@ -350,9 +357,31 @@ div#aboutpage p {
   margin-bottom: 70px;
 }
 
-img.card-img {
-  height: auto;
+#aboutteamcard {
+  display:inline-block;
+}
+
+.row {
   display: flex;
+  margin: auto;
+  align-items: center;
+}
+
+#cardcontainer {
+  display:inline-block;
+}
+
+#card {
+  width: 200px;
+  display:inline-block;
+  margin: 20px;
+
+} 
+
+img.card-img {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
 }
 
 .linkedin-gihub-btn {
@@ -423,15 +452,16 @@ div#landing-page img.pikachu {
 
 // // 404 page image
 .errorimage {
-  width:100px;
-  height:10px;
-  margin-left:auto;
-  margin-right:auto;
+  width: 500px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
 }
 
 .errorimage img {
   width:100%;
-  height:auto
+  height:auto;
 }
 
 
@@ -464,8 +494,53 @@ div#landing-page img.pikachu {
   div.jumbotron {
     padding: 3rem;
   }
+  background-color: red;
+
 }
 
 @media (max-width: 660px) {
+  // About page
+  #aboutpage {
+    width: 80%;
+    font-size: 14px;
+  }
 
+  h1 {
+    font-size: 24px;
+  }
+
+  #aboutapp {
+    width: 80%;
+  }
+  #aboutcontent {
+    // width: 680px;
+    margin: 50px auto 70px auto;
+    // padding-bottom: 60px;
+  }
+  div#aboutpage p {
+    line-height: 2;
+    letter-spacing: 1.5px;
+  }
+  #aboutimgs {
+    margin-bottom: 70px;
+    width: 300px;
+    display: inline-block;
+
+  }
+  #aboutteamcard {
+    display:inline-block;
+  }
+  #cardcontainer {
+    display:inline-block;
+  }
+  #card {
+    width: 200px;
+    // position: sticky;
+    display:inline-block;
+  } 
+  img.card-img {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+  }
 }
