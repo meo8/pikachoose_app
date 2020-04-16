@@ -22,7 +22,8 @@ body {
   background-color: #FAD61D;
   margin: auto;
   text-align: center;
-  font-family:  "roboto"
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 17px;
 
 }
 
@@ -147,10 +148,15 @@ div#index-page-jumbotron {
 }
 
 .index-header {
-  text-align: center;
-  font-size: 2.75rem;
   margin: 40px;
   margin-bottom: 20px;
+  font-weight: bold;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  color: whitesmoke;
+  text-align: center;
+  text-shadow: 2px 2px 2px #7A7A7A,
+               2px 2px 2px rgba(206,89,55,0);
 }
 
  /*
@@ -293,8 +299,8 @@ div.film-info p {
 }
 
 div#aboutpage p {
-  line-height: 2;
-  letter-spacing: 1.5px;
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 #aboutimgs {
