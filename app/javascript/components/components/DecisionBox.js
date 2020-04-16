@@ -50,30 +50,35 @@ class DecisionBox extends Component {
   render() {
     const { filmDecision, logged_in, addFavorite } = this.props
     return (
-      <>
+      <main id="decision-main">
+        <p style={{color: "#28A745"}}>Pika-chosen! <img src={Pikachu3} className="pikachu3" /></p>
+
         <Jumbotron id="decision-page" >
-          <p style={{color: "#28A745"}}>Pika-chosen!</p>
-          <h4 className="film-title">{filmDecision.title}</h4>
-          <p className="my-2">{filmDecision.overview}</p>
-          <hr className="my-2" />
-          <p>Released on: {filmDecision.release_date}</p>
           <p>
             <img src={`http://image.tmdb.org/t/p/w185/${filmDecision.poster_path}`} />
           </p>
 
-          {logged_in &&
-            <p className="lead">
-              <Button
-                // className="fav-btn"
-                color="success"
-                href="/user_favorites"
-                onClick={() => addFavorite(filmDecision)}>Add to Favorite
-              </Button>
-            </p>
-          }
+          <section>
+            <h4 className="film-title">{filmDecision.title}</h4>
+            <p className="my-4 decision-summary">{filmDecision.overview}</p>
+            <hr className="my-2" />
+            <br />
+            <p>Released on: {filmDecision.release_date}</p>
+
+
+            {logged_in &&
+              <p className="lead">
+                <Button
+                  // className="fav-btn"
+                  color="success"
+                  href="/user_favorites"
+                  onClick={() => addFavorite(filmDecision)}>Add to Favorite
+                </Button>
+              </p>
+            }
+          </section>
         </Jumbotron>
-        {/* <img src={Pikachu3} className="pikachu2" /> */}
-      </>
+      </main>
     );
   }
 };

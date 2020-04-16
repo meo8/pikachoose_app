@@ -37,17 +37,11 @@ body {
 
 #decision-page {
   margin-top: 50px;
-  animation-name: stretch;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  animation-delay: 0.85s;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: none;
-  animation-play-state: running;
+  animation: stretch 1s ease-out 0.15s alternate 1 none running;
   margin: 2rem auto;
   border-radius: 2rem;
-  width: 90%
+  width: 70%;
+  display: flex;
 }
 
 #show-page {
@@ -101,7 +95,28 @@ nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-lin
  color: white;
 }
 
+/*
+ *
+ * DecisionBox Component
+ *
+ */
 
+.decision-summary {
+  text-align: left;
+}
+
+div#decision-page section {
+  padding: 0 2rem;
+}
+
+main#decision-main {
+  margin: 3rem;
+}
+
+main#decision-main > p {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px whitesmoke;
+}
 
 /*
  *
@@ -182,7 +197,7 @@ div#watch-btn button {
   animation-iteration-count: infinite;
   animation-fill-mode: none;
   animation-play-state: running;
-  // animation: stretch 1s ease-out 2s alternate infinite none running;
+  // animation: stretch 0.75s ease-out 0 alternate infinite none running;
 }
 
 div#watch-btn button:hover {
@@ -355,8 +370,13 @@ div#landing-page img.pikachu {
   margin-bottom: -35px;
 }
 
- .pikachu2 {
+.pikachu2 {
   width: 120px;
+}
+
+.pikachu3 {
+  width: 120px;
+  margin-left: 1rem;
 }
 
 //  buttons
@@ -442,7 +462,7 @@ div#landing-page img.pikachu {
 
 @media (min-width: 576px) {
   div.jumbotron {
-    padding: 3rem 6rem;
+    padding: 3rem;
   }
 }
 
