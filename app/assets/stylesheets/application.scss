@@ -298,6 +298,19 @@ div.jumbotron {
   width: 50%;
 }
 
+// // 404 page image
+.errorimage {
+  width:100px;
+  height:10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.errorimage img {
+  width:100%;
+  height:auto
+}
+
 #the-decision {
   animation-name: stretch;
   animation-duration: 0.75s;
@@ -321,6 +334,7 @@ div.jumbotron {
   }
 }
 
+// 
  /*
   *
   * MEDIA QUERIES

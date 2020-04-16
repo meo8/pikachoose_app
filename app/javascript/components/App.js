@@ -128,32 +128,33 @@ class App extends Component {
           sign_up_path={ sign_up_path }
           edit_acct_path={ edit_acct_path }
         />
-      <Switch>
-        <Route
-        path="/favorite/:id"
-        render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
-        />
-        <Route
-          path="/history/:id"
-          render={ props => <HistoryShow {...props} addFavorite={this.addFavorite} histories={ histories } />  }
-        />
-        <Route
-          path="/user_history"
-          render={ props => <HistoryIndex addFavorite={this.addFavorite} histories={ histories } /> }
-        />
-        <Route
-          path="/user_favorites"
-          render={ props => <FavoriteIndex favorites={ favorites } /> }
-        />
-        <Route path="/about" component={ About } />
-        <Route
+        
+        <Switch>
+          <Route
+            path="/favorite/:id"
+            render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
+          / >
+          <Route
+            path="/history/:id"
+            render={ props => <HistoryShow {...props} addFavorite={this.addFavorite} histories={ histories } />  }
+          />
+          <Route
+            path="/user_history"
+            render={ props => <HistoryIndex addFavorite={this.addFavorite} histories={ histories } /> }
+          />
+          <Route
+            path="/user_favorites"
+            render={ props => <FavoriteIndex favorites={ favorites } /> }
+          />
+          <Route path="/about" component={ About } />
+          <Route
           // remember to add "exact" for this route or else About page will also appear on the landing page
-          exact path="/"
-          render={ props => <LandingPage addFavorite={this.addFavorite} logged_in={logged_in} /> }
-        />
-        <Route exact path='/' component={LandingPage} />
-        <Route path="/404" component={NotFoundPage} />
-        <Redirect to="/404" />
+            exact path="/"
+            render={ props => <LandingPage addFavorite={this.addFavorite} logged_in={logged_in} /> }
+          />
+          <Route exact path='/' component={LandingPage} />
+          <Route path="/404" component={NotFoundPage} />
+          <Redirect to="/404" />
         </Switch>
       </Router>
     )
