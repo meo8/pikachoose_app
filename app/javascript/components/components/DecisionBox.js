@@ -56,6 +56,9 @@ class DecisionBox extends Component {
           <hr className="my-2" />
           <p>Rating: {filmDecision.vote_average}/10</p>
           <p>Release date: {filmDecision.release_date}</p>
+          <p>
+            <img src={`http://image.tmdb.org/t/p/w185/${filmDecision.poster_path}`} />
+          </p>
           {logged_in &&
             <p className="lead">
               <Button
