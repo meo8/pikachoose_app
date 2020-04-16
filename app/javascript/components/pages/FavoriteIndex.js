@@ -1,6 +1,7 @@
 import React from "react"
 import { Jumbotron, Button } from 'reactstrap';
 import { Link } from "react-router-dom"
+import Pikachu from './pikachu4.gif'
 
 const FavoriteIndex = (props) => {
   return (
@@ -17,7 +18,7 @@ const FavoriteIndex = (props) => {
                 <small>{favorite.overview}</small>
                 <br/>
                 <hr className="my-2" />
-                <small>Realeased on: {favorite.release_date}</small>
+                <small>Released on: {favorite.release_date}</small>
                 <br/>
                 <small><strong>Comment: {favorite.comment}</strong></small>
               </div>
@@ -25,6 +26,12 @@ const FavoriteIndex = (props) => {
           )
         })}
       </div>
+      {props.favorites===[] &&
+        <div id="showpage">
+          <img id="pikachu" src={Pikachu}></img>
+          <br/>
+          <p>You don't have any saved favorites yet!</p>
+        </div>}
     </>
   )
 }

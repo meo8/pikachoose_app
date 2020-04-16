@@ -82,11 +82,7 @@ class FavoriteShow extends Component {
     return (
       <>
       {favorite &&
-        <div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+        <div id="showpage">
           <Jumbotron className="lead">
             <h4 className="film-title">{favorite.title}</h4>
             <small><strong></strong>{favorite.overview}</small>
@@ -102,7 +98,6 @@ class FavoriteShow extends Component {
                 <span> {favorite.comment}</span>
               }
               </strong></small>
-              <br/>
             </Jumbotron>
             <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
             <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>

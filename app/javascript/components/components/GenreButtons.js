@@ -35,7 +35,6 @@ class GenreButtons extends Component {
     // removes the synthetic event from the pool and allow references to the event to be retained by user code
     e.persist()
     const apiKey = process.env.REACT_APP_KEY
-    console.log("apiKey: ", apiKey)
     const { selectedGenres } = this.state
     const { setDisplayToDecisionBox } = this.props
 

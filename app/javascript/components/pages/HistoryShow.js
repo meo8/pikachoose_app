@@ -63,8 +63,7 @@ class HistoryShow extends Component {
     return (
       <>
         {history &&
-        <div>
-          <div id="addmargin"></div>
+        <div id="showpage">
           <Jumbotron id="lead">
             <h4 className="film-title">{history.title}</h4>
             <p className="lead"><small>{history.overview}</small></p>
