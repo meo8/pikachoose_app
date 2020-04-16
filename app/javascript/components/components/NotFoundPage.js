@@ -5,10 +5,11 @@ import PageNotFound from './PageNotFound.png';
 class NotFoundPage extends React.Component{
     render(){
         return <div>
-            <div className="errorimage"> <img src={PageNotFound}  /> </div>
+            <div className="errorimage"> 
+            <img src={PageNotFound}  /> </div>
             <h1> 404 - error </h1>
             <p style={{textAlign:"center"}}>
-              <Link to="/">Go to Home </Link>
+            <Link to="/">Go to Home </Link>
             </p>
           </div>;
     }
