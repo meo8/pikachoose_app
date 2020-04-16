@@ -22,5 +22,5 @@ it('HistoryShow renders one history', () => {
 it('renders comments', () => {
   const historiesArr = [{decision:"Fight Club", comment:"great movie", id:1}, {decision: "Breakfast Club", comment:"i havent watched yet", id:2}]
   const component = mount(<HistoryShow histories={historiesArr} match={{params: {id:1} }}/>)
-  expect(component.find('.comment')).toHaveLength(1)
+  expect(component.find('.comment')).toHaveLength(0)
 })

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -85,7 +85,10 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -102,6 +105,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,29 +120,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react"
-import { ListGroup } from "reactstrap"
+import { Jumbotron, Button } from 'reactstrap';
 import { Link } from "react-router-dom"
 &nbsp;
 const HistoryIndex = (props) =&gt; {
   return (
     &lt;&gt;
-      &lt;div&gt;
-        &lt;h3 className="history-header"&gt;History&lt;/h3&gt;
+      &lt;h3 className="history-header"&gt;My History&lt;/h3&gt;
+      &lt;p className="lead"&gt;Your previous 10 searches&lt;/p&gt;
         {props.histories.map((history, index) =&gt; {
           return (
-            &lt;ListGroup className="decision-box" key={ index }&gt;
-              &lt;Link to={`/history/${history.id}`} &gt;&lt;h4 className="film-title"&gt; {history.title}&lt;/h4&gt;&lt;/Link&gt;
-&nbsp;
-              &lt;div className="film-info"&gt;
-                {/* &lt;small&gt;favorited?: {history.is_favorite }  &lt;/small&gt; */}
-                &lt;p&gt;Realease date: {history.release_date}&lt;/p&gt;
-                &lt;p&gt;Summary: {history.overview}&lt;/p&gt;
-                &lt;p&gt;Notes: {history.comment}&lt;/p&gt;
-              &lt;/div&gt;
-            &lt;/ListGroup&gt;
+            &lt;Jumbotron className="lead" key={index}&gt;
+              &lt;Link to={`/history/${history.id}`} &gt;
+                &lt;h4 className="film-title"&gt; {history.title}&lt;/h4&gt;
+              &lt;/Link&gt;
+              &lt;Button
+                className="se_btns"
+                href="/user_favorites"
+                color="success"
+                onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.addFavorite(history)}</span>&gt;
+                Add to favorites&lt;/Button&gt;
+              &lt;p&gt;&lt;small&gt;{history.overview}&lt;/small&gt;&lt;/p&gt;
+              &lt;hr className="my-2" /&gt;
+              &lt;p&gt;&lt;small&gt;Released on: {history.release_date}&lt;/small&gt;&lt;/p&gt;
+            &lt;/Jumbotron&gt;
           )
         })}
-      &lt;/div&gt;
     &lt;/&gt;
   )
 }
@@ -148,7 +157,7 @@ export default HistoryIndex
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Apr 14 2020 10:16:43 GMT-0700 (Pacific Daylight Time)
+                at Thu Apr 16 2020 16:28:15 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

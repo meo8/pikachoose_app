@@ -36,6 +36,14 @@ body {
 
 #decisionpage {
   margin-top: 150px;
+  animation-name: stretch;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }
 
 #showpage {
@@ -49,6 +57,27 @@ body {
 }
 
 
+.badge-secondary {
+  font-size: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: indianred;
+  border-radius: 100%;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  padding: 0.8em 0.4em;
+}
+
+p.poster-image {
+  position: relative;
+  margin: 10px;
+}
+
+p.film-overview {
+  text-align: left;
+  padding-left: 11px;
+}
  /*
   *
   * Header Component
@@ -142,7 +171,6 @@ div#watch-btn button:hover {
 .functional-btn {
   // background: rgba($color: #000000, $alpha: 0);
   margin: 3px;
-
 }
 
 .functional-btn:hover {
@@ -209,6 +237,8 @@ div.film-info p {
   margin: 0;
 }
 
+
+
 .film-title {
   font-size: 1.5rem;
   text-align: center;
@@ -224,6 +254,10 @@ div.film-info p {
   text-align: center;
   font-size: 2.75rem;
   margin: 40px;
+}
+
+div.jumbotron-flex {
+  display: flex;
 }
 
  // About page
@@ -251,6 +285,10 @@ img.card-img {
   margin: 10px;
 }
 
+.pikachu {
+  width: 200px;
+  margin: 20px;
+}
 
  .pikachu {
    width: 170px;
@@ -260,10 +298,11 @@ img.card-img {
  .pikachu2 {
   width: 120px;
 }
+
 //  buttons
-.editdel_btns{
-margin:2px;
-float:left;
+.editdel_btns {
+  margin: 2px;
+  float: left;
 }
 
 // .se_btns{
@@ -316,16 +355,19 @@ div.jumbotron {
   // box-shadow: 2px 3px 2px 0px grey;
 }
 
-#the-decision {
-  animation-name: stretch;
-  animation-duration: 0.75s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: none;
-  animation-play-state: running;
+// // 404 page image
+.errorimage {
+  width:100px;
+  height:10px;
+  margin-left:auto;
+  margin-right:auto;
 }
+
+.errorimage img {
+  width:100%;
+  height:auto
+}
+
 
 @keyframes stretch {
   0% {
@@ -339,6 +381,7 @@ div.jumbotron {
   }
 }
 
+// 
  /*
   *
   * MEDIA QUERIES
@@ -358,7 +401,5 @@ div.jumbotron {
 }
 
 @media (max-width: 660px) {
-  body {
-    background: pink
-  }
+
 }

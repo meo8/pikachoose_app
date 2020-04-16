@@ -49,7 +49,7 @@ class GenreButtons extends Component {
     .then((films) => {
       let randomNumber = Math.floor(Math.random() * films.results.length);
       let randomFilm = films.results[randomNumber]
-
+      console.log(randomFilm)
       if (selectedGenres.length !== 0 && e.target.value === "Submit") {
         setDisplayToDecisionBox(randomFilm)
       } else if (e.target.value === "Surprise Me") {
@@ -134,7 +134,6 @@ class GenreButtons extends Component {
             className="genre-btn functional-btn"
             color="info"
             onClick={this.generateDecision}>Submit</Button>
-
 
         <div id="genre-page">
           <img src={Pikachu2} className="pikachu"/>

@@ -48,7 +48,7 @@ class FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorite).permit(:comment, :film_id, :title, :overview, :vote_average, :release_date)
+    params.require(:favorite).permit(:comment, :film_id, :title, :overview, :vote_average, :release_date, :poster_path, :backdrop_path)
   end
 
   def set_favorite

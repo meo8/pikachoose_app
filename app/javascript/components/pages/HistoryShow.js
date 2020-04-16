@@ -58,6 +58,7 @@ class HistoryShow extends Component {
   render() {
     // let { editable } = this.state;
     const { id } = this.props.match.params
+    const { addFavorite } = this.props
     const history = this.props.histories.find((v) => v.id === parseInt(id))
 
     return (
@@ -71,7 +72,7 @@ class HistoryShow extends Component {
             <p className="lead"><small>Released on: {history.release_date}</small></p>
           </Jumbotron>
           <Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"
-          onClick={() => this.addFavorite(history)}>
+          onClick={() => addFavorite(history)}>
           Add to Favorites</Button>
           <Button className="fav-btn" id="addmargin" href="/user_history">Back to History</Button>
       </div>
