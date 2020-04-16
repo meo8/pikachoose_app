@@ -118,23 +118,24 @@ class GenreButtons extends Component {
             </Button>
           )
         })}
-        </div>
+             <Button
+                value="Clear"
+                className="genre-btn functional-btn"
+                color="danger"
+                onClick={this.resetUserSelection}>Clear</Button>
+          </div>
 
           <Button
-            value="Clear"
+            value="Surprise Me"
+            color="warning"
             className="genre-btn functional-btn"
-            color="info"
-            onClick={this.resetUserSelection}>Clear</Button>
+            onClick={this.generateDecision}>Surprise Me</Button>
           <Button
             value="Submit"
             className="genre-btn functional-btn"
             color="info"
             onClick={this.generateDecision}>Submit</Button>
-          <Button
-            value="Surprise Me"
-            color="info"
-            className="genre-btn functional-btn"
-            onClick={this.generateDecision}>Surprise Me</Button>
+
 
         <div id="genre-page">
           <img src={Pikachu2} className="pikachu"/>

@@ -49,7 +49,7 @@ class DecisionBox extends Component {
     const { filmDecision, logged_in, addFavorite } = this.props
     return (
       <>
-        <Jumbotron>
+        <Jumbotron id="decisionpage">
           <p style={{color: "#28A745"}}>Pika-chosen!</p>
           <h4 className="film-title">{filmDecision.title}</h4>
           <p className="my-2">{filmDecision.overview}</p>
@@ -59,7 +59,7 @@ class DecisionBox extends Component {
           {logged_in &&
             <p className="lead">
               <Button
-                className="fav-btn"
+                // className="fav-btn"
                 color="success"
                 href="/user_favorites"
                 onClick={() => addFavorite(filmDecision)}>Add to Favorite
