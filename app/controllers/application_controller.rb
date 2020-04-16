@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
     #before devise action- store location before user signs in
     before_action :store_user_location!, if: :storable_location?
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
+    # skip_before_action :authenticate_user!, only: [:new, :create]
     skip_before_action :verify_authenticity_token
     
     private
@@ -14,4 +15,8 @@ class ApplicationController < ActionController::Base
       # :user is the scope we are authenticating
       store_location_for(:user, request.fullpath)
     end
+
+    def after_sign_in_path_for(user)
+      "/"
+   end
 end

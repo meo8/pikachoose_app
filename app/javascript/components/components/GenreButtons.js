@@ -135,9 +135,9 @@ class GenreButtons extends Component {
             color="info"
             onClick={this.generateDecision}>Submit</Button>
 
-        <div id="genre-page">
+        {/* <div id="genre-page">
           <img src={Pikachu2} className="pikachu"/>
-        </div>
+        </div> */}
       </div>
     )
   }

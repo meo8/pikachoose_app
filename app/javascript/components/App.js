@@ -155,6 +155,7 @@ class App extends Component {
             render={ props => <LandingPage addFavorite={this.addFavorite} logged_in={logged_in} /> }
           />
           <Route exact path='/' component={LandingPage} />
+          <Route exact path='/home' component={LandingPage} />
           <Route path="/404" component={NotFoundPage} />
           <Redirect to="/404" />
         </Switch>

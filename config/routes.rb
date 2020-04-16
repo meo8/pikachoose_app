@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # home#index below replaces <%= yield %> in application.html.erb
   get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
   root to: 'home#index'
+  get '/favorites' => "home#index", :as => :user_root
 end
