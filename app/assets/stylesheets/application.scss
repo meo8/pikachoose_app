@@ -24,7 +24,6 @@ body {
   text-align: center;
   font-family: Roboto;
   font-size: 17px;
-
 }
 
 #landing-page {
@@ -156,7 +155,7 @@ p.film-overview {
 
 div#index-page {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-flow: row wrap;
   width: 80%;
   margin: 50px auto;
@@ -270,6 +269,17 @@ div#genre-page {
   margin: 4.5rem;
 }
 
+div#genre-page h5 {
+  width: 38%;
+  padding: 1rem;
+  margin: 20px auto;
+  font-size: 1.75em;
+  color: dimgray;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px 1px grey;
+  border-radius: 1rem;
+}
+
 div#genre-page .pikachu {
   width: 200px;
   animation: nudge 5s linear 1;
@@ -376,7 +386,7 @@ div#aboutpage p {
   display:inline-block;
   margin: 20px;
 
-} 
+}
 
 img.card-img {
   height: 200px;
@@ -537,7 +547,7 @@ div#landing-page img.pikachu {
     width: 200px;
     // position: sticky;
     display:inline-block;
-  } 
+  }
   img.card-img {
     height: 200px;
     width: 200px;
