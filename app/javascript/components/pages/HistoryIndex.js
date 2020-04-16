@@ -13,15 +13,15 @@ const HistoryIndex = (props) => {
               <Link to={`/history/${history.id}`} >
                 <h4 className="film-title"> {history.title}</h4>
               </Link>
-              <Button
-                className="se_btns"
-                href="/user_favorites"
-                color="success"
-                onClick={() => props.addFavorite(history)}>
-                Add to favorites</Button>
               <p><small>{history.overview}</small></p>
               <hr className="my-2" />
               <p><small>Released on: {history.release_date}</small></p>
+              <Button
+                // className="fav-btn"
+                href="/user_favorites"
+                color="success"
+                onClick={() => props.addFavorite(history)}>
+                Add to Favorites</Button>
             </Jumbotron>
           )
         })}

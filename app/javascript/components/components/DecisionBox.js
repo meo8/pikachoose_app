@@ -54,11 +54,12 @@ class DecisionBox extends Component {
           <h4 className="film-title">{filmDecision.title}</h4>
           <p className="my-2">{filmDecision.overview}</p>
           <hr className="my-2" />
-          <p>Rating: {filmDecision.vote_average}/10</p>
-          <p>Release date: {filmDecision.release_date}</p>
+          <p>Released on: {filmDecision.release_date}</p>
+          {/* <p>Rating: {filmDecision.vote_average}/10</p> */}
           {logged_in &&
             <p className="lead">
               <Button
+                className="fav-btn"
                 color="success"
                 href="/user_favorites"
                 onClick={() => addFavorite(filmDecision)}>Add to Favorite

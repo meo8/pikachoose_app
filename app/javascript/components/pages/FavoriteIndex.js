@@ -19,7 +19,7 @@ const FavoriteIndex = (props) => {
                 <hr className="my-2" />
                 <small>Realeased on: {favorite.release_date}</small>
                 <br/>
-                <small>Comment: {favorite.comment}</small>
+                <small><strong>Comment: {favorite.comment}</strong></small>
               </div>
             </Jumbotron>
           )

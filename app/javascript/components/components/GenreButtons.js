@@ -104,7 +104,7 @@ class GenreButtons extends Component {
 
     return (
       <div id="genrepage">
-        <h5 className="lead">What genre would you like?</h5>
+        <h5 className="lead">What genre(s) would you like?</h5>
         <div className="genre-grid">
         {genreList.map(genre => {
           return (
@@ -137,9 +137,7 @@ class GenreButtons extends Component {
             onClick={this.generateDecision}>Surprise Me</Button>
 
         <div id="genre-page">
-          <p>Choose genres (optional)</p>
           <img src={Pikachu2} className="pikachu"/>
-
         </div>
       </div>
     )

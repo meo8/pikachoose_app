@@ -34,6 +34,13 @@ body {
   margin-top: 200px;
 }
 
+// Favorite Button
+.fav-btn {
+  border: 1px solid black;
+  box-shadow: 2px 3px 2px 0px grey;
+}
+
+
  /*
   *
   * Header Component
@@ -87,8 +94,8 @@ div#watch-btn button {
   width: 210px;
   height: 70px;
   font-size: 1.35em;
-  border: 1px solid black;
   margin-top: 1rem;
+  border: 1px solid black;
   box-shadow: 2px 3px 2px 0px grey;
 }
 
@@ -107,6 +114,8 @@ div#watch-btn button:hover {
   // background: rgba($color: #000000, $alpha: 0);
   // border-radius: 30px;
   // color: #007BFF;
+  border: 1px solid black;
+  box-shadow: 2px 3px 2px 0px grey;
 }
 
 .genre-grid {
@@ -142,7 +151,7 @@ div#genre-page {
 }
 
 div#genre-page .pikachu {
-  width: 265px;
+  width: 200px;
   animation: nudge 5s linear 1;
 }
 
@@ -193,8 +202,9 @@ div.film-info p {
 }
 
 .film-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
+  margin: 4px;
 }
  // Information about the film in div after the film title
 .film-info {
@@ -235,7 +245,7 @@ img.card-img {
 
 
  .pikachu {
-   width: 200px;
+   width: 170px;
    margin: 20px;
  }
 
@@ -294,6 +304,8 @@ div.jumbotron {
   margin: 2rem auto;
   border-radius: 13rem;
   width: 50%;
+  // border: 1px solid black;
+  // box-shadow: 2px 3px 2px 0px grey;
 }
 
 #the-decision {
