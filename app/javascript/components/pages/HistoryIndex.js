@@ -25,17 +25,17 @@ const HistoryIndex = (props) => {
                 </p>
 
                 <hr className="my-2" />
-                
+           
                 <p>
                   <small>Released on: {history.release_date}</small>
                 </p>
 
                 <Button
-                  className="se_btns"
+                  className="fav-btn"
                   href="/user_favorites"
                   color="success"
                   onClick={() => props.addFavorite(history)}>
-                  Add to favorites</Button>
+                  Add to Favorites</Button>
               </div>
             </Jumbotron>
           )

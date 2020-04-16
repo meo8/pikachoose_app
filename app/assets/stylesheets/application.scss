@@ -22,7 +22,7 @@ body {
   background-color: #FAD61D;
   margin: auto;
   text-align: center;
-  font-family:  "noto sans"
+  font-family:  "roboto"
 
 }
 
@@ -31,8 +31,31 @@ body {
 }
 
 #genrepage {
-  margin-top: 200px;
+  margin-top: 100px;
 }
+
+#decisionpage {
+  margin-top: 150px;
+  animation-name: stretch;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+#showpage {
+  margin-top: 170px;
+}
+
+// Favorite Button
+.fav-btn {
+  border: 1px solid black;
+  box-shadow: 2px 3px 2px 0px grey;
+}
+
 
 .badge-secondary {
   font-size: 15px;
@@ -55,7 +78,6 @@ p.film-overview {
   text-align: left;
   padding-left: 11px;
 }
-
  /*
   *
   * Header Component
@@ -109,8 +131,8 @@ div#watch-btn button {
   width: 210px;
   height: 70px;
   font-size: 1.35em;
-  border: 1px solid black;
   margin-top: 1rem;
+  border: 1px solid black;
   box-shadow: 2px 3px 2px 0px grey;
 }
 
@@ -129,10 +151,12 @@ div#watch-btn button:hover {
   // background: rgba($color: #000000, $alpha: 0);
   // border-radius: 30px;
   // color: #007BFF;
+  border: 1px solid black;
+  box-shadow: 2px 3px 2px 0px grey;
 }
 
 .genre-grid {
-  width: 50%;
+  width: 540px;
   margin: auto;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -163,7 +187,7 @@ div#genre-page {
 }
 
 div#genre-page .pikachu {
-  width: 265px;
+  width: 200px;
   animation: nudge 5s linear 1;
 }
 
@@ -216,8 +240,9 @@ div.film-info p {
 
 
 .film-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
+  margin: 4px;
 }
  // Information about the film in div after the film title
 .film-info {
@@ -265,9 +290,15 @@ img.card-img {
   margin: 20px;
 }
 
-.pikachu2 {
+ .pikachu {
+   width: 170px;
+   margin: 20px;
+ }
+
+ .pikachu2 {
   width: 120px;
 }
+
 //  buttons
 .editdel_btns {
   margin: 2px;
@@ -320,6 +351,8 @@ div.jumbotron {
   margin: 2rem auto;
   border-radius: 13rem;
   width: 50%;
+  // border: 1px solid black;
+  // box-shadow: 2px 3px 2px 0px grey;
 }
 
 // // 404 page image
@@ -335,16 +368,6 @@ div.jumbotron {
   height:auto
 }
 
-#the-decision {
-  animation-name: stretch;
-  animation-duration: 0.75s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: none;
-  animation-play-state: running;
-}
 
 @keyframes stretch {
   0% {

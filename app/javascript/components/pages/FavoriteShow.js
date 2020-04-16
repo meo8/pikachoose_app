@@ -82,11 +82,7 @@ class FavoriteShow extends Component {
     return (
       <>
       {favorite &&
-        <div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+        <div id="showpage">
           <Jumbotron className="lead">
             <h4 className="film-title">{favorite.title}</h4>
             <small><strong></strong>{favorite.overview}</small>
@@ -94,19 +90,18 @@ class FavoriteShow extends Component {
             <hr className="my-2" />
             <small> Released on {favorite.release_date}</small>
             <br/>
-              <small>Comment: 
+              <small><strong>Comment: 
               {editable === true &&
-                <input type='text' ref={input => this.comment = input} defaultValue={favorite.comment}/>
+                <input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/>
               }
               { editable === false &&
-                <span>{favorite.comment}</span>
+                <span> {favorite.comment}</span>
               }
-              </small>
-              <br/>
-              <Button color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
+              </strong></small>
             </Jumbotron>
-            <Button id="addmargin" href="/user_favorites" color="danger" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
-            <Button id="addmargin" href="/user_favorites">Back To Favorites</Button>
+            <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
+            <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
+            <Button className="fav-btn" id="addmargin" href="/user_favorites">Back To Favorites</Button>
             <br/>
             <br/>
             <br/>
