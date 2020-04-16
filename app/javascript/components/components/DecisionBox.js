@@ -51,7 +51,7 @@ class DecisionBox extends Component {
     const { filmDecision, logged_in, addFavorite } = this.props
     return (
       <>
-        <Jumbotron id="decisionpage" >
+        <Jumbotron id="decision-page" >
           <p style={{color: "#28A745"}}>Pika-chosen!</p>
           <h4 className="film-title">{filmDecision.title}</h4>
           <p className="my-2">{filmDecision.overview}</p>

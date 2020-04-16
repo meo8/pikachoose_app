@@ -102,7 +102,7 @@ class GenreButtons extends Component {
     const { genreList, selectedGenres } = this.state
 
     return (
-      <div id="genrepage">
+      <div id="genre-page">
         <h5 className="lead">What genre(s) would you like?</h5>
         <div className="genre-grid">
         {genreList.map(genre => {

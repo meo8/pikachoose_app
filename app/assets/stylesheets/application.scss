@@ -26,15 +26,15 @@ body {
 
 }
 
-#landingpage {
+#landing-page {
   margin: 200px auto;
 }
 
-#genrepage {
+#genre-page {
   margin-top: 100px;
 }
 
-#decisionpage {
+#decision-page {
   margin-top: 50px;
   animation-name: stretch;
   animation-duration: 0.75s;
@@ -44,9 +44,12 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: none;
   animation-play-state: running;
+  margin: 2rem auto;
+  border-radius: 2rem;
+  width: 90%
 }
 
-#showpage {
+#show-page {
   margin-top: 170px;
 }
 
@@ -56,67 +59,98 @@ body {
   box-shadow: 2px 3px 2px 0px grey;
 }
 
+/*
+ *
+ * Header Component
+ *
+ */
+
+// nav bar
+button.navbar-toggler {
+ background: white;
+}
+
+#attention-getter {
+ font-size: 1.2rem;
+ text-align: center;
+ margin-bottom: 1rem;
+ line-height: 50px;
+ letter-spacing: 1px;
+}
+
+// nav bar
+nav.bg-light {
+ background: black !important;
+}
+// nav links
+nav.navbar-light .navbar-nav .nav-link {
+ color: white;
+}
+// nav links
+nav.navbar-light .navbar-brand {
+ color: white;
+}
+
+// Account button
+nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+ color: white !important;
+}
+// Account button
+nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+ color: white;
+}
+
+
+
+/*
+ *
+ * History and Favorite Index Component
+ *
+ */
 
 .badge-secondary {
-  font-size: 15px;
-  width: 40px;
-  height: 40px;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
   background-color: indianred;
   border-radius: 100%;
   position: absolute;
-  top: -15px;
-  left: -15px;
-  padding: 0.8em 0.4em;
+  top: -58px;
+  left: -30px;
+  padding: 0.9em 0.5em;
 }
 
 p.poster-image {
   position: relative;
   margin: 10px;
+  margin-bottom: 20px;
 }
 
 p.film-overview {
   text-align: left;
   padding-left: 11px;
 }
- /*
-  *
-  * Header Component
-  *
-  */
 
-// nav bar
-button.navbar-toggler {
-  background: white;
+div#index-page {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  width: 80%;
+  margin: 50px auto;
 }
 
-#attention-getter {
-  font-size: 1.2rem;
+div#index-page-jumbotron {
+  border-radius: 1rem;
+  width: 285px;
+  margin: 1rem;
+  padding: 2rem 0 1.4rem 0;
+}
+
+.index-header {
   text-align: center;
-  margin-bottom: 1rem;
-  line-height: 50px;
-  letter-spacing: 1px;
-}
-
- // nav bar
-nav.bg-light {
-  background: black !important;
- }
- // nav links
-nav.navbar-light .navbar-nav .nav-link {
-  color: white;
- }
- // nav links
-nav.navbar-light .navbar-brand {
-  color: white;
-}
-
-// Account button
-nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
-  color: white !important;
- }
-// Account button
-nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: white;
+  font-size: 2.75rem;
+  margin: 40px;
+  margin-bottom: 20px;
 }
 
  /*
@@ -191,20 +225,6 @@ div#genre-page .pikachu {
   animation: nudge 5s linear 1;
 }
 
-@keyframes nudge {
-  0%, 100% {
-    transform: translate(-1100px, 0);
-  }
-
-  // 50% {
-  //   transform: translate(1100px, 0);
-  // }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
  /*
   *
   * HistoryIndex Component
@@ -220,6 +240,24 @@ ul.decision-box.list-group a {
 ul.decision-box.list-group a:hover {
   color: black;
 }
+
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(-1100px, 0);
+  }
+
+  // 50% {
+  //   transform: translate(1100px, 0);
+  // }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+
+
 
 div.history-box {
   display: flex;
@@ -237,8 +275,6 @@ div.film-info p {
   margin: 0;
 }
 
-
-
 .film-title {
   font-size: 1.5rem;
   text-align: center;
@@ -248,16 +284,6 @@ div.film-info p {
 .film-info {
   margin-top: 20px;
   margin-bottom: 0;
-}
-
-.history-header {
-  text-align: center;
-  font-size: 2.75rem;
-  margin: 40px;
-}
-
-div.jumbotron-flex {
-  display: flex;
 }
 
  // About page
@@ -341,20 +367,6 @@ img.card-img {
   width: 500px;
 }
 
- /*
-  *
-  * DecisionBox Component
-  *
-  */
-
-div.jumbotron {
-  margin: 2rem auto;
-  border-radius: 2rem;
-  width: 90%
-  // border: 1px solid black;
-  // box-shadow: 2px 3px 2px 0px grey;
-}
-
 // // 404 page image
 .errorimage {
   width:100px;
@@ -381,7 +393,7 @@ div.jumbotron {
   }
 }
 
-// 
+//
  /*
   *
   * MEDIA QUERIES

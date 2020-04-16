@@ -28,7 +28,7 @@ class LandingPage extends Component {
 
     if (display === null) {
       return (
-        <div id="landingpage">
+        <div id="landing-page">
           <img className="pikachu" src={Pikachu1}/>
           <br/>
           <h2 id="attention-getter">Bored and don't know what to watch? <br />We got your back.</h2> <br/>
