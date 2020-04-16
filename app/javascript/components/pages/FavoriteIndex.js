@@ -35,7 +35,7 @@ const FavoriteIndex = (props) => {
           )
         })}
       </div>
-      {props.favorites===[] &&
+      {props.favorites.length===0 &&
         <div id="showpage">
           <img id="pikachu" src={Pikachu}></img>
           <br/>
