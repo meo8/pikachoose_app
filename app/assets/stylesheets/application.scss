@@ -46,6 +46,12 @@ body {
   animation-play-state: running;
 }
 
+#aboutpage {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+
 #showpage {
   margin-top: 170px;
 }
@@ -261,9 +267,10 @@ div.jumbotron-flex {
 }
 
  // About page
-#aboutpage {
-  width: 800px;
+#aboutcontent {
+  width: 70%;
   margin: 50px auto 70px auto;
+  // padding-bottom: 60px;
 }
 
 div#aboutpage p {
@@ -275,9 +282,31 @@ div#aboutpage p {
   margin-bottom: 70px;
 }
 
-img.card-img {
-  height: auto;
+#aboutteamcard {
+  display:inline-block;
+}
+
+.row {
   display: flex;
+  margin: auto;
+  align-items: center;
+}
+
+#cardcontainer {
+  display:inline-block;
+}
+
+#card {
+  width: 200px;
+  display:inline-block;
+  margin: 20px;
+
+} 
+
+img.card-img {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
 }
 
 .linkedin-gihub-btn {
@@ -399,8 +428,53 @@ div.jumbotron {
   div.jumbotron {
     padding: 3rem 6rem;
   }
+  background-color: red;
+
 }
 
 @media (max-width: 660px) {
+  // About page
+  #aboutpage {
+    width: 80%;
+    font-size: 14px;
+  }
 
+  h1 {
+    font-size: 24px;
+  }
+
+  #aboutapp {
+    width: 80%;
+  }
+  #aboutcontent {
+    // width: 680px;
+    margin: 50px auto 70px auto;
+    // padding-bottom: 60px;
+  }
+  div#aboutpage p {
+    line-height: 2;
+    letter-spacing: 1.5px;
+  }
+  #aboutimgs {
+    margin-bottom: 70px;
+    width: 300px;
+    display: inline-block;
+
+  }
+  #aboutteamcard {
+    display:inline-block;
+  }
+  #cardcontainer {
+    display:inline-block;
+  }
+  #card {
+    width: 200px;
+    // position: sticky;
+    display:inline-block;
+  } 
+  img.card-img {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+  }
 }
