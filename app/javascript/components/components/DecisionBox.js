@@ -30,6 +30,8 @@ class DecisionBox extends Component {
       overview: filmDecision.overview,
       vote_average: filmDecision.vote_average,
       release_date: filmDecision.release_date,
+      poster_path: filmDecision.poster_path,
+      backdrop_path: filmDecision.backdrop_path,
       comment: "No comments yet"
     }
 

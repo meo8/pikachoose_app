@@ -89,6 +89,8 @@ class App extends Component {
       overview: film.overview,
       vote_average: film.vote_average,
       release_date: film.release_date,
+      poster_path: film.poster_path,
+      backdrop_path: film.backdrop_path,
       comment: "No comments yet"
     }
 
