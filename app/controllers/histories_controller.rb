@@ -48,7 +48,7 @@ class HistoriesController < ApplicationController
   private
 
   def history_params
-    params.require(:history).permit(:comment, :film_id, :title, :overview, :vote_average, :release_date)
+    params.require(:history).permit(:comment, :film_id, :title, :overview, :vote_average, :release_date, :poster_path, :backdrop_path)
   end
 
   def set_history

@@ -34,6 +34,28 @@ body {
   margin-top: 200px;
 }
 
+.badge-secondary {
+  font-size: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: indianred;
+  border-radius: 100%;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  padding: 0.8em 0.4em;
+}
+
+p.poster-image {
+  position: relative;
+  margin: 10px;
+}
+
+p.film-overview {
+  text-align: left;
+  padding-left: 11px;
+}
+
  /*
   *
   * Header Component
@@ -125,7 +147,6 @@ div#watch-btn button:hover {
 .functional-btn {
   // background: rgba($color: #000000, $alpha: 0);
   margin: 3px;
-
 }
 
 .functional-btn:hover {
@@ -210,6 +231,10 @@ div.film-info p {
   margin: 40px;
 }
 
+div.jumbotron-flex {
+  display: flex;
+}
+
  // About page
 #aboutpage {
   width: 800px;
@@ -235,19 +260,18 @@ img.card-img {
   margin: 10px;
 }
 
+.pikachu {
+  width: 200px;
+  margin: 20px;
+}
 
- .pikachu {
-   width: 200px;
-   margin: 20px;
- }
-
- .pikachu2 {
+.pikachu2 {
   width: 120px;
 }
 //  buttons
-.editdel_btns{
-margin:2px;
-float:left;
+.editdel_btns {
+  margin: 2px;
+  float: left;
 }
 
 // .se_btns{
@@ -354,7 +378,5 @@ div.jumbotron {
 }
 
 @media (max-width: 660px) {
-  body {
-    background: pink
-  }
+
 }
