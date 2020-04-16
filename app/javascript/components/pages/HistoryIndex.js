@@ -6,7 +6,7 @@ const HistoryIndex = (props) => {
   return (
     <>
       <h3 className="index-header">My History</h3>
-      <p className="lead">Your previous 10 searches</p>
+      <p className="lead history">Your previous 10 searches</p>
       <div id="index-page">
         {props.histories.map((history, index) => {
           return (

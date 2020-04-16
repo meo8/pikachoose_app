@@ -151,8 +151,7 @@ div#index-page-jumbotron {
   margin: 40px;
   margin-bottom: 20px;
   font-weight: bold;
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: whitesmoke;
   text-align: center;
   text-shadow: 2px 2px 2px #7A7A7A,
@@ -245,6 +244,10 @@ ul.decision-box.list-group a {
 
 ul.decision-box.list-group a:hover {
   color: black;
+}
+
+p.history {
+  text-shadow: 0px 0px whitesmoke;
 }
 
 @keyframes nudge {

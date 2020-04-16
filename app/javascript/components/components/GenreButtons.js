@@ -134,10 +134,6 @@ class GenreButtons extends Component {
             className="genre-btn functional-btn"
             color="info"
             onClick={this.generateDecision}>Submit</Button>
-
-        <div id="genre-page">
-          <img src={Pikachu2} className="pikachu"/>
-        </div>
       </div>
     )
   }
