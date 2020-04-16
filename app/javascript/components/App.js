@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom"
 import Header from "./components/Header"
 import HistoryIndex from "./pages/HistoryIndex.js"
 import HistoryShow from "./pages/HistoryShow.js"
@@ -7,6 +7,8 @@ import About from "./pages/About.js"
 import LandingPage from "./pages/LandingPage.js"
 import FavoriteIndex from "./pages/FavoriteIndex.js"
 import FavoriteShow from "./pages/FavoriteShow.js"
+import NotFoundPage from "./components/NotFoundPage.js"
+
 
 class App extends Component {
   constructor() {
@@ -104,6 +106,7 @@ class App extends Component {
 
     console.log("newFavorite:", JSON.stringify(newFavorite))
   }
+  
 
   render() {
     const {
@@ -117,6 +120,7 @@ class App extends Component {
 
     return (
       <Router>
+        
         <Header
           logged_in={ logged_in }
           sign_in_path={ sign_in_path }
@@ -124,29 +128,34 @@ class App extends Component {
           sign_up_path={ sign_up_path }
           edit_acct_path={ edit_acct_path }
         />
-
-        <Route
-        path="/favorite/:id"
-        render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
-        />
-        <Route
-          path="/history/:id"
-          render={ props => <HistoryShow {...props} addFavorite={this.addFavorite} histories={ histories } />  }
-        />
-        <Route
-          path="/user_history"
-          render={ props => <HistoryIndex addFavorite={this.addFavorite} histories={ histories } /> }
-        />
-        <Route
-          path="/user_favorites"
-          render={ props => <FavoriteIndex favorites={ favorites } /> }
-        />
-        <Route path="/about" component={ About } />
-        <Route
+        
+        <Switch>
+          <Route
+            path="/favorite/:id"
+            render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
+          / >
+          <Route
+            path="/history/:id"
+            render={ props => <HistoryShow {...props} addFavorite={this.addFavorite} histories={ histories } />  }
+          />
+          <Route
+            path="/user_history"
+            render={ props => <HistoryIndex addFavorite={this.addFavorite} histories={ histories } /> }
+          />
+          <Route
+            path="/user_favorites"
+            render={ props => <FavoriteIndex favorites={ favorites } /> }
+          />
+          <Route path="/about" component={ About } />
+          <Route
           // remember to add "exact" for this route or else About page will also appear on the landing page
-          exact path="/"
-          render={ props => <LandingPage addFavorite={this.addFavorite} logged_in={logged_in} /> }
-        />
+            exact path="/"
+            render={ props => <LandingPage addFavorite={this.addFavorite} logged_in={logged_in} /> }
+          />
+          <Route exact path='/' component={LandingPage} />
+          <Route path="/404" component={NotFoundPage} />
+          <Redirect to="/404" />
+        </Switch>
       </Router>
     )
   }
