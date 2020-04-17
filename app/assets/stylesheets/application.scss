@@ -137,9 +137,10 @@ main#decision-main > p {
   background-color: indianred;
   border-radius: 100%;
   position: absolute;
-  top: -58px;
-  left: -30px;
+  top: -40px;
+  left: -18px;
   padding: 0.9em 0.5em;
+  box-shadow: 4px 4px 0px 0px whitesmoke;
 }
 
 p.poster-image {
@@ -157,15 +158,15 @@ div#index-page {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  width: 80%;
+  width: 78%;
   margin: 50px auto;
 }
 
 div#index-page-jumbotron {
   border-radius: 1rem;
-  width: 285px;
+  width: 230px;
   margin: 1rem;
-  padding: 2rem 0 1.4rem 0;
+  padding: 1rem 0 1rem 0;
 }
 
 .index-header {
