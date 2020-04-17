@@ -11,14 +11,13 @@ const FavoriteIndex = (props) => {
         {props.favorites.map((favorite, index) => {
           return (
             <Jumbotron id="index-page-jumbotron" className="lead" key={index}>
-              <div>
                 <Link to={`/favorite/${favorite.id}`} >
                   <p className="poster-image">
                     <img src={`http://image.tmdb.org/t/p/w185/${favorite.poster_path}`}
                     />
 
                     <Badge color="secondary">
-                      { favorite.vote_average * 10 }%
+                      { favorite.vote_average * 10 }<span className="badge-percentage">%</span>
                     </Badge>
                   </p>
                 </Link>
@@ -29,7 +28,6 @@ const FavoriteIndex = (props) => {
                   color="success"
                   onClick={() => props.addFavorite(favorite)}>
                   Add to Favorites</Button>
-              </div>
             </Jumbotron>
           )
         })}
