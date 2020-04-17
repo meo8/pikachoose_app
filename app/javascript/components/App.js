@@ -118,8 +118,10 @@ class App extends Component {
         'Accept': 'application/json'
       }
     })
-    .then((response) => alert("successfully deleted"))
-    .then((messages) => {console.log("Delete response:", messages);});
+    // .then((response) => alert("successfully deleted"))
+    .then((response) => {
+      console.log(response)
+    })
   }
 
 
