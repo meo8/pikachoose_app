@@ -74,8 +74,8 @@ class HistoryShow extends Component {
 
           <Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"
           onClick={() => addFavorite(history)}>
-          Add to Favorites</Button>
-          
+          Add to Favorite</Button>
+
           <Button className="fav-btn" id="addmargin" href="/user_history">Back to History</Button>
       </div>
       }

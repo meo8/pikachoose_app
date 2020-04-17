@@ -9,7 +9,6 @@ import FavoriteIndex from "./pages/FavoriteIndex.js"
 import FavoriteShow from "./pages/FavoriteShow.js"
 import NotFoundPage from "./components/NotFoundPage.js"
 
-
 class App extends Component {
   constructor() {
     super()
@@ -108,7 +107,21 @@ class App extends Component {
 
     console.log("newFavorite:", JSON.stringify(newFavorite))
   }
-  
+
+  deleteFavorite = (favorite) => {
+    // fetch method gets specific favorite with the id in our back-end and UPDATES it
+    fetch(`/favorites/${ favorite.id }`,
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then((response) => alert("successfully deleted"))
+    .then((messages) => {console.log("Delete response:", messages);});
+  }
+
 
   render() {
     const {
@@ -122,7 +135,7 @@ class App extends Component {
 
     return (
       <Router>
-        
+
         <Header
           logged_in={ logged_in }
           sign_in_path={ sign_in_path }
@@ -130,11 +143,11 @@ class App extends Component {
           sign_up_path={ sign_up_path }
           edit_acct_path={ edit_acct_path }
         />
-        
+
         <Switch>
           <Route
             path="/favorite/:id"
-            render={ props => <FavoriteShow {...props} favorites={ favorites } />  }
+            render={ props => <FavoriteShow {...props} favorites={ favorites } deleteFavorite={this.deleteFavorite} />  }
           / >
           <Route
             path="/history/:id"
@@ -146,7 +159,7 @@ class App extends Component {
           />
           <Route
             path="/user_favorites"
-            render={ props => <FavoriteIndex favorites={ favorites } /> }
+            render={ props => <FavoriteIndex favorites={ favorites } deleteFavorite={this.deleteFavorite} /> }
           />
           <Route path="/about" component={ About } />
           <Route
