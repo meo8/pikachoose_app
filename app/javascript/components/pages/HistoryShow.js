@@ -69,7 +69,11 @@ class HistoryShow extends Component {
             <h4 className="film-title">{history.title}</h4>
             <p className="lead"><small>{history.overview}</small></p>
             <hr className="my-2" />
-            <p className="lead"><small>Released on: {history.release_date}</small></p>
+            <div className="lead">            
+              <small> Released on: {history.release_date}</small>
+              <br/>
+              <small>Original language: {history.original_language}</small>
+            </div>
           </Jumbotron>
 
           <Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"

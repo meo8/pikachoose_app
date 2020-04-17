@@ -62,7 +62,6 @@ class FavoriteShow extends Component {
     const { id } = this.props.match.params
     const favorite = this.props.favorites.find((v) => v.id === parseInt(id))
 
-    console.log(favorite)
 
     return (
       <>
@@ -73,16 +72,18 @@ class FavoriteShow extends Component {
             <small><strong></strong>{favorite.overview}</small>
             <br/>
             <hr className="my-2" />
-            <small> Released on {favorite.release_date}</small>
+            <small> Released on: {favorite.release_date}</small>
             <br/>
-              <small><strong>Comment:
+              <strong>Comment</strong>: 
               {editable === true &&
-                <input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/>
+                <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
               }
               { editable === false &&
-                <span> {favorite.comment}</span>
+                <span>
+                  <span><strong> {favorite.comment}</strong></span> <br/>
+                  <small>(last updated at {favorite.updated_at})</small>
+                </span>
               }
-              </strong></small>
             </Jumbotron>
 
             <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>

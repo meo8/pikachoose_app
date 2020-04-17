@@ -67,6 +67,7 @@ class App extends Component {
     })
     .then((histories) => {
       this.setState({histories: histories})
+      console.log("getHistories in App.js:", histories)
     })
   }
 
@@ -92,6 +93,7 @@ class App extends Component {
       release_date: film.release_date,
       poster_path: film.poster_path,
       backdrop_path: film.backdrop_path,
+      original_language: film.original_language,
       comment: "No comments yet"
     }
 
@@ -126,6 +128,7 @@ class App extends Component {
 
 
   render() {
+    
     const {
       logged_in,
       sign_in_path,
