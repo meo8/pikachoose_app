@@ -30,7 +30,7 @@ const Header = (props) => {
       <NavbarToggler onClick={ toggle } />
       <Collapse isOpen={ isOpen } navbar>
 
-        <Nav navbar>
+        <Nav navbar className="collapse-bar">
           <NavItem>
             <NavLink href="/">Home</NavLink>
           </NavItem>
