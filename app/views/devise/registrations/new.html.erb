@@ -1,0 +1,36 @@
+
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
+<link href="//db.onlinewebfonts.com/c/51ba22ae06790efd464bde752a2cd9d1?family=Flexo" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet"> 
+<div class="signleft">
+<div class="text-center" style="padding:50px 0">
+<h2 class="signup">Sign up</h2> 
+</div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email, :class=>"signtextsml" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>"input_box" %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :password, :class=>"signtextsml"  %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", :class=>"input_box" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", :class => 'button-success pure-button' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
