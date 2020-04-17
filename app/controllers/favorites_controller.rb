@@ -42,10 +42,7 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find(params[:id])
     @favorite.destroy
-    respond_to do |format|
-        format.html { redirect_to favorites_path notice: 'Item was successfully deleted.' }
-        format.json { head :no_content }
-    end
+    redirect_to favorites_path
   end
 
   private

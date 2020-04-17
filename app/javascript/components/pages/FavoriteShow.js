@@ -64,13 +64,12 @@ class FavoriteShow extends Component {
     {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
-    .then((response) => alert("successfully deleted"))
-    .then((messages) => {console.log("messages");});
-  }
+    .then(response =>
+    response.json()
+  )}
 
 
   render() {

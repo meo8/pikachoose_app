@@ -17,9 +17,6 @@
 $breakpoint-tablet: 768px;
 
 @import 'bootstrap';
-@import url(//db.onlinewebfonts.com/c/d2d21cf0ee4c1d969d8a4dccc587ab26?family=Flexo+Medium);
-// @import "twitter-bootstrap";
-// @import "twitter-bootstrap-responsive"
 
 body {
   background-color: #FAD61D;
@@ -31,6 +28,7 @@ body {
 
 #landing-page {
   margin: 8rem auto;
+}
 
 #genre-page {
   margin-top: 100px;
@@ -168,23 +166,6 @@ p.poster-image {
 p.film-overview {
   text-align: left;
   padding-left: 11px;
-  padding: 0 5px;
-}
-
-.collapse-bar{
-  float: right;
-    background: black;
-}
-
- /*
-  *
-  * Header Component
-  *
-  */
-
-// nav bar
-button.navbar-toggler {
-  background: white;
 }
 
 div#index-page {
@@ -505,14 +486,16 @@ div#landing-page img.pikachu {
 .errorimage {
   width: 500px;
   height: auto;
-  margin: 10% auto 3% auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
 }
 
 .errorimage img {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
+  width:100%;
+  height:auto;
 }
+
 
 @keyframes stretch {
   0% {
@@ -538,38 +521,6 @@ div#landing-page img.pikachu {
     justify-content: flex-end;
   }
 }
-
-@media (max-width: 1024px) {
-  nav.bg-light{
-    height: 75px;
-  }
-  .navbar-brand{
-    font-size: 28px;
-  }
-  .nav-item{
-    font-size: 22px;
-  }
-  
-  .pikachu {
-   width: 50%;
-   border-radius:20px;
-  }
-  
-  #landingpage{
-  }
-  
-  #attention-getter {
-    padding: 4rem 8rem;
-    font-size: 48px;
-    font-weight: 700;
-  }
-  #watch-btn{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 
 @media (min-width: 576px) {
   div.jumbotron {
@@ -636,52 +587,4 @@ div#landing-page img.pikachu {
   .linkedin-gihub-btn {
     margin: 4px;
   }
-}
-
-.input_box {
-  border-radius: 25px;
-  border: 2px solid yellowgreen;
-  padding: 20px; 
-  width: 200px;
-  height: 5px;    
-  padding-bottom: 10px;
-}
-
-.button-success{
-// background: rgb(28, 184, 65); /* this is a green */
-color: black;
-border-radius: 4px;
-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-margin:6px;
-}
-
-.signup{
-  -webkit-text-stroke: 3px black;
-  font-family: 'Playfair Display', serif;
-  font-size: 100px;
-  color:#c7deed;
-  margin-left: 30px;
-  margin-top:50px;
-  margin-right:30px
-}
-
-.signtext{
-  -webkit-text-stroke: 1.5px black;
-  font-family: 'Playfair Display', serif;
-  font-size: 70px;
-  color:#c7deed;
-  margin-top: 70px;
-  text-shadow: 1.5px 1.5px black;
-}
-
-.signleft{
-  // float: left;
-}
-
-.signtextsml{
-  // font-family: 'Playfair Display', serif;
-  font-family: 'Abel', sans-serif;
-  font-size: 20px;
-  color:black;
-}
 }
