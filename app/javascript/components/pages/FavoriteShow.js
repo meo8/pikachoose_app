@@ -57,19 +57,19 @@ class FavoriteShow extends Component {
   }
 
 
-  deleteFavorite = (history) => {
-
-    // fetch method gets specific history with the id in our back-end and UPDATES it
-    fetch(`/favorites/${ history.id }`,
+  deleteFavorite = (favorite) => {
+    // fetch method gets specific favorite with the id in our back-end and UPDATES it
+    fetch(`/favorites/${ favorite.id }`,
     {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
-    .then(response =>
-    response.json()
-  )}
+    // .then((response) => alert("successfully deleted"))
+    .then((messages) => {console.log("messages");});
+  }
 
 
   render() {
