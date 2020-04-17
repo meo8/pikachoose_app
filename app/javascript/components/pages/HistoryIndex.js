@@ -18,7 +18,7 @@ const HistoryIndex = (props) => {
                     />
 
                     <Badge color="secondary">
-                      { history.vote_average * 10 }%
+                      { history.vote_average * 10 }<span className="badge-percentage">%</span>
                     </Badge>
                   </p>
                 </Link>
