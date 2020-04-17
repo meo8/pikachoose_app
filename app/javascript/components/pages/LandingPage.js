@@ -28,10 +28,10 @@ class LandingPage extends Component {
 
     if (display === null) {
       return (
-        <div id="landingpage">
-          <img className="pikachu" src={Pikachu1}/>
+        <div id="landing-page">
+          <h2 id="attention-getter">Bored and don't know what to watch? <br />We got your back.</h2>
           <br/>
-          <h2 id="attention-getter">Bored and don't know what to watch? <br />We got your back.</h2> <br/>
+          <img className="pikachu" src={Pikachu1} onClick={this.setDisplayToGenreButtons}/>
           <WatchButton
             filmDecision={filmDecision}
             setDisplayToGenreButtons={this.setDisplayToGenreButtons}

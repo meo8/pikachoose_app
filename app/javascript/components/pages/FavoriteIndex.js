@@ -6,42 +6,44 @@ import Pikachu from './pikachu4.gif'
 const FavoriteIndex = (props) => {
   return (
     <>
-      <div>
-        <h3 className="history-header"> My Favorites</h3>
+      <h3 className="index-header">My Favorites</h3>
+      <div id="index-page">
         {props.favorites.map((favorite, index) => {
           return (
-            <Jumbotron className="lead jumbotron-flex" key={index}>
-              <p className="poster-image">
-                <img src={`http://image.tmdb.org/t/p/w185/${favorite.poster_path}`} />
-                <Badge color="secondary">{ favorite.vote_average * 10 }%</Badge>
-              </p>
-
+            <Jumbotron id="index-page-jumbotron" className="lead" key={index}>
               <div>
-                <Link to={`/favorite/${favorite.id}`}>
-                  <h4 className="film-title">{favorite.title}</h4>
-                </Link>
-                <div className="film-info">
-                  <p className="film-overview">
-                    <small>{favorite.overview}</small>
+                <Link to={`/favorite/${favorite.id}`} >
+                  <p className="poster-image">
+                    <img src={`http://image.tmdb.org/t/p/w185/${favorite.poster_path}`}
+                    />
+
+                    <Badge color="secondary">
+                      { favorite.vote_average * 10 }%
+                    </Badge>
                   </p>
-                  <br/>
-                  <hr className="my-2" />
-                  <small>Realeased on: {favorite.release_date}</small>
-                  <br/>
-                  <small><strong>Comment: {favorite.comment}</strong></small>
-                </div>
+                </Link>
+
+                <Button
+                  className="fav-btn"
+                  href="/user_favorites"
+                  color="success"
+                  onClick={() => props.addFavorite(favorite)}>
+                  Add to Favorites</Button>
               </div>
             </Jumbotron>
           )
         })}
       </div>
-      {props.favorites.length===0 &&
+
+      {props.favorites.length === 0 &&
         <div id="showpage">
           <img id="pikachu" src={Pikachu}></img>
           <br/>
           <p>You don't have any saved favorites yet!</p>
-        </div>}
+        </div>
+      }
     </>
   )
 }
+
 export default FavoriteIndex

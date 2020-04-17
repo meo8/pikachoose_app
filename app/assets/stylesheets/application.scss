@@ -22,7 +22,8 @@ body {
   background-color: #FAD61D;
   margin: auto;
   text-align: center;
-  font-family:  "roboto"
+  font-family: Roboto;
+  font-size: 17px;
 
 }
 
@@ -30,48 +31,122 @@ body {
   margin: 100px auto;
 }
 
-#genrepage {
+#genre-page {
   margin-top: 100px;
 }
 
-#decisionpage {
+#decision-page {
   margin-top: 50px;
-  animation-name: stretch;
-  animation-duration: 0.75s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: none;
-  animation-play-state: running;
+  animation: stretch 1s ease-out 0.15s alternate 1 none running;
+  margin: 2rem auto;
+  border-radius: 2rem;
+  width: 70%;
+  display: flex;
 }
 
-#showpage {
+
+#aboutpage {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+
+#show-page {
   margin-top: 170px;
 }
 
 // Favorite Button
 .fav-btn {
-  border: 1px solid black;
+  border: 1px solid rgba(0,0,0,0.3);
   box-shadow: 2px 3px 2px 0px grey;
 }
 
+/*
+ *
+ * Header Component
+ *
+ */
+
+// nav bar
+button.navbar-toggler {
+ background: white;
+}
+
+#attention-getter {
+ font-size: 2rem;
+ text-align: center;
+ margin-bottom: 2rem;
+ line-height: 50px;
+ letter-spacing: 1px;
+}
+
+// nav bar
+nav.bg-light {
+ background: black !important;
+}
+// nav links
+nav.navbar-light .navbar-nav .nav-link {
+ color: white;
+}
+// nav links
+nav.navbar-light .navbar-brand {
+ color: white;
+}
+
+// Account button
+nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+ color: white !important;
+}
+// Account button
+nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+ color: white;
+}
+
+/*
+ *
+ * DecisionBox Component
+ *
+ */
+
+.decision-summary {
+  text-align: left;
+}
+
+div#decision-page section {
+  padding: 0 2rem;
+}
+
+main#decision-main {
+  margin: 3rem;
+}
+
+main#decision-main > p {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px whitesmoke;
+}
+
+/*
+ *
+ * History and Favorite Index Component
+ *
+ */
 
 .badge-secondary {
-  font-size: 15px;
-  width: 40px;
-  height: 40px;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
   background-color: indianred;
   border-radius: 100%;
   position: absolute;
-  top: -15px;
-  left: -15px;
-  padding: 0.8em 0.4em;
+  top: -58px;
+  left: -30px;
+  padding: 0.9em 0.5em;
 }
 
 p.poster-image {
   position: relative;
   margin: 10px;
+  margin-bottom: 20px;
 }
 
 p.film-overview {
@@ -96,34 +171,31 @@ button.navbar-toggler {
   background: white;
 }
 
-#attention-getter {
-  font-size: 1.2rem;
+div#index-page {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  width: 80%;
+  margin: 50px auto;
+}
+
+div#index-page-jumbotron {
+  border-radius: 1rem;
+  width: 285px;
+  margin: 1rem;
+  padding: 2rem 0 1.4rem 0;
+}
+
+.index-header {
+  margin: 40px;
+  margin-bottom: 20px;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: whitesmoke;
   text-align: center;
-  margin-bottom: 1rem;
-  line-height: 50px;
-  letter-spacing: 1px;
-}
-
- // nav bar
-nav.bg-light {
-  background: black !important;
- }
- // nav links
-nav.navbar-light .navbar-nav .nav-link {
-  color: white;
- }
- // nav links
-nav.navbar-light .navbar-brand {
-  color: white;
-}
-
-// Account button
-nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
-  color: white !important;
- }
-// Account button
-nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: white;
+  text-shadow: 2px 2px 2px #7A7A7A,
+               2px 2px 2px rgba(206,89,55,0);
 }
 
  /*
@@ -141,6 +213,15 @@ div#watch-btn button {
   margin-top: 1rem;
   border: 1px solid black;
   box-shadow: 2px 3px 2px 0px grey;
+  animation-name: stretch;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  // animation: stretch 0.75s ease-out 0 alternate infinite none running;
 }
 
 div#watch-btn button:hover {
@@ -154,35 +235,48 @@ div#watch-btn button:hover {
  */
 
 .genre-btn {
-  min-height: 62px;
+  min-height: 65px;
+  min-width: 135px;
+  font-size: 1.1em;
+  border: 1px solid black;
+  box-shadow: 5px 5px 1px 0px grey;
   // background: rgba($color: #000000, $alpha: 0);
   // border-radius: 30px;
   // color: #007BFF;
-  border: 1px solid black;
-  box-shadow: 2px 3px 2px 0px grey;
+}
+
+.genre-btn:hover {
+  color: #E19720;
 }
 
 .genre-grid {
-  width: 540px;
+  width: 590px;
   margin: auto;
   padding-top: 40px;
   padding-bottom: 40px;
   box-sizing: border-box;
-  // padding: 25px;
-  // padding-top:15%;
   display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(auto-fill, 125px)
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, 136px)
 }
 
 .functional-btn {
   // background: rgba($color: #000000, $alpha: 0);
-  margin: 3px;
+  margin: 2px;
 }
 
 .functional-btn:hover {
   background: #E19720;
   border: none;
+}
+
+[value|="Surprise Me"] {
+  margin-right: 25px;
+  color: white;
+}
+
+[value|="Submit"] {
+  margin-left: -10px;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {
@@ -196,20 +290,6 @@ div#genre-page {
 div#genre-page .pikachu {
   width: 200px;
   animation: nudge 5s linear 1;
-}
-
-@keyframes nudge {
-  0%, 100% {
-    transform: translate(-1100px, 0);
-  }
-
-  // 50% {
-  //   transform: translate(1100px, 0);
-  // }
-
-  100% {
-    transform: translate(0, 0);
-  }
 }
 
  /*
@@ -228,6 +308,29 @@ ul.decision-box.list-group a:hover {
   color: black;
 }
 
+p.history {
+  color: whitesmoke;
+  text-shadow: 0px 0px whitesmoke;
+}
+
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(-1100px, 0);
+  }
+
+  // 50% {
+  //   transform: translate(1100px, 0);
+  // }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+
+
+
 div.history-box {
   display: flex;
   flex-flow: row wrap;
@@ -244,8 +347,6 @@ div.film-info p {
   margin: 0;
 }
 
-
-
 .film-title {
   font-size: 1.5rem;
   text-align: center;
@@ -257,34 +358,47 @@ div.film-info p {
   margin-bottom: 0;
 }
 
-.history-header {
-  text-align: center;
-  font-size: 2.75rem;
-  margin: 40px;
-}
-
-div.jumbotron-flex {
-  display: flex;
-}
-
  // About page
-#aboutpage {
-  width: 800px;
+#aboutcontent {
+  width: 70%;
   margin: 50px auto 70px auto;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
 div#aboutpage p {
-  line-height: 2;
-  letter-spacing: 1.5px;
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 #aboutimgs {
   margin-bottom: 70px;
 }
 
-img.card-img {
-  height: auto;
+#aboutteamcard {
+  display:inline-block;
+}
+
+.row {
   display: flex;
+  margin: auto;
+  align-items: center;
+}
+
+#cardcontainer {
+  display:inline-block;
+}
+
+#card {
+  width: 200px;
+  display:inline-block;
+  margin: 20px;
+
+} 
+
+img.card-img {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
 }
 
 .linkedin-gihub-btn {
@@ -292,18 +406,23 @@ img.card-img {
   margin: 10px;
 }
 
-.pikachu {
-  width: 200px;
-  margin: 20px;
+div#landing-page img.pikachu {
+  cursor: pointer;
 }
 
- .pikachu {
-   width: 170px;
-   margin: 20px;
- }
+.pikachu {
+  width: 209px;
+  margin: 20px;
+  margin-bottom: -35px;
+}
 
- .pikachu2 {
+.pikachu2 {
   width: 120px;
+}
+
+.pikachu3 {
+  width: 120px;
+  margin-left: 1rem;
 }
 
 //  buttons
@@ -348,20 +467,6 @@ img.card-img {
   width: 500px;
 }
 
- /*
-  *
-  * DecisionBox Component
-  *
-  */
-
-div.jumbotron {
-  margin: 2rem auto;
-  border-radius: 2rem;
-  width: 90%
-  // border: 1px solid black;
-  // box-shadow: 2px 3px 2px 0px grey;
-}
-
 // // 404 page image
 .errorimage {
   width: 500px;
@@ -389,7 +494,7 @@ div.jumbotron {
   }
 }
 
-// 
+//
  /*
   *
   * MEDIA QUERIES
@@ -436,10 +541,55 @@ div.jumbotron {
 
 @media (min-width: 576px) {
   div.jumbotron {
-    padding: 3rem 6rem;
+    padding: 3rem;
   }
+  background-color: red;
+
 }
 
 @media (max-width: 660px) {
+  // About page
+  #aboutpage {
+    width: 80%;
+    font-size: 14px;
+  }
 
+  h1 {
+    font-size: 24px;
+  }
+
+  #aboutapp {
+    width: 80%;
+  }
+  #aboutcontent {
+    // width: 680px;
+    margin: 50px auto 70px auto;
+    // padding-bottom: 60px;
+  }
+  div#aboutpage p {
+    line-height: 2;
+    letter-spacing: 1.5px;
+  }
+  #aboutimgs {
+    margin-bottom: 70px;
+    width: 300px;
+    display: inline-block;
+
+  }
+  #aboutteamcard {
+    display:inline-block;
+  }
+  #cardcontainer {
+    display:inline-block;
+  }
+  #card {
+    width: 200px;
+    // position: sticky;
+    display:inline-block;
+  } 
+  img.card-img {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+  }
 }
