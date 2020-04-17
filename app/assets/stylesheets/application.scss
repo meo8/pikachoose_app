@@ -267,11 +267,11 @@ div#watch-btn button:hover {
 }
 
 div#genre-page {
-  margin: 4.5rem;
+  margin: 4.5rem auto;
 }
 
 div#genre-page h5 {
-  width: 38%;
+  max-width: 550px;
   padding: 1rem;
   margin: 20px auto;
   font-size: 1.75em;
