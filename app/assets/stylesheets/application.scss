@@ -24,12 +24,10 @@ body {
   text-align: center;
   font-family: Roboto;
   font-size: 17px;
-
 }
 
-#landingpage {
-  margin: 100px auto;
-}
+#landing-page {
+  margin: 8rem auto;
 
 #genre-page {
   margin-top: 100px;
@@ -132,15 +130,30 @@ main#decision-main > p {
  */
 
 .badge-secondary {
-  font-size: 18px;
+  font-size: 19px;
   width: 50px;
   height: 50px;
-  background-color: indianred;
   border-radius: 100%;
   position: absolute;
-  top: -58px;
-  left: -30px;
-  padding: 0.9em 0.5em;
+  top: -36px;
+  left: -16px;
+  padding: 16px 4px 17px 0;
+  box-shadow: 2px 3px 0px 0px whitesmoke;
+   /* Old browsers */
+  background: rgb(242,130,91);
+  /* FF3.6-15 */
+  background: -moz-linear-gradient(top,  rgba(242,130,91,1) 0%, rgba(229,91,43,1) 50%, rgba(240,113,70,1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-linear-gradient(top,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to bottom,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+  /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2825b', endColorstr='#f07146',GradientType=0 );
+}
+
+.badge-percentage {
+  font-size: 0.65rem;
+  position: absolute;
 }
 
 p.poster-image {
@@ -173,17 +186,18 @@ button.navbar-toggler {
 
 div#index-page {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-flow: row wrap;
-  width: 80%;
+  width: 78%;
   margin: 50px auto;
 }
 
 div#index-page-jumbotron {
   border-radius: 1rem;
-  width: 285px;
+  width: 230px;
   margin: 1rem;
-  padding: 2rem 0 1.4rem 0;
+  padding: 1rem 0 1rem 0;
+  background-color: #ffffff59;
 }
 
 .index-header {
@@ -284,7 +298,18 @@ div#watch-btn button:hover {
 }
 
 div#genre-page {
-  margin: 4.5rem;
+  margin: 4.5rem auto;
+}
+
+div#genre-page h5 {
+  max-width: 550px;
+  padding: 1rem;
+  margin: 20px auto;
+  font-size: 1.75em;
+  color: dimgray;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px 1px grey;
+  border-radius: 1rem;
 }
 
 div#genre-page .pikachu {
@@ -382,6 +407,7 @@ div#aboutpage p {
   display: flex;
   margin: auto;
   align-items: center;
+  justify-content: center;
 }
 
 #cardcontainer {
@@ -389,15 +415,15 @@ div#aboutpage p {
 }
 
 #card {
-  width: 200px;
-  display:inline-block;
-  margin: 20px;
-
-} 
+  width: 250px;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 10px;
+}
 
 img.card-img {
-  height: 200px;
-  width: 200px;
+  // height: 200px;
+  // width: 200px;
   display: inline-block;
 }
 
@@ -406,14 +432,19 @@ img.card-img {
   margin: 10px;
 }
 
+.linkedin-gihub-btn a {
+  text-decoration: none;
+}
+
 div#landing-page img.pikachu {
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .pikachu {
-  width: 209px;
+  width: 300px;
   margin: 20px;
-  margin-bottom: -35px;
+  margin-bottom: -43px;
 }
 
 .pikachu2 {
@@ -471,16 +502,14 @@ div#landing-page img.pikachu {
 .errorimage {
   width: 500px;
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
+  margin: 10% auto 3% auto;
 }
 
 .errorimage img {
-  width:100%;
-  height:auto;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
 }
-
 
 @keyframes stretch {
   0% {
@@ -543,8 +572,6 @@ div#landing-page img.pikachu {
   div.jumbotron {
     padding: 3rem;
   }
-  background-color: red;
-
 }
 
 @media (max-width: 660px) {
@@ -561,35 +588,49 @@ div#landing-page img.pikachu {
   #aboutapp {
     width: 80%;
   }
+
   #aboutcontent {
     // width: 680px;
     margin: 50px auto 70px auto;
     // padding-bottom: 60px;
   }
+
   div#aboutpage p {
     line-height: 2;
     letter-spacing: 1.5px;
   }
+
   #aboutimgs {
     margin-bottom: 70px;
     width: 300px;
     display: inline-block;
+  }
 
-  }
   #aboutteamcard {
-    display:inline-block;
+    display: inline-block;
   }
+
   #cardcontainer {
-    display:inline-block;
+    display: inline-block;
   }
+
   #card {
     width: 200px;
     // position: sticky;
-    display:inline-block;
-  } 
+    display: inline-block;
+  }
+
+  .card-body {
+    padding: 1rem 0 0.25rem 0;
+  }
+
   img.card-img {
     height: 200px;
     width: 200px;
     display: inline-block;
+  }
+
+  .linkedin-gihub-btn {
+    margin: 4px;
   }
 }

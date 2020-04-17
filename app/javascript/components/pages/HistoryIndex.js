@@ -6,7 +6,7 @@ const HistoryIndex = (props) => {
   return (
     <>
       <h3 className="index-header">My History</h3>
-      <p className="lead history">Your previous 10 searches</p>
+      <p className="lead history">Your previous 15 searches</p>
       <div id="index-page">
         {props.histories.map((history, index) => {
           return (
@@ -18,7 +18,7 @@ const HistoryIndex = (props) => {
                     />
 
                     <Badge color="secondary">
-                      { history.vote_average * 10 }%
+                      { history.vote_average * 10 }<span className="badge-percentage">%</span>
                     </Badge>
                   </p>
                 </Link>
