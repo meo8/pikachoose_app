@@ -92,14 +92,17 @@ class FavoriteShow extends Component {
             <small>Original language: {favorite.original_language}</small>
 
             <br/>
-              <small><strong>Comment: 
+              <small><strong>Comment</strong>: 
               {editable === true &&
-                <input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/>
+                <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
               }
               { editable === false &&
-                <span> {favorite.comment}</span>
+                <span>
+                  <span><strong> {favorite.comment}</strong></span> <br/>
+                  <small>(last updated at {favorite.updated_at})</small>
+                </span>
               }
-              </strong></small>
+              </small>
             </Jumbotron>
             <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
             <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
