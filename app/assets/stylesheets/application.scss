@@ -588,3 +588,50 @@ div#landing-page img.pikachu {
     margin: 4px;
   }
 }
+
+.input_box {
+  border-radius: 25px;
+  border: 2px solid yellowgreen;
+  padding: 20px; 
+  width: 200px;
+  height: 5px;    
+  padding-bottom: 10px;
+}
+
+.button-success{
+// background: rgb(28, 184, 65); /* this is a green */
+color: black;
+border-radius: 4px;
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+margin:6px;
+}
+
+.signup{
+  -webkit-text-stroke: 3px black;
+  font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  color:#c7deed;
+  margin-left: 30px;
+  margin-top:50px;
+  margin-right:30px
+}
+
+.signtext{
+  -webkit-text-stroke: 1.5px black;
+  font-family: 'Playfair Display', serif;
+  font-size: 70px;
+  color:#c7deed;
+  margin-top: 70px;
+  text-shadow: 1.5px 1.5px black;
+}
+
+.signleft{
+  // float: left;
+}
+
+.signtextsml{
+  // font-family: 'Playfair Display', serif;
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
+  color:black;
+}
