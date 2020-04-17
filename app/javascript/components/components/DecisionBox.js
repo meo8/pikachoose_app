@@ -32,6 +32,7 @@ class DecisionBox extends Component {
       release_date: filmDecision.release_date,
       poster_path: filmDecision.poster_path,
       backdrop_path: filmDecision.backdrop_path,
+      original_language: filmDecision.original_language,
       comment: "No comments yet"
     }
 
@@ -64,6 +65,7 @@ class DecisionBox extends Component {
             <hr className="my-2" />
             <br />
             <p>Released on: {filmDecision.release_date}</p>
+            <p>Original language: {filmDecision.original_language}</p>
 
 
             {logged_in &&

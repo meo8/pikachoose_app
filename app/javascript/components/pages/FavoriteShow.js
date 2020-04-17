@@ -77,7 +77,6 @@ class FavoriteShow extends Component {
     const { id } = this.props.match.params
     const favorite = this.props.favorites.find((v) => v.id === parseInt(id))
 
-    console.log(favorite)
 
     return (
       <>
@@ -88,7 +87,10 @@ class FavoriteShow extends Component {
             <small><strong></strong>{favorite.overview}</small>
             <br/>
             <hr className="my-2" />
-            <small> Released on {favorite.release_date}</small>
+            <small> Released on: {favorite.release_date}</small>
+            <br/>
+            <small>Original language: {favorite.original_language}</small>
+
             <br/>
               <small><strong>Comment: 
               {editable === true &&
