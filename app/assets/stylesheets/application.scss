@@ -509,7 +509,6 @@ div#landing-page img.pikachu {
   }
 }
 
-//
  /*
   *
   * MEDIA QUERIES
@@ -589,21 +588,27 @@ div#landing-page img.pikachu {
   }
 }
 
+/*
+ *
+ * MEDIA QUERIES
+ *
+ */
+
 .input_box {
   border-radius: 25px;
   border: 2px solid yellowgreen;
-  padding: 20px; 
+  padding: 20px;
   width: 200px;
-  height: 5px;    
+  height: 5px;
   padding-bottom: 10px;
 }
 
 .button-success{
 // background: rgb(28, 184, 65); /* this is a green */
-color: black;
-border-radius: 4px;
-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-margin:6px;
+  color: black;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  margin:6px;
 }
 
 .signup{
@@ -634,4 +639,40 @@ margin:6px;
   font-family: 'Abel', sans-serif;
   font-size: 20px;
   color:black;
+}
+
+#remove-fav-response {
+  width: 300px;
+  border-radius: 25px;
+  margin: 0 auto;
+  position: absolute;
+  top: 10%;
+  left: 36%;
+  color: white;
+  text-shadow: 1px 1px darkseagreen;
+  background-color: #b6e2abb5;
+  animation: fadeIn ease 5s 1;
+}
+
+#remove-fav-response p{
+  margin: 0;
+  padding: 10px;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+p.notice {
+  font-size: 3rem;
 }

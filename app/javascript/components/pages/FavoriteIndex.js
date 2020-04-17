@@ -25,9 +25,9 @@ const FavoriteIndex = (props) => {
                 <Button
                   className="fav-btn"
                   href="/user_favorites"
-                  color="success"
-                  onClick={() => props.addFavorite(favorite)}>
-                  Add to Favorites</Button>
+                  color="secondary"
+                  onClick={() => props.deleteFavorite(favorite)}>
+                  Remove Favorite</Button>
             </Jumbotron>
           )
         })}

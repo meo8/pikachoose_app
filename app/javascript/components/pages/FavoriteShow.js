@@ -56,24 +56,9 @@ class FavoriteShow extends Component {
     })
   }
 
-
-  deleteFavorite = (favorite) => {
-    // fetch method gets specific favorite with the id in our back-end and UPDATES it
-    fetch(`/favorites/${ favorite.id }`,
-    {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    // .then((response) => alert("successfully deleted"))
-    .then((messages) => {console.log("messages");});
-  }
-
-
   render() {
     let { editable } = this.state;
+    let { deleteFavorite } = this.props;
     const { id } = this.props.match.params
     const favorite = this.props.favorites.find((v) => v.id === parseInt(id))
 
@@ -89,10 +74,7 @@ class FavoriteShow extends Component {
             <hr className="my-2" />
             <small> Released on: {favorite.release_date}</small>
             <br/>
-            <small>Original language: {favorite.original_language}</small>
-
-            <br/>
-              <small><strong>Comment</strong>: 
+              <strong>Comment</strong>: 
               {editable === true &&
                 <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
               }
@@ -102,17 +84,13 @@ class FavoriteShow extends Component {
                   <small>(last updated at {favorite.updated_at})</small>
                 </span>
               }
-              </small>
             </Jumbotron>
+
             <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
-            <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => this.deleteFavorite(favorite)}>Delete Favorite</Button>
+
+            <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => deleteFavorite(favorite)}>Remove Favorite</Button>
+
             <Button className="fav-btn" id="addmargin" href="/user_favorites">Back To Favorites</Button>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
         </div>
       }
       </>

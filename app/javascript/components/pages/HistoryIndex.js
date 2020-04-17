@@ -28,7 +28,7 @@ const HistoryIndex = (props) => {
                   href="/user_favorites"
                   color="success"
                   onClick={() => props.addFavorite(history)}>
-                  Add to Favorites</Button>
+                  Add to Favorite</Button>
               </div>
             </Jumbotron>
           )
