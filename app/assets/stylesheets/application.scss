@@ -28,7 +28,6 @@ body {
 
 #landing-page {
   margin: 8rem auto;
-}
 
 #genre-page {
   margin-top: 100px;
@@ -166,6 +165,23 @@ p.poster-image {
 p.film-overview {
   text-align: left;
   padding-left: 11px;
+  padding: 0 5px;
+}
+
+.collapse-bar{
+  float: right;
+    background: black;
+}
+
+ /*
+  *
+  * Header Component
+  *
+  */
+
+// nav bar
+button.navbar-toggler {
+  background: white;
 }
 
 div#index-page {
@@ -519,6 +535,38 @@ div#landing-page img.pikachu {
     justify-content: flex-end;
   }
 }
+
+@media (max-width: 1024px) {
+  nav.bg-light{
+    height: 75px;
+  }
+  .navbar-brand{
+    font-size: 28px;
+  }
+  .nav-item{
+    font-size: 22px;
+  }
+  
+  .pikachu {
+   width: 50%;
+   border-radius:20px;
+  }
+  
+  #landingpage{
+  }
+  
+  #attention-getter {
+    padding: 4rem 8rem;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  #watch-btn{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 
 @media (min-width: 576px) {
   div.jumbotron {
