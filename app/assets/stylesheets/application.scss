@@ -35,13 +35,16 @@ body {
 }
 
 #decision-page {
-  margin-top: 50px;
+  margin: 5rem auto 3rem auto;
   animation: stretch 1s ease-out 0.15s alternate 1 none running;
-  margin: 2rem auto;
   border-radius: 2rem;
   width: 70%;
   display: flex;
 }
+
+// #decision-page img {
+//   box-shadow: 5px 5px 1px 0px grey;
+// }
 
 
 #aboutpage {
@@ -109,6 +112,11 @@ nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-lin
 
 .decision-summary {
   text-align: left;
+  font-size: 1.2em;
+}
+
+div#decision-page {
+  background: #ffffff59;
 }
 
 div#decision-page section {
@@ -124,6 +132,15 @@ main#decision-main > p {
   text-shadow: 1px 1px whitesmoke;
 }
 
+div#decision-page p.poster-image {
+  // width: 450px;
+}
+
+div#decision-page p.poster-image img {
+  // width: 100%;
+  max-width: 300px;
+  box-shadow: 5px 5px 5px 0px grey;
+}
 /*
  *
  * History and Favorite Index Component
@@ -157,7 +174,7 @@ main#decision-main > p {
   position: absolute;
 }
 
-p.poster-image {
+div#index-page-jumbotron p.poster-image {
   position: relative;
   margin: 10px;
   margin-bottom: 20px;
@@ -214,8 +231,8 @@ div#show-page .jumbotron {
 
 div#show-page .film-title {
   font-size: 2rem;
-  text-align: left;
-  margin: 0;
+  text-align: center;
+  margin: 4px;
 }
 
 div#show-page .poster-image {
@@ -419,7 +436,7 @@ div.film-info p {
 }
 
 .film-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
   margin: 4px;
 }
