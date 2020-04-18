@@ -65,8 +65,6 @@ class DecisionBox extends Component {
             <hr className="my-2" />
             <br />
             <p>Released on: {filmDecision.release_date}</p>
-            <p>Original language: {filmDecision.original_language}</p>
-
 
             {logged_in &&
               <p className="lead">

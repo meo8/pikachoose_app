@@ -65,42 +65,49 @@ class FavoriteShow extends Component {
     return (
       <>
       {favorite &&
-        <div id="showpage">
-          <Jumbotron className="lead">
-            <p className="poster-image">
-              <img src={`http://image.tmdb.org/t/p/w185/${history.poster_path}`}
-              />
+      <div id="show-page">
+        <Jumbotron id="lead">
+          <p className="poster-image">
+            <img src={`http://image.tmdb.org/t/p/w185/${favorite.poster_path}`}
+            />
+          </p>
 
-              <Badge color="secondary">
-                { history.vote_average * 10 }<span className="badge-percentage">%</span>
-              </Badge>
+          <div id="film-overview">
+            <h4 className="film-title">{favorite.title}</h4>
+
+            <p className="badge-paragraph"><Badge color="secondary">
+              { favorite.vote_average * 10 }<span className="badge-percentage">%</span>
+            </Badge> User Ratings</p>
+
+            <p className="lead summary">
+              <small><strong>Summary:</strong></small><br />
+              <small>{favorite.overview}</small>
             </p>
-            <div>
-              <h4 className="film-title">{favorite.title}</h4>
-              <small><strong></strong>{favorite.overview}</small>
-              <br/>
-              <hr className="my-2" />
+            <hr className="my-2" />
+            <p className="lead">
               <small> Released on: {favorite.release_date}</small>
-              <br/>
-                <strong>Comment</strong>:
-                {editable === true &&
-                  <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
-                }
-                { editable === false &&
-                  <span>
-                    <span><strong> {favorite.comment}</strong></span> <br/>
-                    <small>(last updated at {favorite.updated_at})</small>
-                  </span>
-                }
-              </div>
-            </Jumbotron>
+            </p>
 
-            <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
+            <strong>Comment:</strong>
 
-            <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => deleteFavorite(favorite)}>Remove Favorite</Button>
+            { editable &&
+              <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
+            }
+            { !editable &&
+              <span className="comment-section">
+                <strong>{favorite.comment}</strong><br/>
+                <small>(last updated at {favorite.updated_at})</small>
+              </span>
+            }
+            </div>
+          </Jumbotron>
 
-            <Button className="fav-btn" id="addmargin" href="/user_favorites">Back To Favorites</Button>
-        </div>
+          <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
+
+          <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => deleteFavorite(favorite)}>Remove Favorite</Button>
+
+          <Button className="fav-btn" id="addmargin" href="/user_favorites">Back To Favorites</Button>
+      </div>
       }
       </>
     )

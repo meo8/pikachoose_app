@@ -225,10 +225,11 @@ div#show-page .poster-image {
 div#show-page img {
   width: 100%;
   border-radius: 3%;
+  box-shadow: 5px 4px 6px 0px grey;
 }
 
 div#show-page div#film-overview {
-  margin: 30px;
+  margin: 30px 40px;
   width: 50%;
   display: flex;
   flex-flow: column nowrap;
@@ -236,11 +237,25 @@ div#show-page div#film-overview {
   align-items: flex-start;
 }
 
+div#film-overview .badge-secondary {
+  // display: block;
+  position: static;
+}
+
 div#show-page p.summary {
   font-size: 1.5rem;
   text-align: left;
-  margin: 10px 0;
+  // margin: 10px 0;
   line-height: 1.25;
+}
+
+.badge-paragraph {
+  font-size: 1.1em;
+  margin: 0.75rem;
+}
+
+.comment-section {
+  text-align: left;
 }
 
  /*
