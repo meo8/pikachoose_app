@@ -120,7 +120,7 @@ div#decision-page {
 }
 
 div#decision-page section {
-  padding: 0 2rem;
+  margin: 1rem 1rem 1rem 3rem;
 }
 
 main#decision-main {
@@ -132,15 +132,17 @@ main#decision-main > p {
   text-shadow: 1px 1px whitesmoke;
 }
 
-div#decision-page p.poster-image {
-  // width: 450px;
-}
-
 div#decision-page p.poster-image img {
-  // width: 100%;
   max-width: 300px;
   box-shadow: 5px 5px 5px 0px grey;
 }
+
+div#decision-page img.pikachu3 {
+  position: absolute;
+  top: 79vh;
+  right: 2vw;
+}
+
 /*
  *
  * History and Favorite Index Component

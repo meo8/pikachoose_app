@@ -75,8 +75,9 @@ class DecisionBox extends Component {
               </p>
             }
           </section>
+          <img src={Pikachu3} className="pikachu3" />
         </Jumbotron>
-        <p style={{color: "#28A745"}}>Pika-chosen! <img src={Pikachu3} className="pikachu3" /></p>
+      {/* <p style={{color: "#28A745"}}>Pika-chosen! <img src={Pikachu3} className="pikachu3" /></p> */}
       </main>
     );
   }
