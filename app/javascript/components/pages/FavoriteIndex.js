@@ -13,7 +13,7 @@ const FavoriteIndex = (props) => {
             <Jumbotron id="index-page-jumbotron" className="lead" key={index}>
                 <Link to={`/favorite/${favorite.id}`} >
                   <p className="poster-image">
-                    <img src={`http://image.tmdb.org/t/p/w185/${favorite.poster_path}`}
+                    <img src={`https://image.tmdb.org/t/p/w185/${favorite.poster_path}`}
                     />
 
                     <Badge color="secondary">

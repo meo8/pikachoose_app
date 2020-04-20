@@ -142,7 +142,23 @@
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
 <a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,6 +222,21 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -227,8 +258,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react'
-import { Jumbotron, Button } from 'reactstrap';
+import { Jumbotron, Button, Badge } from 'reactstrap';
 import { Link } from "react-router-dom"
 &nbsp;
 &nbsp;
@@ -292,18 +324,34 @@ class HistoryShow extends Component {
 &nbsp;
     return (
       &lt;&gt;
-        {history &amp;&amp;
-        &lt;div id="showpage"&gt;
-          &lt;Jumbotron id="lead"&gt;
+      {history &amp;&amp;
+      &lt;div id="show-page"&gt;
+        &lt;Jumbotron id="lead"&gt;
+          &lt;p className="poster-image"&gt;
+            &lt;img src={`http://image.tmdb.org/t/p/w342/${history.poster_path}`}
+            /&gt;
+          &lt;/p&gt;
+          &lt;div id="film-overview"&gt;
             &lt;h4 className="film-title"&gt;{history.title}&lt;/h4&gt;
-            &lt;p className="lead"&gt;&lt;small&gt;{history.overview}&lt;/small&gt;&lt;/p&gt;
+            &lt;p className="badge-paragraph"&gt;&lt;Badge color="secondary"&gt;
+              { history.vote_average * 10 }&lt;span className="badge-percentage"&gt;%&lt;/span&gt;
+            &lt;/Badge&gt; User Ratings&lt;/p&gt;
+            &lt;p className="lead summary"&gt;
+              &lt;small&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/small&gt;&lt;br /&gt;
+              &lt;small&gt;{history.overview}&lt;/small&gt;
+            &lt;/p&gt;
             &lt;hr className="my-2" /&gt;
-            &lt;p className="lead"&gt;&lt;small&gt;Released on: {history.release_date}&lt;/small&gt;&lt;/p&gt;
-          &lt;/Jumbotron&gt;
-          &lt;Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"
-          onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >addFavorite(history)}</span>&gt;
-          Add to Favorites&lt;/Button&gt;
-          &lt;Button className="fav-btn" id="addmargin" href="/user_history"&gt;Back to History&lt;/Button&gt;
+            &lt;p className="lead"&gt;
+              &lt;small&gt; Released on: {history.release_date}&lt;/small&gt;
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/Jumbotron&gt;
+&nbsp;
+        &lt;Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"
+        onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >addFavorite(history)}</span>&gt;
+        Add to Favorite&lt;/Button&gt;
+&nbsp;
+        &lt;Button className="fav-btn" id="addmargin" href="/user_history"&gt;Back to History&lt;/Button&gt;
       &lt;/div&gt;
       }
       &lt;/&gt;
@@ -319,7 +367,7 @@ export default HistoryShow
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Apr 16 2020 13:57:20 GMT-0700 (Pacific Daylight Time)
+                at Mon Apr 20 2020 09:51:31 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

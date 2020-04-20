@@ -54,7 +54,7 @@ class DecisionBox extends Component {
       <main id="decision-main">
         <Jumbotron id="decision-page" >
           <p className="poster-image">
-            <img src={`http://image.tmdb.org/t/p/w342/${filmDecision.poster_path}`} />
+            <img src={`https://image.tmdb.org/t/p/w342/${filmDecision.poster_path}`} />
           </p>
 
           <section>

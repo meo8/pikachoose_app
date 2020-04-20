@@ -42,10 +42,6 @@ body {
   display: flex;
 }
 
-// #decision-page img {
-//   box-shadow: 5px 5px 1px 0px grey;
-// }
-
 
 #aboutpage {
   width: 80%;
@@ -551,6 +547,10 @@ div#landing-page img.pikachu {
   *
   */
 
+h2 {
+  font-size: 40px;
+}
+
 .comment {
   margin-top: 10px;
   width: 400px;
@@ -617,7 +617,7 @@ div#landing-page img.pikachu {
 .signup{
   -webkit-text-stroke: 3px black;
   font-family: 'Playfair Display', serif;
-  font-size: 100px;
+  font-size: 60px;
   color:#c7deed;
   margin-left: 30px;
   margin-top:50px;
@@ -627,7 +627,7 @@ div#landing-page img.pikachu {
 .signtext{
   -webkit-text-stroke: 1.5px black;
   font-family: 'Playfair Display', serif;
-  font-size: 70px;
+  font-size: 60px;
   color:#c7deed;
   margin-top: 70px;
   text-shadow: 1.5px 1.5px black;
@@ -660,6 +660,19 @@ div#landing-page img.pikachu {
 #remove-fav-response p {
   margin: 0;
   padding: 10px;
+}
+
+.field {
+  margin: 0px 50px;
+}
+
+h2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+input {
+  margin: 10px;
 }
 
 @keyframes fadeInOut {
@@ -701,23 +714,32 @@ p.notice {
 @media only screen and (max-width: 660px) {
 
   body {
-    display: flex;
+    display: inline-block;
     align-items: center;
     margin: auto;
     float: center;
   }
 
-  div {
+  // div {
+  //   float: center;
+  // }
+
+  // Landing page
+  #landing-page {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    margin: auto;
     float: center;
   }
-  // Landing page
+
   #attention-getter {
     font-size: 1.2rem;
   }
 
   // About page
   #aboutpage {
-    width: 80%;
+    width: 90%;
     font-size: 14px;
   }
 
@@ -742,7 +764,7 @@ p.notice {
 
   #aboutimgs {
     margin-bottom: 70px;
-    width: 300px;
+    width: 90%;
     display: inline-block;
   }
 
@@ -755,7 +777,7 @@ p.notice {
   }
 
   #card {
-    width: 200px;
+    width: 90%;
     // position: sticky;
     display: inline-block;
   }
@@ -765,8 +787,8 @@ p.notice {
   }
 
   img.card-img {
-    height: 200px;
-    width: 200px;
+    height: 90%;
+    // width: 200px;
     display: inline-block;
   }
 
@@ -803,6 +825,15 @@ p.notice {
     text-align: center;
     text-shadow: 2px 2px 2px #7A7A7A,
                  2px 2px 2px rgba(206,89,55,0);
+  }
+  
+  // DEVISE MEDIA QUERIES
+  .field {
+    display: inline-block;
+  }
+
+  .signup {
+    margin-top:25%;
   }
 
 }

@@ -38,7 +38,7 @@ class GenreButtons extends Component {
     const apiKey = process.env.REACT_APP_KEY
     const { selectedGenres } = this.state
     const { setDisplayToDecisionBox } = this.props
-    let genreQuery = selectedGenres.join("&")
+    let genreQuery = selectedGenres.join(",")
 
     if (selectedGenres.length !== 0 && e.target.value === "Submit") {
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)

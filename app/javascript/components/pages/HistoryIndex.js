@@ -14,7 +14,7 @@ const HistoryIndex = (props) => {
               <div>
                 <Link to={`/history/${history.id}`} >
                   <p className="poster-image">
-                    <img src={`http://image.tmdb.org/t/p/w185/${history.poster_path}`}
+                    <img src={`https://image.tmdb.org/t/p/w185/${history.poster_path}`}
                     />
 
                     <Badge color="secondary">
