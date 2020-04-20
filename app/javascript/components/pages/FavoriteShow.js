@@ -68,7 +68,7 @@ class FavoriteShow extends Component {
       <div id="show-page">
         <Jumbotron id="lead">
           <p className="poster-image">
-            <img src={`http://image.tmdb.org/t/p/w342/${favorite.poster_path}`}
+            <img src={`https://image.tmdb.org/t/p/w342/${favorite.poster_path}`}
             />
           </p>
 
