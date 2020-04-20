@@ -7,7 +7,8 @@ class GenreButtons extends Component {
     super(props)
     this.state = {
       genreList: [],
-      selectedGenres: []
+      selectedGenres: [],
+      total_pages: 500
     }
   }
 
@@ -30,32 +31,51 @@ class GenreButtons extends Component {
     })
   }
 
-  generateDecision = (e) => {
+  generateDecisionByGenre = (e) => {
     // e.persist() is used when you want to access event properties in an asynchronous way
     // removes the synthetic event from the pool and allow references to the event to be retained by user code
-    e.persist()
+    // e.persist()
     const apiKey = process.env.REACT_APP_KEY
     const { selectedGenres } = this.state
     const { setDisplayToDecisionBox } = this.props
-
     let genreQuery = selectedGenres.join("&")
 
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)
-    .then((response) => {
-      if(response.status === 200) {
-        return response.json()
-      }
-    })
-    .then((films) => {
-      let randomNumber = Math.floor(Math.random() * films.results.length);
-      let randomFilm = films.results[randomNumber]
-      console.log(randomFilm)
-      if (selectedGenres.length !== 0 && e.target.value === "Submit") {
+    if (selectedGenres.length !== 0 && e.target.value === "Submit") {
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreQuery}`)
+      .then((response) => {
+        if(response.status === 200) {
+          return response.json()
+        }
+        })
+      .then((films) => {
+        let randomNumber = Math.floor(Math.random() * films.results.length);
+        let randomFilm = films.results[randomNumber]
+        console.log(randomFilm)
         setDisplayToDecisionBox(randomFilm)
-      } else if (e.target.value === "Surprise Me") {
+      })
+    }
+  }
+
+  generateDecisionBySurprise = () => {
+    const apiKey = process.env.REACT_APP_KEY
+    const { setDisplayToDecisionBox } = this.props
+    const { total_pages } = this.state
+
+    let randomPage = Math.ceil(Math.random() * total_pages);
+
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}`)
+      .then((response) => {
+        if(response.status === 200) {
+          return response.json()
+        }
+      })
+      .then((films) => {
+        let randomNumber = Math.floor(Math.random() * films.results.length);
+        let randomFilm = films.results[randomNumber]
+        let pages = (+films.total_pages)
+        this.setState({total_pages: pages})
         setDisplayToDecisionBox(randomFilm)
-      }
-    })
+      })
   }
 
   activateBtnColor = (button) => {
@@ -128,12 +148,12 @@ class GenreButtons extends Component {
             value="Surprise Me"
             color="warning"
             className="genre-btn functional-btn"
-            onClick={this.generateDecision}>Surprise Me</Button>
+            onClick={this.generateDecisionBySurprise}>Surprise Me</Button>
           <Button
             value="Submit"
             className="genre-btn functional-btn"
             color="info"
-            onClick={this.generateDecision}>Submit</Button>
+            onClick={this.generateDecisionByGenre}>Submit</Button>
       </div>
     )
   }

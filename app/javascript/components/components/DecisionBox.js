@@ -52,11 +52,9 @@ class DecisionBox extends Component {
     const { filmDecision, logged_in, addFavorite } = this.props
     return (
       <main id="decision-main">
-        <p style={{color: "#28A745"}}>Pika-chosen! <img src={Pikachu3} className="pikachu3" /></p>
-
         <Jumbotron id="decision-page" >
-          <p>
-            <img src={`http://image.tmdb.org/t/p/w185/${filmDecision.poster_path}`} />
+          <p className="poster-image">
+            <img src={`http://image.tmdb.org/t/p/w342/${filmDecision.poster_path}`} />
           </p>
 
           <section>
@@ -65,8 +63,6 @@ class DecisionBox extends Component {
             <hr className="my-2" />
             <br />
             <p>Released on: {filmDecision.release_date}</p>
-            <p>Original language: {filmDecision.original_language}</p>
-
 
             {logged_in &&
               <p className="lead">
@@ -79,7 +75,9 @@ class DecisionBox extends Component {
               </p>
             }
           </section>
+          <img src={Pikachu3} className="pikachu3" />
         </Jumbotron>
+      {/* <p style={{color: "#28A745"}}>Pika-chosen! <img src={Pikachu3} className="pikachu3" /></p> */}
       </main>
     );
   }

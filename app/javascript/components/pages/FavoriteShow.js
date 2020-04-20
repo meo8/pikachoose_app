@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { useHistory } from 'react-router-dom';
-import {Button, Jumbotron} from 'reactstrap'
+import { Button, Jumbotron, Badge } from 'reactstrap'
 
 class FavoriteShow extends Component {
   constructor(props) {
@@ -62,36 +62,52 @@ class FavoriteShow extends Component {
     const { id } = this.props.match.params
     const favorite = this.props.favorites.find((v) => v.id === parseInt(id))
 
-
     return (
       <>
       {favorite &&
-        <div id="showpage">
-          <Jumbotron className="lead">
+      <div id="show-page">
+        <Jumbotron id="lead">
+          <p className="poster-image">
+            <img src={`http://image.tmdb.org/t/p/w342/${favorite.poster_path}`}
+            />
+          </p>
+
+          <div id="film-overview">
             <h4 className="film-title">{favorite.title}</h4>
-            <small><strong></strong>{favorite.overview}</small>
-            <br/>
+
+            <p className="badge-paragraph"><Badge color="secondary">
+              { favorite.vote_average * 10 }<span className="badge-percentage">%</span>
+            </Badge> User Ratings</p>
+
+            <p className="lead summary">
+              <small><strong>Summary:</strong></small><br />
+              <small>{favorite.overview}</small>
+            </p>
             <hr className="my-2" />
-            <small> Released on: {favorite.release_date}</small>
-            <br/>
-              <strong>Comment</strong>: 
-              {editable === true &&
-                <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
-              }
-              { editable === false &&
-                <span>
-                  <span><strong> {favorite.comment}</strong></span> <br/>
-                  <small>(last updated at {favorite.updated_at})</small>
-                </span>
-              }
-            </Jumbotron>
+            <p className="lead">
+              <small> Released on: {favorite.release_date}</small>
+            </p>
 
-            <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
+            <strong>Comment:</strong>
 
-            <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => deleteFavorite(favorite)}>Remove Favorite</Button>
+            { editable &&
+              <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
+            }
+            { !editable &&
+              <span className="comment-section">
+                <strong>{favorite.comment}</strong><br/>
+                <small>(last updated at {favorite.updated_at})</small>
+              </span>
+            }
+            </div>
+          </Jumbotron>
 
-            <Button className="fav-btn" id="addmargin" href="/user_favorites">Back To Favorites</Button>
-        </div>
+          <Button className="fav-btn" color="info" id="addmargin" onClick={() => this.handleEdit(favorite)}>{editable ? 'Submit Comment' : 'Edit Comment'}</Button>
+
+          <Button className="fav-btn" id="addmargin" href="/user_favorites" color="danger" onClick={() => deleteFavorite(favorite)}>Remove Favorite</Button>
+
+          <Button className="fav-btn" id="addmargin" href="/user_favorites">Back To Favorites</Button>
+      </div>
       }
       </>
     )

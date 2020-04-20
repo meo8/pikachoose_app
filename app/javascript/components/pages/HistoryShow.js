@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Jumbotron, Button } from 'reactstrap';
+import { Jumbotron, Button, Badge } from 'reactstrap';
 import { Link } from "react-router-dom"
 
 
@@ -63,24 +63,34 @@ class HistoryShow extends Component {
 
     return (
       <>
-        {history &&
-        <div id="show-page">
-          <Jumbotron id="lead">
+      {history &&
+      <div id="show-page">
+        <Jumbotron id="lead">
+          <p className="poster-image">
+            <img src={`http://image.tmdb.org/t/p/w342/${history.poster_path}`}
+            />
+          </p>
+          <div id="film-overview">
             <h4 className="film-title">{history.title}</h4>
-            <p className="lead"><small>{history.overview}</small></p>
+            <p className="badge-paragraph"><Badge color="secondary">
+              { history.vote_average * 10 }<span className="badge-percentage">%</span>
+            </Badge> User Ratings</p>
+            <p className="lead summary">
+              <small><strong>Summary:</strong></small><br />
+              <small>{history.overview}</small>
+            </p>
             <hr className="my-2" />
-            <div className="lead">            
+            <p className="lead">
               <small> Released on: {history.release_date}</small>
-              <br/>
-              <small>Original language: {history.original_language}</small>
-            </div>
-          </Jumbotron>
+            </p>
+          </div>
+        </Jumbotron>
 
-          <Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"
-          onClick={() => addFavorite(history)}>
-          Add to Favorite</Button>
+        <Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"
+        onClick={() => addFavorite(history)}>
+        Add to Favorite</Button>
 
-          <Button className="fav-btn" id="addmargin" href="/user_history">Back to History</Button>
+        <Button className="fav-btn" id="addmargin" href="/user_history">Back to History</Button>
       </div>
       }
       </>
