@@ -87,18 +87,19 @@ class FavoriteShow extends Component {
             <p className="lead">
               <small> Released on: {favorite.release_date}</small>
             </p>
-
-            <strong>Comment:</strong>
+            <span className="comment-section">
+            <strong>Comment: </strong>
 
             { editable &&
-              <strong><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></strong>
+              <><input type='text' ref={input => this.comment = input} defaultValue= {favorite.comment}/></>
             }
             { !editable &&
-              <span className="comment-section">
-                <strong>{favorite.comment}</strong><br/>
+              <span>
+                <>{favorite.comment}</><br/>
                 <small>(last updated at {favorite.updated_at})</small>
               </span>
             }
+            </span>
             </div>
           </Jumbotron>
 
