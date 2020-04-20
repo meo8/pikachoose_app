@@ -22,7 +22,7 @@ body {
   background-color: #FAD61D;
   margin: auto;
   text-align: center;
-  font-family: Roboto;
+  font-family: "Roboto";
   font-size: 17px;
 }
 
@@ -57,6 +57,10 @@ body {
   margin-top: 2%;
 }
 
+#favoriteindexpage {
+  
+}
+
 // Favorite Button
 .fav-btn {
   border: 1px solid rgba(0,0,0,0.3);
@@ -75,7 +79,7 @@ button.navbar-toggler {
 }
 
 #attention-getter {
- font-size: 2rem;
+ font-size: 1.7rem;
  text-align: center;
  margin-bottom: 2rem;
  line-height: 50px;
@@ -590,90 +594,8 @@ div#landing-page img.pikachu {
   }
 }
 
- /*
-  *
-  * MEDIA QUERIES
-  *
-  */
 
-@media (min-width: $breakpoint-tablet) {
-  .navbar-expand-md .navbar-collapse {
-    justify-content: flex-end;
-  }
-}
-
-@media (min-width: 576px) {
-  div.jumbotron {
-    padding: 3rem;
-  }
-}
-
-@media (max-width: 660px) {
-  // About page
-  #aboutpage {
-    width: 80%;
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  #aboutapp {
-    width: 80%;
-  }
-
-  #aboutcontent {
-    // width: 680px;
-    margin: 50px auto 70px auto;
-    // padding-bottom: 60px;
-  }
-
-  div#aboutpage p {
-    line-height: 2;
-    letter-spacing: 1.5px;
-  }
-
-  #aboutimgs {
-    margin-bottom: 70px;
-    width: 300px;
-    display: inline-block;
-  }
-
-  #aboutteamcard {
-    display: inline-block;
-  }
-
-  #cardcontainer {
-    display: inline-block;
-  }
-
-  #card {
-    width: 200px;
-    // position: sticky;
-    display: inline-block;
-  }
-
-  .card-body {
-    padding: 1rem 0 0.25rem 0;
-  }
-
-  img.card-img {
-    height: 200px;
-    width: 200px;
-    display: inline-block;
-  }
-
-  .linkedin-gihub-btn {
-    margin: 4px;
-  }
-}
-
-/*
- *
- * MEDIA QUERIES
- *
- */
+// DEVISE LOGIN
 
 .input_box {
   border-radius: 25px;
@@ -757,3 +679,131 @@ div#landing-page img.pikachu {
 p.notice {
   font-size: 3rem;
 }
+
+ /*
+  *
+  * MEDIA QUERIES
+  *
+  */
+
+@media (min-width: $breakpoint-tablet) {
+  .navbar-expand-md .navbar-collapse {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 576px) {
+  div.jumbotron {
+    padding: 3rem;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+
+  body {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    float: center;
+  }
+
+  div {
+    float: center;
+  }
+  // Landing page
+  #attention-getter {
+    font-size: 1.2rem;
+  }
+
+  // About page
+  #aboutpage {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #aboutapp {
+    width: 80%;
+  }
+
+  #aboutcontent {
+    // width: 680px;
+    margin: 50px auto 70px auto;
+    // padding-bottom: 60px;
+  }
+
+  div#aboutpage p {
+    line-height: 2;
+    letter-spacing: 1.5px;
+  }
+
+  #aboutimgs {
+    margin-bottom: 70px;
+    width: 300px;
+    display: inline-block;
+  }
+
+  #aboutteamcard {
+    display: inline-block;
+  }
+
+  #cardcontainer {
+    display: inline-block;
+  }
+
+  #card {
+    width: 200px;
+    // position: sticky;
+    display: inline-block;
+  }
+
+  .card-body {
+    padding: 1rem 0 0.25rem 0;
+  }
+
+  img.card-img {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+  }
+
+  .linkedin-gihub-btn {
+    margin: 4px;
+  }
+
+  // Favorite Index page 
+
+  div#index-page {
+    display: inline-block;
+    justify-content: center;
+    // flex-flow: row wrap;
+    // width: 200px;
+    margin: 3px auto;
+  }
+  
+  #index-page-jumbotron {
+    display: inline-block;
+    border-radius: 1rem;
+    // width: 400px;
+    margin: 1rem;
+    padding: 1rem 0 1rem 0;
+    background-color: #ffffff59;
+  }
+  
+  .index-header {
+    margin: 40px;
+    margin-bottom: 20px;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: black;
+    text-align: center;
+    text-shadow: 2px 2px 2px #7A7A7A,
+                 2px 2px 2px rgba(206,89,55,0);
+  }
+  
+}
+// END OF MEDIA QUERIES
