@@ -1,119 +1,96 @@
 import React, { Component } from 'react'
-import {ListGroup, Button} from 'reactstrap';
-import {Link, Route, Switch, BrowserRouter as Router} from "react-router-dom"
+import { Jumbotron, Button, Badge } from 'reactstrap';
+import { Link } from "react-router-dom"
+
 
 class HistoryShow extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      display: 'first',
-      editable: false,
-      // historyState: {},
+      // editable: false,
       histories: []
     }
   }
 
-  handleEdit = (history) => {
-    const { editable } = this.state
-    let id = history.id
+  // handleEdit = (history) => {
+  //   const { editable } = this.state
+  //
+  //   if (editable) {
+  //     this.handleUpdate(history)
+  //   }
+  //   // editable switches in between 'false' and 'true'
+  //   this.setState({editable: !editable})
+  // }
 
-    if(editable) {
-      // let comment = this.comment.value
-      // let history.comment = this.comment.value
-
-      this.handleUpdate(history, id)
-      console.log("handleEdit(history)=", history)
-    }
-
-    this.setState({editable: !editable})
-  }
-
-  handleUpdate = (history, id) => {
-    let comment = this.comment.value
-    console.log("id:", id)
-
-    fetch(`/histories/${id}`,
-    {
-      method: 'PUT',
-      body: JSON.stringify({history: history}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((response) => {
-        this.updateHistory(history)
-      })
-  }
-
-  updateHistory = (history) => {
-    let newHistories = this.props.histories.filter((f) => f.id !== history.id)
-    newHistories.push(history)
-
-    this.setState({
-      histories: newHistories
-    })
-  }
-
-
-  // changeDisplay = () => {
-  // let { display } = this.state;
-  // this.setState({ display: display === 'first' ? 'second' : 'first' });
+  // handleUpdate = (history) => {
+  //   // UPDATING the comment in this specific history
+  //   history.comment = this.comment.value
+  //
+  //   // fetch method gets specific history with the id in our back-end and UPDATES it
+  //   fetch(`/histories/${history.id}`,
+  //   {
+  //     method: 'PUT',
+  //     // put in the new history!!!!
+  //     body: JSON.stringify({history: history}),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }).then((response) => {
+  //       response.json().then((response) => {
+  //         this.updateHistory(history)
+  //       })
+  //     })
+  // }
+  //
+  // updateHistory = (history) => {
+  //   // make a new list newHistories that has all the histories except the one we just updated
+  //   let newHistories = this.props.histories.filter((value) => value.id !== history.id)
+  //
+  //   // pushing new history into the newHistories array
+  //   newHistories.push(history)
+  //   console.log("newHistories", newHistories)
+  //
+  //   this.setState({
+  //     histories: newHistories
+  //   })
   // }
 
   render() {
-    let { display, editable } = this.state;
-    const {id} = this.props.match.params
+    // let { editable } = this.state;
+    const { id } = this.props.match.params
+    const { addFavorite } = this.props
     const history = this.props.histories.find((v) => v.id === parseInt(id))
-
-    let comment = editable ? <input type='text' ref={input => this.comment = input} defaultValue={history.comment}/>:<p>original comment</p>
-
-    console.log(history)
 
     return (
       <>
       {history &&
-      <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div>
-          <div className="decisionbox">
-            <h4>{history.decision}</h4>
-            <small><strong>Type: </strong>{history.kind}</small>
-            <br/>
-            <small><strong>Link: </strong>{history.link}</small>
-            <br/>
-            <small><strong>Comment:</strong></small>
-            <div className='comment'>
-              {/* {this.renderInner(history.comment)} */}
-              {/* {display === 'first' &&
-                  <div>
-                      {history.comment}
-                  </div>}
-              {display === 'second' &&
-                  <div>
-                      <form role="form" onSubmit={this.handleSubmit} >
-                          <input type="text" defaultValue={this.state.comment} name="comment" placeholder="Add Comment Here"
-                          onChange={this.updateInputValue.bind(this)}
-                          />
-                          <input type="submit" value="Submit" />
-                      </form>
-                  </div>} */}
-              {/* <span className='button' onClick={this.changeDisplay}>Edit</span> */}
-
-              {comment}
-
-              <button onClick={() => this.handleEdit(history)}>{editable? 'Submit' : 'Edit'}</button>
-              {/* <span className='button' onClick={() => this.props.handleDelete(history.id)}>Delete</span> */}
-            </div>
+      <div id="show-page">
+        <Jumbotron id="lead">
+          <p className="poster-image">
+            <img src={`http://image.tmdb.org/t/p/w342/${history.poster_path}`}
+            />
+          </p>
+          <div id="film-overview">
+            <h4 className="film-title">{history.title}</h4>
+            <p className="badge-paragraph"><Badge color="secondary">
+              { history.vote_average * 10 }<span className="badge-percentage">%</span>
+            </Badge> User Ratings</p>
+            <p className="lead summary">
+              <small><strong>Summary:</strong></small><br />
+              <small>{history.overview}</small>
+            </p>
+            <hr className="my-2" />
+            <p className="lead">
+              <small> Released on: {history.release_date}</small>
+            </p>
           </div>
-          <br/>
-          <br/>
-          <br/>
-        </div>
-        <br/>
-        <br/>
-        <br/>
+        </Jumbotron>
+
+        <Button color="success" className="fav-btn" id="addmargin" href="/user_favorites"
+        onClick={() => addFavorite(history)}>
+        Add to Favorite</Button>
+
+        <Button className="fav-btn" id="addmargin" href="/user_history">Back to History</Button>
       </div>
       }
       </>

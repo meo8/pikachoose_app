@@ -14,12 +14,540 @@
  *= require_self
  */
 
+$breakpoint-tablet: 768px;
+
 @import 'bootstrap';
 
 body {
   background-color: #FAD61D;
+  margin: auto;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 15px;
 }
 
+#landing-page {
+  margin: 8rem auto;
+}
+
+#genre-page {
+  margin-top: 40px;
+}
+
+#decision-page {
+  margin: 5rem auto 3rem auto;
+  animation: stretch 1s ease-out 0.15s alternate 1 none running;
+  border-radius: 2rem;
+  width: 50%;
+  display: flex;
+}
+
+
+#aboutpage {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+
+#show-page {
+  margin-top: 2%;
+}
+
+#favoriteindexpage {
+
+}
+
+// Favorite Button
+.fav-btn {
+  border: 1px solid rgba(0,0,0,0.3);
+  box-shadow: 2px 3px 2px 0px grey;
+}
+
+/*
+ *
+ * Header Component
+ *
+ */
+
+// nav bar
+button.navbar-toggler {
+ background: white;
+}
+
+#attention-getter {
+ font-size: 1.7rem;
+ text-align: center;
+ margin-bottom: 2rem;
+ line-height: 50px;
+ letter-spacing: 2px;
+}
+
+// nav bar
+nav.bg-light {
+ background: black !important;
+}
+// nav links
+nav.navbar-light .navbar-nav .nav-link {
+ color: white;
+}
+// nav links
+nav.navbar-light .navbar-brand {
+ color: white;
+}
+
+// Account button
+nav.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+ color: white !important;
+}
+// Account button
+nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+ color: white;
+}
+
+/*
+ *
+ * DecisionBox Component
+ *
+ */
+
+.decision-summary {
+  text-align: center;
+}
+
+div#decision-page {
+  background: #ffffff59;
+}
+
+div#decision-page section {
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+main#decision-main {
+  margin: 3rem;
+}
+
+main#decision-main > p {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px whitesmoke;
+}
+
+div#decision-page p.poster-image img {
+  max-width: 200px;
+  box-shadow: 5px 5px 5px 0px grey;
+}
+
+div#decision-page img.pikachu3 {
+  position: absolute;
+  top: 79vh;
+  right: 2vw;
+}
+
+/*
+ *
+ * History and Favorite Index Component
+ *
+ */
+
+.badge-secondary {
+  font-size: 11px;
+  width: 41px;
+  height: 41px;
+  border-radius: 100%;
+  position: absolute;
+  top: -36px;
+  left: -16px;
+  padding: 16px 4px 17px 0;
+  box-shadow: 2px 3px 0px 0px whitesmoke;
+   /* Old browsers */
+  background: rgb(242,130,91);
+  /* FF3.6-15 */
+  background: -moz-linear-gradient(top,  rgba(242,130,91,1) 0%, rgba(229,91,43,1) 50%, rgba(240,113,70,1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-linear-gradient(top,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to bottom,  rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%);
+  /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2825b', endColorstr='#f07146',GradientType=0 );
+}
+
+.badge-percentage {
+  font-size: 0.65rem;
+  position: absolute;
+}
+
+div#index-page-jumbotron p.poster-image {
+  position: relative;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+p.film-overview {
+  text-align: left;
+  padding-left: 11px;
+}
+
+div#index-page {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 75%;
+  margin: 50px auto;
+}
+
+div#index-page-jumbotron {
+  border-radius: 1rem;
+  width: 230px;
+  margin: 1rem;
+  padding: 1rem 0 1rem 0;
+  background-color: #ffffff59;
+}
+
+.index-header {
+  margin: 40px;
+  margin-bottom: 20px;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: black;
+  text-align: center;
+  text-shadow: 2px 2px 2px #7A7A7A,
+               2px 2px 2px rgba(206,89,55,0);
+}
+
+/*
+ *
+ * History and Favorite Show Component
+ *
+ */
+
+div#show-page .jumbotron {
+  margin: 3% 0 1% 0;
+  width: 100vw;
+  display: flex;
+  padding: 1rem 0;
+  flex-flow: row nowrap;
+  justify-content: center;
+  background-color: #ffffffcc;
+}
+
+div#show-page .film-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 4px;
+  float: center;
+
+}
+
+div#show-page .poster-image {
+  width: 300px;
+}
+
+div#show-page img {
+  width: 80%;
+  border-radius: 3%;
+  margin: 20%;
+  box-shadow: 5px 4px 6px 0px grey;
+}
+
+div#show-page div#film-overview {
+  margin: 30px 40px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+div#film-overview .badge-secondary {
+  position: static;
+}
+
+div#show-page p.summary {
+  font-size: 1.1rem;
+  width: 400px;
+  padding-left: 20px;
+  line-height: 1.25;
+  text-align: center;
+  padding: 10px;
+}
+
+.badge-paragraph {
+  font-size: 1.0em;
+  margin: 0.75rem;
+}
+
+.comment-section {
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 0px;
+}
+
+ /*
+  *
+  * WatchButton Component
+  *
+  */
+
+div#watch-btn button {
+  // background: #FAD61D;
+  // color: black;
+  width: 210px;
+  height: 70px;
+  font-size: 1.35em;
+  margin-top: 1rem;
+  border: 1px solid black;
+  box-shadow: 2px 3px 2px 0px grey;
+  animation-name: stretch;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  // animation: stretch 0.75s ease-out 0 alternate infinite none running;
+}
+
+div#watch-btn button:hover {
+  background: #E19720;
+}
+
+/*
+ *
+ * GenreButtons Component
+ *
+ */
+
+.genre-btn {
+  min-height: 55px;
+  min-width: 115px;
+  font-size: 1.1em;
+  border: 1px solid black;
+  box-shadow: 5px 5px 1px 0px grey;
+  // background: rgba($color: #000000, $alpha: 0);
+  // border-radius: 30px;
+  // color: #007BFF;
+}
+
+.genre-btn:hover {
+  color: #E19720;
+}
+
+.genre-grid {
+  width: 590px;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, 136px)
+}
+
+.functional-btn {
+  // background: rgba($color: #000000, $alpha: 0);
+  margin: 2px;
+}
+
+.functional-btn:hover {
+  background: #E19720;
+  border: none;
+}
+
+[value|="Surprise Me"] {
+  margin-right: 25px;
+  color: white;
+}
+
+[value|="Submit"] {
+  margin-left: -10px;
+}
+
+.btn-secondary:focus, .btn-secondary.focus {
+  background-color: black;
+}
+
+div#genre-page {
+  margin: 4.5rem auto;
+}
+
+div#genre-page h5 {
+  max-width: 580px;
+  padding: 0.5rem;
+  margin: 20px auto;
+  font-size: 1.75em;
+}
+
+div#genre-page .pikachu {
+  width: 200px;
+  animation: nudge 5s linear 1;
+}
+
+ /*
+  *
+  * HistoryIndex Component
+  *
+  */
+
+ // Film title link to HistoryShow for individual view
+ul.decision-box.list-group a {
+  color: white;
+  text-decoration: none;
+}
+
+ul.decision-box.list-group a:hover {
+  color: black;
+}
+
+p.history {
+  color: black;
+  text-shadow: 0px 0px whitesmoke;
+}
+
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(-1100px, 0);
+  }
+
+  // 50% {
+  //   transform: translate(1100px, 0);
+  // }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+
+
+
+div.history-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+div.history-box .decision-box {
+  min-height: 350px;
+  text-align: left;
+  display: block;
+}
+
+div.film-info p {
+  margin: 0;
+}
+
+.film-title {
+  // font-size: 2rem;
+  text-align: center;
+  margin: 4px;
+}
+ // Information about the film in div after the film title
+.film-info {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+ // About page
+#aboutcontent {
+  width: 70%;
+  margin: 50px auto 70px auto;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+div#aboutpage p {
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+#aboutimgs {
+  margin-bottom: 70px;
+}
+
+#aboutteamcard {
+  display:inline-block;
+}
+
+.row {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#cardcontainer {
+  display:inline-block;
+}
+
+#card {
+  width: 250px;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+img.card-img {
+  display: inline-block;
+}
+
+.linkedin-gihub-btn {
+  padding: 10px;
+  margin: 10px;
+}
+
+.linkedin-gihub-btn a {
+  text-decoration: none;
+}
+
+div#landing-page img.pikachu {
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.pikachu {
+  width: 300px;
+  margin: 20px;
+  margin-bottom: -43px;
+}
+
+.pikachu2 {
+  width: 120px;
+}
+
+.pikachu3 {
+  width: 120px;
+  margin-left: 1rem;
+}
+
+//  buttons
+.editdel_btns {
+  margin: 2px;
+  float: left;
+}
+
+// .se_btns{
+//   margin:2px;
+// }
+
+.back_btn{
+  margin:100px;
+  padding:10px;
+}
+
+#addmargin {
+  margin: 10px;
+}
+
+
+ /*
+  *
+  * HistoryShow Component
+  *
+  */
+
+h2 {
+  font-size: 40px;
+}
 
 .comment {
   margin-top: 10px;
@@ -27,26 +555,9 @@ body {
   height: 100px;
 }
 
-.button {
-  padding: 5px 12px;
-  border: 1px solid #ccc;
-  background: rgb(0, 0, 0);
+.decision-box {
   color: white;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 5px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.button:hover {
-  background: #ccc;
-  border-color: #bbb;
-}
-
-.decisionbox {
-  color: white;
-  background-color:#C57900;
+  background:#C57900;
   margin: 20px;
   padding: 20px;
   border-radius: 30px;
@@ -54,4 +565,399 @@ body {
   width: 500px;
 }
 
+// // 404 page image
+.errorimage {
+  width: 500px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
 
+.errorimage img {
+  width:100%;
+  height:auto;
+}
+
+
+@keyframes stretch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+// DEVISE LOGIN
+
+.input_box {
+  border-radius: 25px;
+  border: 2px solid yellowgreen;
+  padding: 20px;
+  width: 200px;
+  height: 5px;
+  padding-bottom: 10px;
+}
+
+.button-success{
+// background: rgb(28, 184, 65); /* this is a green */
+  color: black;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  margin:6px;
+}
+
+.signup{
+  -webkit-text-stroke: 3px black;
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  color:#c7deed;
+  margin-left: 30px;
+  margin-top:50px;
+  margin-right:30px
+}
+
+.signtext{
+  -webkit-text-stroke: 1.5px black;
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  color:#c7deed;
+  margin-top: 70px;
+  text-shadow: 1.5px 1.5px black;
+}
+
+.signleft{
+  // float: left;
+}
+
+.signtextsml{
+  // font-family: 'Playfair Display', serif;
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
+  color:black;
+}
+
+#remove-fav-response {
+  width: 300px;
+  border-radius: 25px;
+  margin: 0 auto;
+  position: absolute;
+  top: 10%;
+  left: 36%;
+  color: white;
+  text-shadow: 1px 1px darkseagreen;
+  background-color: #b6e2abb5;
+  animation: fadeIn ease 5s 1;
+}
+
+#remove-fav-response p {
+  margin: 0;
+  padding: 10px;
+}
+
+.field {
+  margin: 0px 50px;
+}
+
+h2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+input {
+  margin: 10px;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+p.notice {
+  font-size: 3rem;
+}
+
+ /*
+  *
+  * MEDIA QUERIES
+  *
+  */
+
+@media (min-width: $breakpoint-tablet) {
+  .navbar-expand-md .navbar-collapse {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 576px) {
+  div.jumbotron {
+    padding: 3rem;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+
+  body {
+    // display: inline-block;
+    align-items: center;
+    margin: auto;
+    float: center;
+  }
+
+  h4 {
+    font-size: 120%;
+  }
+
+  // Landing page
+  #landing-page {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    margin: auto;
+    float: center;
+  }
+
+  #attention-getter {
+    font-size: 1.0rem;    
+    margin-top: 30%;    
+    margin-bottom: 0rem;  
+  }
+
+  // Genre Button Page
+  #genre-page {
+    margin: auto;
+    // display: flex;
+    align-items: center;
+  }
+
+  div#genre-page h5 {
+    max-width: 580px;
+    padding: .5rem;
+    margin: 10px auto;
+    font-size: 1.0rem;
+  }
+
+  .genre-grid {
+    width: 90%;
+    margin: auto;
+    padding-top: 0px;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    display: grid;
+    align-items: center;
+    align-self: center;
+    grid-gap: 8px;
+    grid-template-columns: repeat(auto-fill, 136px);
+}
+
+  .genre-btn {
+    min-height: 5%;
+    font-size: .7em;
+    border: 1px solid black;
+    box-shadow: 5px 5px 1px 0px grey;
+    justify-items: center;
+  }
+
+
+  //Decision Page 
+  #decision-page {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+  
+  // .my-2{
+  //   visibility: hidden;
+  // }
+
+  .filmtitle {
+    font-size: 20%;
+  }
+
+  img {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+
+  #decision-page section {
+    text-align: center;
+    font-size: 13px;
+}
+
+  .decision-summary {
+    text-align: center;
+    font-size: 13px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  // About page
+  #aboutpage {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #aboutapp {
+    width: 80%;
+  }
+
+  #aboutcontent {
+    // width: 680px;
+    margin: 50px auto 70px auto;
+    // padding-bottom: 60px;
+  }
+
+  div#aboutpage p {
+    line-height: 2;
+    letter-spacing: 1.5px;
+  }
+
+  #aboutimgs {
+    margin-bottom: 70px;
+    width: 90%;
+    display: inline-block;
+  }
+
+  #aboutteamcard {
+    display: inline-block;
+  }
+
+  #cardcontainer {
+    display: inline-block;
+  }
+
+  #card {
+    width: 90%;
+    // position: sticky;
+    display: inline-block;
+  }
+
+  .card-body {
+    padding: 1rem 0 0.25rem 0;
+  }
+
+  img.card-img {
+    height: 90%;
+    // width: 200px;
+    display: inline-block;
+  }
+
+  .linkedin-gihub-btn {
+    margin: 4px;
+  }
+
+  // Index page
+
+  div#index-page {
+    display: inline-block;
+    justify-content: center;
+    // flex-flow: row wrap;
+    // width: 200px;
+    margin: 3px auto;
+  }
+
+  #index-page-jumbotron {
+    display: inline-block;
+    border-radius: 1rem;
+    // width: 400px;
+    margin: 1rem;
+    padding: 1rem 0 1rem 0;
+    background-color: #ffffff59;
+  }
+
+  .index-header {
+    margin: 40px;
+    margin-bottom: 20px;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    // font-weight: bold;
+    font-size: 2.5rem;
+    color: black;
+    text-align: center;
+    text-shadow: 2px 2px 2px #7A7A7A,
+                 2px 2px 2px rgba(206,89,55,0);
+  }
+
+  //  Show Page
+  div#show-page .jumbotron {
+    margin: auto;
+    padding-top: 5px;
+    margin-bottom: 20px;
+    width: 100vw;
+    display: block;
+    padding: 10px 0px;
+  } 
+
+  #show-page {
+    display: block;
+    margin: auto;
+
+  }
+
+  div#show-page .poster-image {
+    width: 60%;
+    margin: 20px auto;
+    // margin-top: 20px;
+  }
+
+  div#show-page img {
+    margin-top: 5%;
+  }
+
+  .badge-paragraph {
+  margin: 0px;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  div#show-page div#film-overview {
+    margin: auto;
+    font-size: 80%;
+    width: 60%;
+  }
+
+  div#show-page p.summary {
+    font-size: 140%;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+  }
+
+  div#film-overview .badge-secondary {
+    margin: 10px;
+  }
+
+  div#show-page .film-title {
+    font-size: 180%;
+  }
+
+  // DEVISE MEDIA QUERIES
+  .field {
+    display: inline-block;
+  }
+
+  .signup {
+    margin-top:25%;
+  }
+
+}
+// END OF MEDIA QUERIES

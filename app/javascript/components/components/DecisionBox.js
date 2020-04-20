@@ -1,20 +1,86 @@
-import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import React, { Component } from "react";
+import { Jumbotron, Button } from "reactstrap";
+import Pikachu3 from "./pikachu3.png"
 
-const DecisionBox = (props) => {
-  return (
-    <div>
-      <Jumbotron>
-        <h1 className="display-3">{props.film.title}</h1>
-        <p className="lead">Cool, great movie plot here wowowowowoowowowowowo</p>
-        <hr className="my-2" />
-        <p>Note here when it's created?</p>
-        <p className="lead">
-          <Button color="primary">Bookmark</Button>
-        </p>
-      </Jumbotron>
-    </div>
-  );
+class DecisionBox extends Component {
+  constructor() {
+    super()
+    this.state = {
+      filmList: [],
+      histories: [],
+      favorites: [],
+      editable: null
+    }
+  }
+
+  componentDidMount() {
+    this.addHistory()
+  }
+
+  // React hook; works like componentDidMount
+  // useEffect(() => {
+  //   addHistory()
+  // })
+
+  addHistory = () => {
+    const { filmDecision } = this.props
+    let newHistory = {
+      film_id: filmDecision.id,
+      title: filmDecision.title,
+      overview: filmDecision.overview,
+      vote_average: filmDecision.vote_average,
+      release_date: filmDecision.release_date,
+      poster_path: filmDecision.poster_path,
+      backdrop_path: filmDecision.backdrop_path,
+      original_language: filmDecision.original_language,
+      comment: "No comments yet"
+    }
+
+    console.log("Added to History:", newHistory)
+
+    fetch("/histories",
+    {
+      method: 'POST',
+      body: JSON.stringify(newHistory),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
+  render() {
+    const { filmDecision, logged_in, addFavorite } = this.props
+    return (
+      <main id="decision-main">
+        <Jumbotron id="decision-page" >
+          <p className="poster-image">
+            <img src={`https://image.tmdb.org/t/p/w342/${filmDecision.poster_path}`} />
+          </p>
+
+          <section>
+            <h4 className="film-title">{filmDecision.title}</h4>
+            <p className="my-4 decision-summary">{filmDecision.overview}</p>
+            <hr className="my-2" />
+            <br />
+            <p>Released on: {filmDecision.release_date}</p>
+
+            {logged_in &&
+              <p className="lead">
+                <Button
+                  // className="fav-btn"
+                  color="success"
+                  href="/user_favorites"
+                  onClick={() => addFavorite(filmDecision)}>Add to Favorite
+                </Button>
+              </p>
+            }
+          </section>
+          {/* <img src={Pikachu3} className="pikachu3" /> */}
+        </Jumbotron>
+      {/* <p style={{color: "#28A745"}}>Pika-chosen! <img src={Pikachu3} className="pikachu3" /></p> */}
+      </main>
+    );
+  }
 };
 
 export default DecisionBox;

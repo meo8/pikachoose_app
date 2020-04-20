@@ -1,39 +1,40 @@
-import React, { Component } from "react"
-import { ListGroup } from 'reactstrap'; 
-import {Link, Route, BrowserRouter as Router, Switch} from "react-router-dom"
+import React from "react"
+import { Jumbotron, Button, Badge } from 'reactstrap';
+import { Link } from "react-router-dom"
 
-class HistoryIndex extends Component{
-  render(){
-    return(
-      <>
-        <div>
-          <div >
-            <h3>Your Saved Films</h3>
-            {this.props.histories.map((history, index) => {
-              return(
-                <ListGroup className="decisionbox" key={ index }>
-                  <Link to={`/history/${history.id}`} ><h4 id="name"> {history.decision }</h4></Link>
-                  <br/>
-                  <div>
-                    {/* <small>favorited?: {history.is_favorite }  </small> */}
-                    <br/>
-                    <small>link: {history.link}  </small>
-                    <br/>
-                    <small>type: {history.kind}  </small>
-                    <br/>
-                    <small>notes: {history.comment} </small>
-                  </div>
-                </ListGroup>
-              )
-            })}
-          </div>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-      </>
-    )
-  }
+const HistoryIndex = (props) => {
+  return (
+    <>
+      <h3 className="index-header">My History</h3>
+      <p className="lead history">Your previous 15 searches</p>
+      <div id="index-page">
+        {props.histories.map((history, index) => {
+          return (
+            <Jumbotron id="index-page-jumbotron" className="lead" key={index}>
+              <div>
+                <Link to={`/history/${history.id}`} >
+                  <p className="poster-image">
+                    <img src={`http://image.tmdb.org/t/p/w185/${history.poster_path}`}
+                    />
+
+                    <Badge color="secondary">
+                      { history.vote_average * 10 }<span className="badge-percentage">%</span>
+                    </Badge>
+                  </p>
+                </Link>
+
+                <Button
+                  className="fav-btn"
+                  href="/user_favorites"
+                  color="success"
+                  onClick={() => props.addFavorite(history)}>
+                  Add to Favorite</Button>
+              </div>
+            </Jumbotron>
+          )
+        })}
+      </div>
+    </>
+  )
 }
 export default HistoryIndex
