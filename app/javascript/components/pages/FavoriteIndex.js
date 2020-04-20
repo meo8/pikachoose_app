@@ -5,7 +5,7 @@ import Pikachu from './pikachu4.gif'
 
 const FavoriteIndex = (props) => {
   return (
-    <>
+    <div id="favoriteindexpage">
       <h3 className="index-header">My Favorites</h3>
       <div id="index-page">
         {props.favorites.map((favorite, index) => {
@@ -40,7 +40,7 @@ const FavoriteIndex = (props) => {
           <p>You don't have any saved favorites yet!</p>
         </div>
       }
-    </>
+    </div>
   )
 }
 
