@@ -23,7 +23,7 @@ body {
   margin: auto;
   text-align: center;
   font-family: "Roboto";
-  font-size: 17px;
+  font-size: 15px;
 }
 
 #landing-page {
@@ -31,14 +31,14 @@ body {
 }
 
 #genre-page {
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 #decision-page {
   margin: 5rem auto 3rem auto;
   animation: stretch 1s ease-out 0.15s alternate 1 none running;
   border-radius: 2rem;
-  width: 70%;
+  width: 50%;
   display: flex;
 }
 
@@ -111,8 +111,7 @@ nav.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-lin
  */
 
 .decision-summary {
-  text-align: left;
-  font-size: 1.2em;
+  text-align: center;
 }
 
 div#decision-page {
@@ -120,7 +119,7 @@ div#decision-page {
 }
 
 div#decision-page section {
-  margin: 1rem 1rem 1rem 3rem;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
 main#decision-main {
@@ -133,7 +132,7 @@ main#decision-main > p {
 }
 
 div#decision-page p.poster-image img {
-  max-width: 300px;
+  max-width: 200px;
   box-shadow: 5px 5px 5px 0px grey;
 }
 
@@ -150,9 +149,9 @@ div#decision-page img.pikachu3 {
  */
 
 .badge-secondary {
-  font-size: 19px;
-  width: 50px;
-  height: 50px;
+  font-size: 11px;
+  width: 41px;
+  height: 41px;
   border-radius: 100%;
   position: absolute;
   top: -36px;
@@ -225,7 +224,7 @@ div#show-page .jumbotron {
   margin: 3% 0 1% 0;
   width: 100vw;
   display: flex;
-  padding: 4rem 0;
+  padding: 1rem 0;
   flex-flow: row nowrap;
   justify-content: center;
   background-color: #ffffffcc;
@@ -235,6 +234,8 @@ div#show-page .film-title {
   font-size: 2rem;
   text-align: center;
   margin: 4px;
+  float: center;
+
 }
 
 div#show-page .poster-image {
@@ -242,39 +243,42 @@ div#show-page .poster-image {
 }
 
 div#show-page img {
-  width: 100%;
+  width: 80%;
   border-radius: 3%;
+  margin: 20%;
   box-shadow: 5px 4px 6px 0px grey;
 }
 
 div#show-page div#film-overview {
   margin: 30px 40px;
-  width: 50%;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 div#film-overview .badge-secondary {
-  // display: block;
   position: static;
 }
 
 div#show-page p.summary {
-  font-size: 1.5rem;
-  text-align: left;
-  // margin: 10px 0;
+  font-size: 1.1rem;
+  width: 400px;
+  padding-left: 20px;
   line-height: 1.25;
+  text-align: center;
+  padding: 10px;
 }
 
 .badge-paragraph {
-  font-size: 1.1em;
+  font-size: 1.0em;
   margin: 0.75rem;
 }
 
 .comment-section {
-  text-align: left;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 0px;
 }
 
  /*
@@ -314,8 +318,8 @@ div#watch-btn button:hover {
  */
 
 .genre-btn {
-  min-height: 65px;
-  min-width: 135px;
+  min-height: 55px;
+  min-width: 115px;
   font-size: 1.1em;
   border: 1px solid black;
   box-shadow: 5px 5px 1px 0px grey;
@@ -368,13 +372,9 @@ div#genre-page {
 
 div#genre-page h5 {
   max-width: 580px;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 20px auto;
   font-size: 1.75em;
-  // color: dimgray;
-  // font-weight: bold;
-  // box-shadow: 1px 1px 1px 1px grey;
-  // border-radius: 1rem;
 }
 
 div#genre-page .pikachu {
@@ -438,7 +438,7 @@ div.film-info p {
 }
 
 .film-title {
-  font-size: 2rem;
+  // font-size: 2rem;
   text-align: center;
   margin: 4px;
 }
@@ -487,8 +487,6 @@ div#aboutpage p {
 }
 
 img.card-img {
-  // height: 200px;
-  // width: 200px;
   display: inline-block;
 }
 
@@ -720,9 +718,9 @@ p.notice {
     float: center;
   }
 
-  // div {
-  //   float: center;
-  // }
+  h4 {
+    font-size: 120%;
+  }
 
   // Landing page
   #landing-page {
@@ -734,7 +732,77 @@ p.notice {
   }
 
   #attention-getter {
-    font-size: 1.2rem;
+    font-size: 1.0rem;    
+    margin-top: 30%;    
+    margin-bottom: 0rem;  
+  }
+
+  // Genre Button Page
+  #genre-page {
+    margin: auto;
+    // display: flex;
+    align-items: center;
+  }
+
+  div#genre-page h5 {
+    max-width: 580px;
+    padding: .5rem;
+    margin: 10px auto;
+    font-size: 1.0rem;
+  }
+
+  .genre-grid {
+    width: 90%;
+    margin: auto;
+    padding-top: 0px;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    display: grid;
+    align-items: center;
+    align-self: center;
+    grid-gap: 8px;
+    grid-template-columns: repeat(auto-fill, 136px);
+}
+
+  .genre-btn {
+    min-height: 5%;
+    font-size: .7em;
+    border: 1px solid black;
+    box-shadow: 5px 5px 1px 0px grey;
+    justify-items: center;
+  }
+
+
+  //Decision Page 
+  #decision-page {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+  
+  // .my-2{
+  //   visibility: hidden;
+  // }
+
+  .filmtitle {
+    font-size: 20%;
+  }
+
+  img {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+
+  #decision-page section {
+    text-align: center;
+    font-size: 13px;
+}
+
+  .decision-summary {
+    text-align: center;
+    font-size: 13px;
+    padding: 0px;
+    margin: 0px;
   }
 
   // About page
@@ -796,7 +864,7 @@ p.notice {
     margin: 4px;
   }
 
-  // Favorite Index page
+  // Index page
 
   div#index-page {
     display: inline-block;
@@ -826,7 +894,62 @@ p.notice {
     text-shadow: 2px 2px 2px #7A7A7A,
                  2px 2px 2px rgba(206,89,55,0);
   }
-  
+
+  //  Show Page
+  div#show-page .jumbotron {
+    margin: auto;
+    padding-top: 5px;
+    margin-bottom: 20px;
+    width: 100vw;
+    display: block;
+    padding: 10px 0px;
+  } 
+
+  #show-page {
+    display: block;
+    margin: auto;
+
+  }
+
+  div#show-page .poster-image {
+    width: 60%;
+    margin: 20px auto;
+    // margin-top: 20px;
+  }
+
+  div#show-page img {
+    margin-top: 5%;
+  }
+
+  .badge-paragraph {
+  margin: 0px;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  div#show-page div#film-overview {
+    margin: auto;
+    font-size: 80%;
+    width: 60%;
+  }
+
+  div#show-page p.summary {
+    font-size: 140%;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+  }
+
+  div#film-overview .badge-secondary {
+    margin: 10px;
+  }
+
+  div#show-page .film-title {
+    font-size: 180%;
+  }
+
   // DEVISE MEDIA QUERIES
   .field {
     display: inline-block;

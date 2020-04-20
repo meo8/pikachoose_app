@@ -3,11 +3,12 @@
 <h2 class="signup">Login</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :email, :class=>"signtextsml" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :password, :class=>"signtextsml" %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
@@ -19,6 +20,12 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
+
+  <% if flash.alert %>
+ <div id=”error_explanation”>
+   <div><strong><%= flash.alert %></strong></div>
+ </div>
+<% end %>
 
   <div class="actions">
     <%= f.submit "Log in" %>
