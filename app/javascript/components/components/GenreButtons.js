@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Button, Container } from "reactstrap"
-import Pikachu2 from "./pikachu2.gif"
+// import Pikachu2 from "./pikachu2.gif"
 
 class GenreButtons extends Component {
   constructor(props) {
