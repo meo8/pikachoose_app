@@ -22,7 +22,7 @@ body {
   background-color: #FAD61D;
   margin: auto;
   text-align: center;
-  font-family: Roboto;
+  font-family: "Roboto";
   font-size: 17px;
 }
 
@@ -535,7 +535,11 @@ div#landing-page img.pikachu {
 
   // Testing if media query works
   body {
-    background-color: red;
+    // background-color: red;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    float: center;
   }
 
   // About page
@@ -603,7 +607,7 @@ div#landing-page img.pikachu {
     display: inline-block;
     justify-content: center;
     // flex-flow: row wrap;
-    width: 200px;
+    // width: 200px;
     margin: 3px auto;
   }
   
