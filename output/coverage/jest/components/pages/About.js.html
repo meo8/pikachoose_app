@@ -141,14 +141,7 @@
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,15 +198,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,32 +235,32 @@ const About = (props) =&gt;{
   const teamMembers = [
     {
       name: "Elizabeth H.",
-      title: "Full-Stack Web Developer",
-      funFact: "Fun fact",
+      // title: "Full-Stack Web Developer",
+      movie: "Care Bears Movie II",
       linkedin: "https://www.linkedin.com/in/elizabeth-h-1649a267/",
       github: "https://github.com/lizhavird",
       headshot: "https://i.imgur.com/7LEjOC2.jpg"
     },
     {
       name: "Meo Huynh",
-      title: "Full-Stack Web Developer",
-      funFact: "Fun fact",
+      // title: "Full-Stack Web Developer",
+      movie: "Spirited Away",
       linkedin: "https://www.linkedin.com/in/meoh/",
       github: "https://github.com/meo8/",
       headshot: "https://i.imgur.com/fnDeeHX.jpg"
     },
     {
       name: "Heya Kwon",
-      title: "Full-Stack Web Developer",
-      funFact: "Fun fact",
+      // title: "Full-Stack Web Developer",
+      movie: "Be Kind Rewind",
       linkedin: "https://www.linkedin.com/in/heya",
       github: "https://github.com/Heyabird",
       headshot: "https://i.imgur.com/LPwvJGh.jpg"
     },
     {
       name: "Jonas Fernandes",
-      title: "Full-Stack Web Developer",
-      funFact: "Fun fact",
+      // title: "Full-Stack Web Developer",
+      movie: "Raiders of the Lost Ark",
       linkedin: "https://www.linkedin.com/in/jonas-fernandes-dev/",
       github: "https://github.com/jonas-fernandes",
       headshot: "https://i.imgur.com/F0j1uKL.jpg"
@@ -282,50 +268,43 @@ const About = (props) =&gt;{
   ]
 &nbsp;
   return (
-    &lt;&gt;
-      &lt;div id="aboutpage"&gt;
-        {/* &lt;h1&gt;About&lt;/h1&gt; */}
-        &lt;br/&gt;
-        &lt;br/&gt;
-        &lt;h2&gt;About the App &lt;/h2&gt;
-        &lt;br/&gt;
-        &lt;p&gt;What to watch? What to eat? What to buy?&lt;/p&gt;
-        &lt;p&gt;Everyday, we have to make so many little decisions.&lt;/p&gt;
-        &lt;p&gt;Pikachoose is an app that tackles the modern day decision fatigue by letting users quickly arrive at a decision.&lt;/p&gt;
-        &lt;br/&gt;
-        &lt;br/&gt;
-        &lt;h2&gt;About the Team &lt;/h2&gt;
-        &lt;br/&gt;
-        &lt;p&gt;We are four web developers who met at LEARN Academy in San Diego.&lt;/p&gt;
-        &lt;p&gt;We love to build humorous and creative solutions to everyday problems and all suffer from the decision fatigue to differing degrees.&lt;/p&gt;
-        &lt;br/&gt;
+    &lt;div id="aboutpage"&gt;
+      &lt;div id="aboutcontent"&gt;
+        &lt;h1&gt;About the App &lt;/h1&gt;
+        &lt;p&gt;PikaMovie is an app that tackles the modern day decision fatigue by allowing to users quickly arrive at a decision that we must make ever so often: &lt;br/&gt;What To Watch?&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div id="aboutcontent"&gt;
+        &lt;h1&gt;About the Team &lt;/h1&gt;
+        &lt;p&gt;We are four &lt;strong&gt;web developers&lt;/strong&gt; who met at LEARN Academy in San Diego.
+          We love to build humorous and creative solutions to everyday problems and all suffer from the decision fatigue to differing degrees.&lt;/p&gt;
       &lt;/div&gt;
 &nbsp;
       &lt;Container id="aboutimgs"&gt;
         &lt;Row&gt;
           {teamMembers.map((member, id) =&gt; {
             return (
-              &lt;Col xs={4} md={3} key={id}&gt;
+              &lt;div key={id} id="cardcontainer"&gt;
                 &lt;Card id="card"&gt;
                   &lt;CardImg src={member.headshot}/&gt;
-                  &lt;CardBody&gt;
-                    &lt;CardTitle&gt;{member.name}&lt;/CardTitle&gt;
-                    &lt;CardSubtitle&gt;{member.title}&lt;/CardSubtitle&gt;
-                    &lt;CardText&gt;{member.funFact}&lt;/CardText&gt;
-                    &lt;Button className="linkedin-gihub-btn" color="warning"&gt;
-                      &lt;a href={member.linkedin} target="_blank"&gt;Linkedin&lt;/a&gt;
-                    &lt;/Button&gt;
-                    &lt;Button className="linkedin-gihub-btn" color="warning"&gt;
-                      &lt;a href={member.github} target="_blank"&gt;GitHub&lt;/a&gt;
-                    &lt;/Button&gt;
+                  &lt;CardBody id="aboutteamcard"&gt;
+                    &lt;CardTitle&gt;&lt;h5&gt;&lt;strong&gt;{member.name}&lt;/strong&gt;&lt;/h5&gt;&lt;/CardTitle&gt;
+                    &lt;small&gt;
+                      &lt;CardText&gt;Favorite Movie: &lt;br/&gt; {member.movie}&lt;/CardText&gt;
+                      &lt;Button className="linkedin-gihub-btn" color="warning"&gt;
+                        &lt;a href={member.linkedin} target="_blank"&gt;Linkedin&lt;/a&gt;
+                      &lt;/Button&gt;
+                      &lt;Button className="linkedin-gihub-btn" color="warning"&gt;
+                        &lt;a href={member.github} target="_blank"&gt;GitHub&lt;/a&gt;
+                      &lt;/Button&gt;
+                    &lt;/small&gt;
                   &lt;/CardBody&gt;
                 &lt;/Card&gt;
-              &lt;/Col&gt;
+              &lt;/div&gt;
             )
           })}
         &lt;/Row&gt;
       &lt;/Container&gt;
-    &lt;/&gt;
+    &lt;/div&gt;
   )
 }
 &nbsp;
@@ -337,7 +316,7 @@ export default About
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Apr 14 2020 20:16:25 GMT+0000 (Coordinated Universal Time)
+                at Mon Apr 20 2020 15:53:50 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
